@@ -2,6 +2,6 @@
 #define EZGL_ELPLATFORM_H
 
 #include "ELCppBase.h"
-#include "ELContext.h"
+#include "ELTexture.h"
 
 #endif //EZGL_ELPLATFORM_H

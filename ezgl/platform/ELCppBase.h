@@ -30,9 +30,14 @@ static className##Ptr alloc() {\
     return ptr;\
 }
 
+#define classDefExt(className, parentClass) \
+ELClass(className) : parentClass { \
+ELAlloc(className)
+
 #define classDef(className) \
 ELClass(className) { \
 ELAlloc(className)
+
 
 #define defEnd };
 

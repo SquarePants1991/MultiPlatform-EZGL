@@ -4,7 +4,7 @@
 
 int main(int argc, char **argv) {
     std::cout << "hello world" << std::endl;
-    ELContextPtr context = ELContext::alloc()->init();
+    ELContextPtr context = ELTexture::alloc()->init();
     context->print("Hello Context");
     return 0;
 }
