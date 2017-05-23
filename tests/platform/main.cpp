@@ -1,10 +1,40 @@
-#include <stdio.h>
-#include <iostream>
+#include <GLFW/glfw3.h>
 #include "ELPlatform.h"
+#include "impl_OpenGL/ELGLAdapter.h"
 
-int main(int argc, char **argv) {
-    std::cout << "hello world" << std::endl;
-    ELContextPtr context = ELTexture::alloc()->init();
-    context->print("Hello Context");
+int main(void)
+{
+    GLFWwindow* window;
+
+    /* Initialize the library */
+    if (!glfwInit())
+        return -1;
+
+    /* Create a windowed mode window and its OpenGL context */
+    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+    if (!window)
+    {
+        glfwTerminate();
+        return -1;
+    }
+
+    /* Make the window's context current */
+    glfwMakeContextCurrent(window);
+
+    ELGLAdapter::defaultAdapter()->window = window;
+    /* Loop until the user closes the window */
+    while (!glfwWindowShouldClose(window))
+    {
+        /* Render here */
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        /* Swap front and back buffers */
+        glfwSwapBuffers(window);
+
+        /* Poll for and process events */
+        glfwPollEvents();
+    }
+
+    glfwTerminate();
     return 0;
 }
