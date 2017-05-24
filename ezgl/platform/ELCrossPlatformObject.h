@@ -10,6 +10,8 @@
 #include <map>
 #include "types/EZGLTypes.h"
 
+#define stringify(str) #str
+
 #define crossplatform_var(type, name) \
     type name##Get(ELCrossPlatformObject * instance) {\
         return instance->__crossplatformFetchInt("name");\

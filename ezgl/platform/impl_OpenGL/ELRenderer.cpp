@@ -11,6 +11,7 @@
 ELRendererPtr ELRenderer::init(ELRenderPassPtr renderPass, ELRenderPiplinePtr pipline) {
     self->renderPass = renderPass;
     self->pipline = pipline;
+    std::string s = stringify(rrrr);
     return self;
 }
 
