@@ -3,20 +3,52 @@
 //
 
 #include "../ELVertexBuffer.h"
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 
 crossplatform_var(ELInt, vbo)
 crossplatform_var(ELInt, vao)
 
-ELVertexBufferPtr ELVertexBuffer::init(void *data, ELInt size) {
+static void genVBO(ELVertexBufferPtr buffer) {
+    GLuint vbo;
+    glGenBuffers(1, &vbo);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    GLenum glBufferType = bufferType == ELVertexBufferTypeDynamic ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW;
+    glBufferData(GL_ARRAY_BUFFER, buffer->size(), buffer->data(), glBufferType);
+    buffer->__crossplatformAttach("vbo", (ELInt)vbo);
+}
+
+static void updateVBO(ELVertexBufferPtr buffer) {
+    GLuint vbo = (GLuint)(buffer->__crossplatformFetchInt("vbo"));
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    GLenum glBufferType = bufferType == ELVertexBufferTypeDynamic ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW;
+    glBufferData(GL_ARRAY_BUFFER, buffer->size(), buffer->data(), glBufferType);
+}
+
+static void genVAO(ELVertexBufferPtr buffer) {
+    GLuint vbo = (GLuint)(buffer->__crossplatformFetchInt("vbo"));
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+
+}
+
+ELVertexBufferPtr ELVertexBuffer::init(void *data, ELInt size, ELVertexBufferType bufferType) {
     for (int i = 0; i < size; ++i) {
         buffer.push_back(*((unsigned char *)data + i));
     }
+    self->bufferType = bufferType;
+    genVBO(self);
+    genVAO(self);
 }
 
 void ELVertexBuffer::append(void *data, ELInt size) {
     for (int i = 0; i < size; ++i) {
         buffer.push_back(*((unsigned char *)data + i));
     }
+    updateVBO(self);
+}
+
+ELInt ELVertexBuffer::size() {
+    return buffer.size();
 }
 
 void ELVertexBuffer::clear() {

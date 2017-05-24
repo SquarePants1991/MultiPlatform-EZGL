@@ -15,15 +15,22 @@ typedef struct {
     ELInt sizeInBytes;
 } ELVertexAttribute;
 
+enum ELVertexBufferType {
+    ELVertexBufferTypeStatic,
+    ELVertexBufferTypeDynamic
+};
+
 classDefExt(ELVertexBuffer, ELCrossPlatformObject)
 
 public:
     std::vector<ELVertexAttribute> attributes;
     std::vector<unsigned char> buffer;
+    ELVertexBufferType bufferType;
 public:
-    ELVertexBufferPtr init(void *data, ELInt size);
+    ELVertexBufferPtr init(void *data, ELInt size, ELVertexBufferType bufferType);
     void append(void *data, ELInt size);
     ELVertexBufferPtr subbuffer(ELInt from, ELInt length);
+    ELInt size();
     void clear();
     void *data();
     void addAttribute(ELVertexAttribute attribute);
