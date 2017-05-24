@@ -9,10 +9,16 @@
 #include "ELCrossPlatformObject.h"
 #include <vector>
 
+enum ELVertexAttributeDataType {
+    ELVertexAttributeDataTypeFloat,
+    ELVertexAttributeDataTypeInt,
+};
+
 typedef struct {
     std::string name;
     ELInt offsetInBytes;
     ELInt sizeInBytes;
+    ELVertexAttributeDataType dataType;
 } ELVertexAttribute;
 
 enum ELVertexBufferType {
@@ -20,7 +26,7 @@ enum ELVertexBufferType {
     ELVertexBufferTypeDynamic
 };
 
-classDefExt(ELVertexBuffer, ELCrossPlatformObject)
+classDefExt(ELVertexBuffer, public ELCrossPlatformObject)
 
 public:
     std::vector<ELVertexAttribute> attributes;

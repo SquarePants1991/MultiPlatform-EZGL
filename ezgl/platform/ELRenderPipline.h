@@ -11,7 +11,7 @@
 #include "ELCrossPlatformObject.h"
 #include "ELTexture.h"
 
-classDefExt(ELRenderPipline, ELCrossPlatformObject)
+classDefExt(ELRenderPipline, public ELCrossPlatformObject)
 
 public:
     ELRenderPiplinePtr init(std::string vertexShader, std::string fragmentShader);

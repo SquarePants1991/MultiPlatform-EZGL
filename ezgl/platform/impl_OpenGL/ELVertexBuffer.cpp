@@ -7,13 +7,12 @@
 #include <GLFW/glfw3.h>
 
 crossplatform_var(ELInt, vbo)
-crossplatform_var(ELInt, vao)
 
 static void genVBO(ELVertexBufferPtr buffer) {
     GLuint vbo;
     glGenBuffers(1, &vbo);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    GLenum glBufferType = bufferType == ELVertexBufferTypeDynamic ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW;
+    GLenum glBufferType = buffer->bufferType == ELVertexBufferTypeDynamic ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW;
     glBufferData(GL_ARRAY_BUFFER, buffer->size(), buffer->data(), glBufferType);
     buffer->__crossplatformAttach("vbo", (ELInt)vbo);
 }
@@ -21,15 +20,24 @@ static void genVBO(ELVertexBufferPtr buffer) {
 static void updateVBO(ELVertexBufferPtr buffer) {
     GLuint vbo = (GLuint)(buffer->__crossplatformFetchInt("vbo"));
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    GLenum glBufferType = bufferType == ELVertexBufferTypeDynamic ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW;
+    GLenum glBufferType = buffer->bufferType == ELVertexBufferTypeDynamic ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW;
     glBufferData(GL_ARRAY_BUFFER, buffer->size(), buffer->data(), glBufferType);
 }
 
-static void genVAO(ELVertexBufferPtr buffer) {
-    GLuint vbo = (GLuint)(buffer->__crossplatformFetchInt("vbo"));
-    glBindBuffer(GL_ARRAY_BUFFER, vbo);
-
-}
+//static void genVAO(ELVertexBufferPtr buffer) {
+//    GLuint vao;
+//    GLuint vbo = (GLuint)(buffer->__crossplatformFetchInt("vbo"));
+//    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+//    glGenVertexArrays(1, &vao);
+//    glBindVertexArray(vao);
+//
+//    for (int i = 0; i < buffer->attributes.size(); ++i) {
+//        ELVertexAttribute attr = buffer->attributes.at(i);
+//        glGetAttribLocation();
+//    }
+//
+//    glBindVertexArray(0);
+//}
 
 ELVertexBufferPtr ELVertexBuffer::init(void *data, ELInt size, ELVertexBufferType bufferType) {
     for (int i = 0; i < size; ++i) {
@@ -37,7 +45,7 @@ ELVertexBufferPtr ELVertexBuffer::init(void *data, ELInt size, ELVertexBufferTyp
     }
     self->bufferType = bufferType;
     genVBO(self);
-    genVAO(self);
+//    genVAO(self);
 }
 
 void ELVertexBuffer::append(void *data, ELInt size) {
@@ -66,6 +74,6 @@ void ELVertexBuffer::addAttribute(ELVertexAttribute attribute) {
 ELVertexBufferPtr ELVertexBuffer::subbuffer(ELInt from, ELInt length) {
     void *bufferData = data();
     void *bufferStart = (void *)((unsigned char *)bufferData + from);
-    ELVertexBufferPtr subBuffer = ELVertexBuffer::alloc()->init(bufferStart, length);
+    ELVertexBufferPtr subBuffer = ELVertexBuffer::alloc()->init(bufferStart, length, bufferType);
     return subBuffer;
 }

@@ -32,4 +32,5 @@ link_directories(${GLEW_LIBRARY_DIRS})
 add_definitions(${GLEW_DEFINITIONS})
 
 target_link_libraries(ELPlatform ${GLUT_LIBRARY} ${OPENGL_LIBRARIES} glfw ${GLEW_LIBRARIES})
+add_definitions(-DDebug=1)
 # OpenGL IMP END

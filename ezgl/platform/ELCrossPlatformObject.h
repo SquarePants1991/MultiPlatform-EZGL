@@ -12,10 +12,10 @@
 
 #define crossplatform_var(type, name) \
     type name##Get(ELCrossPlatformObject * instance) {\
-        return instance->__crossplatformFetchInt("##name##");\
+        return instance->__crossplatformFetchInt("name");\
     }\
     void name##Set(ELCrossPlatformObject * instance, type val) {\
-        return instance->__crossplatformAttach("framebuffer", val);\
+        return instance->__crossplatformAttach("name", val);\
     }
 
 class ELCrossPlatformObject {

@@ -7,8 +7,6 @@
 #include <GLFW/glfw3.h>
 #include <cstdlib>
 
-#define Debug 1
-
 bool createProgram(const char *vertexShader, const char *fragmentShader, GLuint *pProgram);
 bool compileShader(GLuint *shader, GLenum type, const GLchar *source);
 bool validateProgram(GLuint prog);
@@ -19,6 +17,9 @@ crossplatform_var(ELInt, program)
 ELRenderPiplinePtr ELRenderPipline::init(std::string vertexShader, std::string fragmentShader) {
     GLuint program;
     createProgram(vertexShader.c_str(), fragmentShader.c_str(), &program);
+    programSet(this, program);
+    ELInt program2 = programGet(this);
+
     return self;
 }
 
@@ -135,7 +136,6 @@ bool createProgram(const char *vertexShader, const char *fragmentShader, GLuint 
     }
 
     *pProgram = program;
-    printf("Effect build success => %d \n", program);
     return true;
 }
 
