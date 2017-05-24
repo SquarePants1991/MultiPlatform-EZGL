@@ -5,7 +5,7 @@
 		<Option title="EZGL"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="clang"/>
-		<Option virtualFolders="CMake Files\;CMake Files\ezgl\;CMake Files\ezgl\platform\;CMake Files\ezgl\renderer\;CMake Files\tests\;CMake Files\tests\platform\;CMake Files\tests\renderer\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\ezgl\;CMake Files\ezgl\platform\;CMake Files\ezgl\renderer\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\glfw3\;CMake Files\tests\;CMake Files\tests\platform\;CMake Files\tests\renderer\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug"/>
@@ -44,8 +44,8 @@
 				<Option type="2"/>
 				<Option compiler="clang"/>
 				<Compiler>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
 					<Add directory="/usr/include"/>
@@ -66,8 +66,8 @@
 				<Option type="2"/>
 				<Option compiler="clang"/>
 				<Compiler>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
 					<Add directory="/usr/include"/>
@@ -88,8 +88,8 @@
 				<Option type="2"/>
 				<Option compiler="clang"/>
 				<Compiler>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
 					<Add directory="/usr/include"/>
@@ -110,8 +110,8 @@
 				<Option type="2"/>
 				<Option compiler="clang"/>
 				<Compiler>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
 					<Add directory="/usr/include"/>
@@ -132,8 +132,8 @@
 				<Option type="2"/>
 				<Option compiler="clang"/>
 				<Compiler>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
 					<Add directory="/usr/include"/>
@@ -154,8 +154,8 @@
 				<Option type="2"/>
 				<Option compiler="clang"/>
 				<Compiler>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
 					<Add directory="/usr/include"/>
@@ -177,8 +177,8 @@
 				<Option compiler="clang"/>
 				<Compiler>
 					<Add directory="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
 					<Add directory="/usr/include"/>
@@ -200,8 +200,8 @@
 				<Option compiler="clang"/>
 				<Compiler>
 					<Add directory="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
 					<Add directory="/usr/include"/>
@@ -223,8 +223,8 @@
 				<Option compiler="clang"/>
 				<Compiler>
 					<Add directory="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/renderer"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
 					<Add directory="/usr/include"/>
@@ -246,8 +246,8 @@
 				<Option compiler="clang"/>
 				<Compiler>
 					<Add directory="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/renderer"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
 					<Add directory="/usr/include"/>
@@ -268,6 +268,9 @@
 		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/EZGL.hpp">
 			<Option target="EZGLib"/>
 		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELAdapter.h">
+			<Option target="ELPlatform"/>
+		</Unit>
 		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELCppBase.h">
 			<Option target="ELPlatform"/>
 		</Unit>
@@ -280,10 +283,46 @@
 		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELPlatform.h">
 			<Option target="ELPlatform"/>
 		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELRenderPass.h">
+			<Option target="ELPlatform"/>
+		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELRenderPipline.h">
+			<Option target="ELPlatform"/>
+		</Unit>
 		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELRenderTarget.h">
 			<Option target="ELPlatform"/>
 		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELRenderer.h">
+			<Option target="ELPlatform"/>
+		</Unit>
 		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELTexture.h">
+			<Option target="ELPlatform"/>
+		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELVertexBuffer.h">
+			<Option target="ELPlatform"/>
+		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/impl_OpenGL/ELGLAdapter.cpp">
+			<Option target="ELPlatform"/>
+		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/impl_OpenGL/ELGLAdapter.h">
+			<Option target="ELPlatform"/>
+		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/impl_OpenGL/ELRenderPass.cpp">
+			<Option target="ELPlatform"/>
+		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/impl_OpenGL/ELRenderPipline.cpp">
+			<Option target="ELPlatform"/>
+		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/impl_OpenGL/ELRenderTarget.cpp">
+			<Option target="ELPlatform"/>
+		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/impl_OpenGL/ELRenderer.cpp">
+			<Option target="ELPlatform"/>
+		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/impl_OpenGL/ELTexture.cpp">
+			<Option target="ELPlatform"/>
+		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/impl_OpenGL/ELVertexBuffer.cpp">
 			<Option target="ELPlatform"/>
 		</Unit>
 		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELGeometryTypes.h">
@@ -348,6 +387,30 @@
 		</Unit>
 		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/renderer/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\ezgl\renderer\"/>
+		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/../../../../../../usr/local/lib/cmake/glfw3/glfw3ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/../../../../../../usr/local/lib/cmake/glfw3/glfw3Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/../../../../../../usr/local/lib/cmake/glfw3/glfw3Targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/../../../../../../usr/local/lib/cmake/glfw3/glfw3Targets-noconfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/../../../../../../usr/local/lib/cmake/glfw3/glfw3ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/../../../../../../usr/local/lib/cmake/glfw3/glfw3Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/../../../../../../usr/local/lib/cmake/glfw3/glfw3Targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/../../../../../../usr/local/lib/cmake/glfw3/glfw3Targets-noconfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
 		</Unit>
 		<Unit filename="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/tests/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\tests\"/>

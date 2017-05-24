@@ -4,7 +4,13 @@
 tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o: ../ezgl/platform/ELCppBase.h
 tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o: ../ezgl/platform/ELCrossPlatformObject.h
 tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o: ../ezgl/platform/ELPlatform.h
+tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o: ../ezgl/platform/ELRenderPass.h
+tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o: ../ezgl/platform/ELRenderPipline.h
+tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o: ../ezgl/platform/ELRenderTarget.h
+tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o: ../ezgl/platform/ELRenderer.h
 tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o: ../ezgl/platform/ELTexture.h
+tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o: ../ezgl/platform/ELVertexBuffer.h
+tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o: ../ezgl/platform/impl_OpenGL/ELGLAdapter.h
 tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o: ../ezgl/platform/types/ELGeometryTypes.h
 tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o: ../ezgl/platform/types/ELMatrix3.h
 tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o: ../ezgl/platform/types/ELMatrix4.h
@@ -19,4 +25,6 @@ tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o: ../ezgl/platform/types
 tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o: ../ezgl/platform/types/EZGLTypes.h
 tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o: ../ezgl/platform/types/EZGLVectorTypes.h
 tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o: ../tests/platform/main.cpp
+tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o: /usr/local/include/GL/glew.h
+tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o: /usr/local/include/GLFW/glfw3.h
 

@@ -92,6 +92,8 @@ tests/renderer/ELRendererTests: tests/renderer/CMakeFiles/ELRendererTests.dir/ma
 tests/renderer/ELRendererTests: tests/renderer/CMakeFiles/ELRendererTests.dir/build.make
 tests/renderer/ELRendererTests: ezgl/renderer/libELRenderer.a
 tests/renderer/ELRendererTests: ezgl/platform/libELPlatform.a
+tests/renderer/ELRendererTests: /usr/local/lib/libglfw3.a
+tests/renderer/ELRendererTests: /usr/local/lib/libGLEW.dylib
 tests/renderer/ELRendererTests: tests/renderer/CMakeFiles/ELRendererTests.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ELRendererTests"
 	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/tests/renderer" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ELRendererTests.dir/link.txt --verbose=$(VERBOSE)

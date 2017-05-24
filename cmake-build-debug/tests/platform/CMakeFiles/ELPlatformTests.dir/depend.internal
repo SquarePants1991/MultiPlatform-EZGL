@@ -5,7 +5,13 @@ tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o
  ../ezgl/platform/ELCppBase.h
  ../ezgl/platform/ELCrossPlatformObject.h
  ../ezgl/platform/ELPlatform.h
+ ../ezgl/platform/ELRenderPass.h
+ ../ezgl/platform/ELRenderPipline.h
+ ../ezgl/platform/ELRenderTarget.h
+ ../ezgl/platform/ELRenderer.h
  ../ezgl/platform/ELTexture.h
+ ../ezgl/platform/ELVertexBuffer.h
+ ../ezgl/platform/impl_OpenGL/ELGLAdapter.h
  ../ezgl/platform/types/ELGeometryTypes.h
  ../ezgl/platform/types/ELMatrix3.h
  ../ezgl/platform/types/ELMatrix4.h
@@ -20,3 +26,5 @@ tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o
  ../ezgl/platform/types/EZGLTypes.h
  ../ezgl/platform/types/EZGLVectorTypes.h
  /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/tests/platform/main.cpp
+ /usr/local/include/GL/glew.h
+ /usr/local/include/GLFW/glfw3.h

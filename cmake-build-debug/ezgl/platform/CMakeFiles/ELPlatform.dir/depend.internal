@@ -17,3 +17,147 @@ ezgl/platform/CMakeFiles/ELPlatform.dir/ELCrossPlatformObject.cpp.o
  /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLMatrixTypes.h
  /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLTypes.h
  /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLVectorTypes.h
+ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELGLAdapter.cpp.o
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/impl_OpenGL/ELGLAdapter.cpp
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/impl_OpenGL/ELGLAdapter.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELGeometryTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELMatrix3.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELMatrix4.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELPixelFormat.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELQuaternion.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELTransform.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector2.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector3.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector4.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLBasicTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLMatrixTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLVectorTypes.h
+ /usr/local/include/GL/glew.h
+ /usr/local/include/GLFW/glfw3.h
+ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELRenderPass.cpp.o
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELCppBase.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELCrossPlatformObject.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELRenderPass.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELRenderTarget.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELTexture.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/impl_OpenGL/ELRenderPass.cpp
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELGeometryTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELMatrix3.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELMatrix4.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELPixelFormat.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELQuaternion.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELTransform.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector2.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector3.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector4.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLBasicTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLMatrixTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLVectorTypes.h
+ /usr/local/include/GL/glew.h
+ /usr/local/include/GLFW/glfw3.h
+ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELRenderPipline.cpp.o
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELCppBase.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELCrossPlatformObject.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELRenderPipline.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELTexture.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/impl_OpenGL/ELRenderPipline.cpp
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELGeometryTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELMatrix3.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELMatrix4.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELPixelFormat.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELQuaternion.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELTransform.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector2.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector3.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector4.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLBasicTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLMatrixTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLVectorTypes.h
+ /usr/local/include/GL/glew.h
+ /usr/local/include/GLFW/glfw3.h
+ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELRenderTarget.cpp.o
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELCppBase.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELCrossPlatformObject.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELRenderTarget.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELTexture.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/impl_OpenGL/ELGLAdapter.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/impl_OpenGL/ELRenderTarget.cpp
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELGeometryTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELMatrix3.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELMatrix4.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELPixelFormat.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELQuaternion.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELTransform.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector2.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector3.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector4.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLBasicTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLMatrixTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLVectorTypes.h
+ /usr/local/include/GL/glew.h
+ /usr/local/include/GLFW/glfw3.h
+ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELRenderer.cpp.o
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELCppBase.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELCrossPlatformObject.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELRenderPass.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELRenderPipline.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELRenderTarget.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELRenderer.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELTexture.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELVertexBuffer.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/impl_OpenGL/ELRenderer.cpp
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELGeometryTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELMatrix3.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELMatrix4.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELPixelFormat.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELQuaternion.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELTransform.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector2.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector3.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector4.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLBasicTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLMatrixTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLVectorTypes.h
+ /usr/local/include/GL/glew.h
+ /usr/local/include/GLFW/glfw3.h
+ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELTexture.cpp.o
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELCppBase.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELCrossPlatformObject.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELTexture.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/impl_OpenGL/ELTexture.cpp
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELGeometryTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELMatrix3.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELMatrix4.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELPixelFormat.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELQuaternion.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELTransform.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector2.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector3.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector4.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLBasicTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLMatrixTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLVectorTypes.h
+ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELVertexBuffer.cpp.o
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELCppBase.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELCrossPlatformObject.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/ELVertexBuffer.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/impl_OpenGL/ELVertexBuffer.cpp
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELGeometryTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELMatrix3.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELMatrix4.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELPixelFormat.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELQuaternion.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELTransform.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector2.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector3.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/ELVector4.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLBasicTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLMatrixTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLTypes.h
+ /Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/ezgl/platform/types/EZGLVectorTypes.h

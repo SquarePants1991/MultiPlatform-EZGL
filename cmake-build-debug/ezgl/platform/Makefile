@@ -152,6 +152,195 @@ ELCrossPlatformObject.cpp.s:
 	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/ELCrossPlatformObject.cpp.s
 .PHONY : ELCrossPlatformObject.cpp.s
 
+impl_OpenGL/ELGLAdapter.o: impl_OpenGL/ELGLAdapter.cpp.o
+
+.PHONY : impl_OpenGL/ELGLAdapter.o
+
+# target to build an object file
+impl_OpenGL/ELGLAdapter.cpp.o:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELGLAdapter.cpp.o
+.PHONY : impl_OpenGL/ELGLAdapter.cpp.o
+
+impl_OpenGL/ELGLAdapter.i: impl_OpenGL/ELGLAdapter.cpp.i
+
+.PHONY : impl_OpenGL/ELGLAdapter.i
+
+# target to preprocess a source file
+impl_OpenGL/ELGLAdapter.cpp.i:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELGLAdapter.cpp.i
+.PHONY : impl_OpenGL/ELGLAdapter.cpp.i
+
+impl_OpenGL/ELGLAdapter.s: impl_OpenGL/ELGLAdapter.cpp.s
+
+.PHONY : impl_OpenGL/ELGLAdapter.s
+
+# target to generate assembly for a file
+impl_OpenGL/ELGLAdapter.cpp.s:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELGLAdapter.cpp.s
+.PHONY : impl_OpenGL/ELGLAdapter.cpp.s
+
+impl_OpenGL/ELRenderPass.o: impl_OpenGL/ELRenderPass.cpp.o
+
+.PHONY : impl_OpenGL/ELRenderPass.o
+
+# target to build an object file
+impl_OpenGL/ELRenderPass.cpp.o:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELRenderPass.cpp.o
+.PHONY : impl_OpenGL/ELRenderPass.cpp.o
+
+impl_OpenGL/ELRenderPass.i: impl_OpenGL/ELRenderPass.cpp.i
+
+.PHONY : impl_OpenGL/ELRenderPass.i
+
+# target to preprocess a source file
+impl_OpenGL/ELRenderPass.cpp.i:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELRenderPass.cpp.i
+.PHONY : impl_OpenGL/ELRenderPass.cpp.i
+
+impl_OpenGL/ELRenderPass.s: impl_OpenGL/ELRenderPass.cpp.s
+
+.PHONY : impl_OpenGL/ELRenderPass.s
+
+# target to generate assembly for a file
+impl_OpenGL/ELRenderPass.cpp.s:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELRenderPass.cpp.s
+.PHONY : impl_OpenGL/ELRenderPass.cpp.s
+
+impl_OpenGL/ELRenderPipline.o: impl_OpenGL/ELRenderPipline.cpp.o
+
+.PHONY : impl_OpenGL/ELRenderPipline.o
+
+# target to build an object file
+impl_OpenGL/ELRenderPipline.cpp.o:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELRenderPipline.cpp.o
+.PHONY : impl_OpenGL/ELRenderPipline.cpp.o
+
+impl_OpenGL/ELRenderPipline.i: impl_OpenGL/ELRenderPipline.cpp.i
+
+.PHONY : impl_OpenGL/ELRenderPipline.i
+
+# target to preprocess a source file
+impl_OpenGL/ELRenderPipline.cpp.i:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELRenderPipline.cpp.i
+.PHONY : impl_OpenGL/ELRenderPipline.cpp.i
+
+impl_OpenGL/ELRenderPipline.s: impl_OpenGL/ELRenderPipline.cpp.s
+
+.PHONY : impl_OpenGL/ELRenderPipline.s
+
+# target to generate assembly for a file
+impl_OpenGL/ELRenderPipline.cpp.s:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELRenderPipline.cpp.s
+.PHONY : impl_OpenGL/ELRenderPipline.cpp.s
+
+impl_OpenGL/ELRenderTarget.o: impl_OpenGL/ELRenderTarget.cpp.o
+
+.PHONY : impl_OpenGL/ELRenderTarget.o
+
+# target to build an object file
+impl_OpenGL/ELRenderTarget.cpp.o:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELRenderTarget.cpp.o
+.PHONY : impl_OpenGL/ELRenderTarget.cpp.o
+
+impl_OpenGL/ELRenderTarget.i: impl_OpenGL/ELRenderTarget.cpp.i
+
+.PHONY : impl_OpenGL/ELRenderTarget.i
+
+# target to preprocess a source file
+impl_OpenGL/ELRenderTarget.cpp.i:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELRenderTarget.cpp.i
+.PHONY : impl_OpenGL/ELRenderTarget.cpp.i
+
+impl_OpenGL/ELRenderTarget.s: impl_OpenGL/ELRenderTarget.cpp.s
+
+.PHONY : impl_OpenGL/ELRenderTarget.s
+
+# target to generate assembly for a file
+impl_OpenGL/ELRenderTarget.cpp.s:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELRenderTarget.cpp.s
+.PHONY : impl_OpenGL/ELRenderTarget.cpp.s
+
+impl_OpenGL/ELRenderer.o: impl_OpenGL/ELRenderer.cpp.o
+
+.PHONY : impl_OpenGL/ELRenderer.o
+
+# target to build an object file
+impl_OpenGL/ELRenderer.cpp.o:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELRenderer.cpp.o
+.PHONY : impl_OpenGL/ELRenderer.cpp.o
+
+impl_OpenGL/ELRenderer.i: impl_OpenGL/ELRenderer.cpp.i
+
+.PHONY : impl_OpenGL/ELRenderer.i
+
+# target to preprocess a source file
+impl_OpenGL/ELRenderer.cpp.i:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELRenderer.cpp.i
+.PHONY : impl_OpenGL/ELRenderer.cpp.i
+
+impl_OpenGL/ELRenderer.s: impl_OpenGL/ELRenderer.cpp.s
+
+.PHONY : impl_OpenGL/ELRenderer.s
+
+# target to generate assembly for a file
+impl_OpenGL/ELRenderer.cpp.s:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELRenderer.cpp.s
+.PHONY : impl_OpenGL/ELRenderer.cpp.s
+
+impl_OpenGL/ELTexture.o: impl_OpenGL/ELTexture.cpp.o
+
+.PHONY : impl_OpenGL/ELTexture.o
+
+# target to build an object file
+impl_OpenGL/ELTexture.cpp.o:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELTexture.cpp.o
+.PHONY : impl_OpenGL/ELTexture.cpp.o
+
+impl_OpenGL/ELTexture.i: impl_OpenGL/ELTexture.cpp.i
+
+.PHONY : impl_OpenGL/ELTexture.i
+
+# target to preprocess a source file
+impl_OpenGL/ELTexture.cpp.i:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELTexture.cpp.i
+.PHONY : impl_OpenGL/ELTexture.cpp.i
+
+impl_OpenGL/ELTexture.s: impl_OpenGL/ELTexture.cpp.s
+
+.PHONY : impl_OpenGL/ELTexture.s
+
+# target to generate assembly for a file
+impl_OpenGL/ELTexture.cpp.s:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELTexture.cpp.s
+.PHONY : impl_OpenGL/ELTexture.cpp.s
+
+impl_OpenGL/ELVertexBuffer.o: impl_OpenGL/ELVertexBuffer.cpp.o
+
+.PHONY : impl_OpenGL/ELVertexBuffer.o
+
+# target to build an object file
+impl_OpenGL/ELVertexBuffer.cpp.o:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELVertexBuffer.cpp.o
+.PHONY : impl_OpenGL/ELVertexBuffer.cpp.o
+
+impl_OpenGL/ELVertexBuffer.i: impl_OpenGL/ELVertexBuffer.cpp.i
+
+.PHONY : impl_OpenGL/ELVertexBuffer.i
+
+# target to preprocess a source file
+impl_OpenGL/ELVertexBuffer.cpp.i:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELVertexBuffer.cpp.i
+.PHONY : impl_OpenGL/ELVertexBuffer.cpp.i
+
+impl_OpenGL/ELVertexBuffer.s: impl_OpenGL/ELVertexBuffer.cpp.s
+
+.PHONY : impl_OpenGL/ELVertexBuffer.s
+
+# target to generate assembly for a file
+impl_OpenGL/ELVertexBuffer.cpp.s:
+	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug" && $(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/impl_OpenGL/ELVertexBuffer.cpp.s
+.PHONY : impl_OpenGL/ELVertexBuffer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -164,6 +353,27 @@ help:
 	@echo "... ELCrossPlatformObject.o"
 	@echo "... ELCrossPlatformObject.i"
 	@echo "... ELCrossPlatformObject.s"
+	@echo "... impl_OpenGL/ELGLAdapter.o"
+	@echo "... impl_OpenGL/ELGLAdapter.i"
+	@echo "... impl_OpenGL/ELGLAdapter.s"
+	@echo "... impl_OpenGL/ELRenderPass.o"
+	@echo "... impl_OpenGL/ELRenderPass.i"
+	@echo "... impl_OpenGL/ELRenderPass.s"
+	@echo "... impl_OpenGL/ELRenderPipline.o"
+	@echo "... impl_OpenGL/ELRenderPipline.i"
+	@echo "... impl_OpenGL/ELRenderPipline.s"
+	@echo "... impl_OpenGL/ELRenderTarget.o"
+	@echo "... impl_OpenGL/ELRenderTarget.i"
+	@echo "... impl_OpenGL/ELRenderTarget.s"
+	@echo "... impl_OpenGL/ELRenderer.o"
+	@echo "... impl_OpenGL/ELRenderer.i"
+	@echo "... impl_OpenGL/ELRenderer.s"
+	@echo "... impl_OpenGL/ELTexture.o"
+	@echo "... impl_OpenGL/ELTexture.i"
+	@echo "... impl_OpenGL/ELTexture.s"
+	@echo "... impl_OpenGL/ELVertexBuffer.o"
+	@echo "... impl_OpenGL/ELVertexBuffer.i"
+	@echo "... impl_OpenGL/ELVertexBuffer.s"
 .PHONY : help
 
 

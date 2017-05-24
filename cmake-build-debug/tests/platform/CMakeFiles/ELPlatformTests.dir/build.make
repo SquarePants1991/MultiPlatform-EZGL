@@ -91,6 +91,8 @@ ELPlatformTests_EXTERNAL_OBJECTS =
 tests/platform/ELPlatformTests: tests/platform/CMakeFiles/ELPlatformTests.dir/main.cpp.o
 tests/platform/ELPlatformTests: tests/platform/CMakeFiles/ELPlatformTests.dir/build.make
 tests/platform/ELPlatformTests: ezgl/platform/libELPlatform.a
+tests/platform/ELPlatformTests: /usr/local/lib/libglfw3.a
+tests/platform/ELPlatformTests: /usr/local/lib/libGLEW.dylib
 tests/platform/ELPlatformTests: tests/platform/CMakeFiles/ELPlatformTests.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ELPlatformTests"
 	cd "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/tests/platform" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ELPlatformTests.dir/link.txt --verbose=$(VERBOSE)

@@ -10,6 +10,14 @@
 #include <map>
 #include "types/EZGLTypes.h"
 
+#define crossplatform_var(type, name) \
+    type name##Get(ELCrossPlatformObject * instance) {\
+        return instance->__crossplatformFetchInt("##name##");\
+    }\
+    void name##Set(ELCrossPlatformObject * instance, type val) {\
+        return instance->__crossplatformAttach("framebuffer", val);\
+    }
+
 class ELCrossPlatformObject {
 private:
     std::map<std::string, ELInt> _intAttachments;
@@ -44,6 +52,19 @@ public:
 
     void * __crossplatformFetchObject(std::string _attachKey) {
         return _objAttachments[_attachKey];
+    }
+
+    bool __crossplatformIntExist(std::string _attachKey) {
+        return _intAttachments.find(_attachKey) != _intAttachments.end();
+    }
+    bool __crossplatformFloatExist(std::string _attachKey) {
+        return _floatAttachments.find(_attachKey) != _floatAttachments.end();
+    }
+    bool __crossplatformStringExist(std::string _attachKey) {
+        return _stringAttachments.find(_attachKey) != _stringAttachments.end();
+    }
+    bool __crossplatformObjectExist(std::string _attachKey) {
+        return _objAttachments.find(_attachKey) != _objAttachments.end();
     }
 };
 

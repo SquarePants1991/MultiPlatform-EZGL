@@ -89,7 +89,7 @@ ezgl/preinstall: ezgl/renderer/preinstall
 ezgl/CMakeFiles/EZGLib.dir/all: ezgl/platform/CMakeFiles/ELPlatform.dir/all
 	$(MAKE) -f ezgl/CMakeFiles/EZGLib.dir/build.make ezgl/CMakeFiles/EZGLib.dir/depend
 	$(MAKE) -f ezgl/CMakeFiles/EZGLib.dir/build.make ezgl/CMakeFiles/EZGLib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" --progress-num=9,10 "Built target EZGLib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" --progress-num=16,17 "Built target EZGLib"
 .PHONY : ezgl/CMakeFiles/EZGLib.dir/all
 
 # Include target in all.
@@ -99,7 +99,7 @@ all: ezgl/CMakeFiles/EZGLib.dir/all
 
 # Build rule for subdir invocation for target.
 ezgl/CMakeFiles/EZGLib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" 4
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" 11
 	$(MAKE) -f CMakeFiles/Makefile2 ezgl/CMakeFiles/EZGLib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" 0
 .PHONY : ezgl/CMakeFiles/EZGLib.dir/rule
@@ -144,7 +144,7 @@ ezgl/platform/preinstall:
 ezgl/platform/CMakeFiles/ELPlatform.dir/all:
 	$(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/depend
 	$(MAKE) -f ezgl/platform/CMakeFiles/ELPlatform.dir/build.make ezgl/platform/CMakeFiles/ELPlatform.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" --progress-num=1,2 "Built target ELPlatform"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" --progress-num=1,2,3,4,5,6,7,8,9 "Built target ELPlatform"
 .PHONY : ezgl/platform/CMakeFiles/ELPlatform.dir/all
 
 # Include target in all.
@@ -154,7 +154,7 @@ all: ezgl/platform/CMakeFiles/ELPlatform.dir/all
 
 # Build rule for subdir invocation for target.
 ezgl/platform/CMakeFiles/ELPlatform.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" 9
 	$(MAKE) -f CMakeFiles/Makefile2 ezgl/platform/CMakeFiles/ELPlatform.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" 0
 .PHONY : ezgl/platform/CMakeFiles/ELPlatform.dir/rule
@@ -199,7 +199,7 @@ ezgl/renderer/preinstall:
 ezgl/renderer/CMakeFiles/ELRenderer.dir/all: ezgl/platform/CMakeFiles/ELPlatform.dir/all
 	$(MAKE) -f ezgl/renderer/CMakeFiles/ELRenderer.dir/build.make ezgl/renderer/CMakeFiles/ELRenderer.dir/depend
 	$(MAKE) -f ezgl/renderer/CMakeFiles/ELRenderer.dir/build.make ezgl/renderer/CMakeFiles/ELRenderer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" --progress-num=5,6 "Built target ELRenderer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" --progress-num=12,13 "Built target ELRenderer"
 .PHONY : ezgl/renderer/CMakeFiles/ELRenderer.dir/all
 
 # Include target in all.
@@ -209,7 +209,7 @@ all: ezgl/renderer/CMakeFiles/ELRenderer.dir/all
 
 # Build rule for subdir invocation for target.
 ezgl/renderer/CMakeFiles/ELRenderer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" 4
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" 11
 	$(MAKE) -f CMakeFiles/Makefile2 ezgl/renderer/CMakeFiles/ELRenderer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" 0
 .PHONY : ezgl/renderer/CMakeFiles/ELRenderer.dir/rule
@@ -275,7 +275,7 @@ tests/platform/preinstall:
 tests/platform/CMakeFiles/ELPlatformTests.dir/all: ezgl/platform/CMakeFiles/ELPlatform.dir/all
 	$(MAKE) -f tests/platform/CMakeFiles/ELPlatformTests.dir/build.make tests/platform/CMakeFiles/ELPlatformTests.dir/depend
 	$(MAKE) -f tests/platform/CMakeFiles/ELPlatformTests.dir/build.make tests/platform/CMakeFiles/ELPlatformTests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" --progress-num=3,4 "Built target ELPlatformTests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" --progress-num=10,11 "Built target ELPlatformTests"
 .PHONY : tests/platform/CMakeFiles/ELPlatformTests.dir/all
 
 # Include target in all.
@@ -285,7 +285,7 @@ all: tests/platform/CMakeFiles/ELPlatformTests.dir/all
 
 # Build rule for subdir invocation for target.
 tests/platform/CMakeFiles/ELPlatformTests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" 4
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" 11
 	$(MAKE) -f CMakeFiles/Makefile2 tests/platform/CMakeFiles/ELPlatformTests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" 0
 .PHONY : tests/platform/CMakeFiles/ELPlatformTests.dir/rule
@@ -331,7 +331,7 @@ tests/renderer/CMakeFiles/ELRendererTests.dir/all: ezgl/platform/CMakeFiles/ELPl
 tests/renderer/CMakeFiles/ELRendererTests.dir/all: ezgl/renderer/CMakeFiles/ELRenderer.dir/all
 	$(MAKE) -f tests/renderer/CMakeFiles/ELRendererTests.dir/build.make tests/renderer/CMakeFiles/ELRendererTests.dir/depend
 	$(MAKE) -f tests/renderer/CMakeFiles/ELRendererTests.dir/build.make tests/renderer/CMakeFiles/ELRendererTests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" --progress-num=7,8 "Built target ELRendererTests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" --progress-num=14,15 "Built target ELRendererTests"
 .PHONY : tests/renderer/CMakeFiles/ELRendererTests.dir/all
 
 # Include target in all.
@@ -341,7 +341,7 @@ all: tests/renderer/CMakeFiles/ELRendererTests.dir/all
 
 # Build rule for subdir invocation for target.
 tests/renderer/CMakeFiles/ELRendererTests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" 6
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" 13
 	$(MAKE) -f CMakeFiles/Makefile2 tests/renderer/CMakeFiles/ELRendererTests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/cmake-build-debug/CMakeFiles" 0
 .PHONY : tests/renderer/CMakeFiles/ELRendererTests.dir/rule

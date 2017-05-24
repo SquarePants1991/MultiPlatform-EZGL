@@ -9,7 +9,7 @@
 #include "types/EZGLTypes.h"
 #include "ELCrossPlatformObject.h"
 
-classDefExt(ELTexture, ELCrossPlatformObject)
+classDefExt(ELTexture, public ELCrossPlatformObject)
 public:
     ELTexturePtr init(ELPixelFormat pixelFormat, char *imageData, ELInt dataLength);
 defEnd

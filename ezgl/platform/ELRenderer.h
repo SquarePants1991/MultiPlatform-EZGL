@@ -9,14 +9,31 @@
 #include "ELCrossPlatformObject.h"
 #include "types/EZGLTypes.h"
 #include "ELRenderPass.h"
+#include "ELVertexBuffer.h"
+#include "ELRenderPipline.h"
+
+enum ELPrimitivesType {
+    ELPrimitivesTypeTriangle,
+    ELPrimitivesTypeTriangleStrip,
+    ELPrimitivesTypeLine,
+    ELPrimitivesTypeLineStrip,
+    ELPrimitivesTypePoint,
+};
 
 classDefExt(ELRenderer, ELCrossPlatformObject)
 
 public:
-    ELRendererPtr init(ELRenderPassPtr renderPass);
+    ELRendererPtr init(ELRenderPassPtr renderPass, ELRenderPiplinePtr pipline);
 
-    void setVertexBuffer();
-    void drawPrimitives();
+    void prepare();
+    void drawPrimitives(ELPrimitivesType type, ELVertexBufferPtr vertexBuffer);
+    void drawIndexedPrimitives(ELPrimitivesType type, ELVertexBufferPtr vertexBuffer, ELVertexBufferPtr indexBuffer);
+    void endRender();
+
+public:
+    ELRenderPassPtr renderPass;
+    ELRenderPiplinePtr pipline;
+
 defEnd
 
 

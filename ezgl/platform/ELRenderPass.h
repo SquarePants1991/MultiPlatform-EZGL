@@ -8,7 +8,7 @@
 #include "ELCppBase.h"
 #include "ELCrossPlatformObject.h"
 #include "types/EZGLTypes.h"
-#include "ELRenderPipline.h"
+#include "ELRenderTarget.h"
 
 enum ELRenderPassLoadAction {
     ELRenderPassLoadActionClear,
@@ -24,8 +24,9 @@ classDefExt(ELRenderPass, ELCrossPlatformObject)
 
 public:
     ELRenderPassConfig config;
-    ELRenderPiplinePtr pipline;
-    ELRenderPassPtr init(ELRenderPassConfig config, ELRenderPiplinePtr pipline);
+    ELRenderTargetPtr renderTarget;
+
+    ELRenderPassPtr init(ELRenderPassConfig config, ELRenderTargetPtr renderTarget);
 
 defEnd
 
