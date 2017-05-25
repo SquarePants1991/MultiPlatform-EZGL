@@ -11,7 +11,7 @@
 #include "ELTexture.h"
 #include "ELCrossPlatformObject.h"
 
-classDefExt(ELRenderTarget, ELCrossPlatformObject)
+classDefExt(ELRenderTarget, public ELCrossPlatformObject)
 
 public:
     ELPixelFormat pixelFormat;  // 颜色缓冲区像素格式

@@ -5,7 +5,7 @@
 #include "../ELRenderTarget.h"
 #include "ELGLAdapter.h"
 
-crossplatform_var(ELInt, framebuffer)
+crossplatform_var_int(framebuffer)
 
 ELRenderTargetPtr ELRenderTarget::init(ELPixelFormat pixelFormat, ELVector2 size, bool bindTexture, bool enableDepthBuffer, bool enableStencilBuffer) {
     this->pixelFormat = pixelFormat;

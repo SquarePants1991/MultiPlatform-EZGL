@@ -6,7 +6,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-crossplatform_var(ELInt, vbo)
+crossplatform_var_int(vbo)
 
 static void genVBO(ELVertexBufferPtr buffer) {
     GLuint vbo;
@@ -39,13 +39,18 @@ static void updateVBO(ELVertexBufferPtr buffer) {
 //    glBindVertexArray(0);
 //}
 
+ELVertexBufferPtr ELVertexBuffer::init() {
+    genVBO(self);
+    return self;
+}
+
 ELVertexBufferPtr ELVertexBuffer::init(void *data, ELInt size, ELVertexBufferType bufferType) {
     for (int i = 0; i < size; ++i) {
         buffer.push_back(*((unsigned char *)data + i));
     }
     self->bufferType = bufferType;
     genVBO(self);
-//    genVAO(self);
+    return self;
 }
 
 void ELVertexBuffer::append(void *data, ELInt size) {

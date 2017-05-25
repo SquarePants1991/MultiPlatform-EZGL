@@ -10,14 +10,38 @@
 #include <map>
 #include "types/EZGLTypes.h"
 
-#define stringify(str) #str
+#define Stringify(str) #str
 
-#define crossplatform_var(type, name) \
-    type name##Get(ELCrossPlatformObject * instance) {\
-        return instance->__crossplatformFetchInt("name");\
+#define crossplatform_var_int(name) \
+    ELInt name##Get(ELCrossPlatformObject * instance) {\
+        return instance->__crossplatformFetchInt(Stringify(name));\
     }\
-    void name##Set(ELCrossPlatformObject * instance, type val) {\
-        return instance->__crossplatformAttach("name", val);\
+    void name##Set(ELCrossPlatformObject * instance, ELInt val) {\
+        return instance->__crossplatformAttach(Stringify(name), val);\
+    }
+
+#define crossplatform_var_float(name) \
+    ELFloat name##Get(ELCrossPlatformObject * instance) {\
+        return instance->__crossplatformFetchFloat(Stringify(name));\
+    }\
+    void name##Set(ELCrossPlatformObject * instance, ELFloat val) {\
+        return instance->__crossplatformAttach(Stringify(name), val);\
+    }
+
+#define crossplatform_var_string(name) \
+    std::string name##Get(ELCrossPlatformObject * instance) {\
+        return instance->__crossplatformFetchString(Stringify(name));\
+    }\
+    void name##Set(ELCrossPlatformObject * instance, std::string val) {\
+        return instance->__crossplatformAttach(Stringify(name), val);\
+    }
+
+#define crossplatform_var_obj(name) \
+    void * name##Get(ELCrossPlatformObject * instance) {\
+        return instance->__crossplatformFetchObject(Stringify(name));\
+    }\
+    void name##Set(ELCrossPlatformObject * instance, void * val) {\
+        return instance->__crossplatformAttach(Stringify(name), val);\
     }
 
 class ELCrossPlatformObject {

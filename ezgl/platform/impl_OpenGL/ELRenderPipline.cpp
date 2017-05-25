@@ -12,14 +12,12 @@ bool compileShader(GLuint *shader, GLenum type, const GLchar *source);
 bool validateProgram(GLuint prog);
 bool linkProgram(GLuint prog);
 
-crossplatform_var(ELInt, program)
+crossplatform_var_int(program)
 
 ELRenderPiplinePtr ELRenderPipline::init(std::string vertexShader, std::string fragmentShader) {
     GLuint program;
     createProgram(vertexShader.c_str(), fragmentShader.c_str(), &program);
     programSet(this, program);
-    ELInt program2 = programGet(this);
-
     return self;
 }
 
@@ -90,12 +88,12 @@ bool createProgram(const char *vertexShader, const char *fragmentShader, GLuint 
     const GLchar *vssource = (GLchar *)vertexShader;
     const GLchar *fssource = (GLchar *)fragmentShader;
 
-    if (!compileShader(&vertShader,GL_VERTEX_SHADER, vssource)) {
+    if (!compileShader(&vertShader, GL_VERTEX_SHADER, vssource)) {
         printf("Failed to compile vertex shader");
         return false;
     }
 
-    if (!compileShader(&fragShader,GL_FRAGMENT_SHADER, fssource)) {
+    if (!compileShader(&fragShader, GL_FRAGMENT_SHADER, fssource)) {
         printf("Failed to compile fragment shader");
         return false;
     }

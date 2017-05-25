@@ -33,6 +33,7 @@ public:
     std::vector<unsigned char> buffer;
     ELVertexBufferType bufferType;
 public:
+    ELVertexBufferPtr init();
     ELVertexBufferPtr init(void *data, ELInt size, ELVertexBufferType bufferType);
     void append(void *data, ELInt size);
     ELVertexBufferPtr subbuffer(ELInt from, ELInt length);
