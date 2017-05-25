@@ -54,11 +54,15 @@ ELRenderPiplinePtr pipline;
 ELRenderPassPtr mainRenderPass;
 ELRendererPtr renderer;
 ELVertexBufferPtr triangleVertexBuffer;
+ELTexturePtr diffuseTexture;
 void init() {
     ELRenderTargetPtr defaultRenderTarget = ELRenderTarget::defaultTarget();
 
-    std::string vertexShader = "#version 330 core \n layout(location = 1) in vec4 position; in vec3 color; out vec3 fragColor; \n void main() { gl_Position = position; fragColor = color; }";
-    std::string fragmentShader = "#version 330 core \n precision highp float; \n out vec3 outColor; in vec3 fragColor; uniform float u1; \n void main() { outColor = fragColor; }";
+    ELAssets::shared()->addSearchPath("/Users/wangyang/Documents/Projects/On Git/EZGLKit_M/tests/platform/");
+
+    std::string vertexShader = ELFileUtil::stringContentOfShader(ELAssets::shared()->findFile("vertex.glsl"));
+    std::string fragmentShader = ELFileUtil::stringContentOfShader(ELAssets::shared()->findFile("fragment.glsl"));
+
     pipline = ELRenderPipline::alloc()->init(vertexShader, fragmentShader);
 
     ELRenderPassConfig config = ELRenderPassConfig();
@@ -68,28 +72,85 @@ void init() {
 
     renderer = ELRenderer::alloc()->init(mainRenderPass, pipline);
 
+    std::string imagePath = ELAssets::shared()->findFile("texture.jpg");
+    diffuseTexture = ELTexture::alloc()->init(imagePath);
     static GLfloat data[] = {
-            0, 0.4, 0.0, 1.0, 1.0, 0.0, 0.0,
-            -0.4, -0.4, 0.0, 1.0, 1.0, 1.0, 1.0,
-            0.4, -0.4, 0.0, 1.0, 1.0, 0.0, 1.0,
+            // X轴0.5处的平面
+            0.5,  -0.5,    0.5f, 1,  0,  0, 0, 0,
+            0.5,  -0.5f,  -0.5f, 1,  0,  0, 0, 1,
+            0.5,  0.5f,   -0.5f, 1,  0,  0, 1, 1,
+            0.5,  0.5,    -0.5f, 1,  0,  0, 1, 1,
+            0.5,  0.5f,    0.5f, 1,  0,  0, 1, 0,
+            0.5,  -0.5f,   0.5f, 1,  0,  0, 0, 0,
+            // X轴-0.5处的平面
+            -0.5,  -0.5,    0.5f, -1,  0,  0, 0, 0,
+            -0.5,  -0.5f,  -0.5f, -1,  0,  0, 0, 1,
+            -0.5,  0.5f,   -0.5f, -1,  0,  0, 1, 1,
+            -0.5,  0.5,    -0.5f, -1,  0,  0, 1, 1,
+            -0.5,  0.5f,    0.5f, -1,  0,  0, 1, 0,
+            -0.5,  -0.5f,   0.5f, -1,  0,  0, 0, 0,
+
+            -0.5,  0.5,  0.5f, 0,  1,  0, 0, 0,
+            -0.5f, 0.5, -0.5f, 0,  1,  0, 0, 1,
+            0.5f, 0.5,  -0.5f, 0,  1,  0, 1, 1,
+            0.5,  0.5,  -0.5f, 0,  1,  0, 1, 1,
+            0.5f, 0.5,   0.5f, 0,  1,  0, 1, 0,
+            -0.5f, 0.5,  0.5f, 0,  1,  0, 0, 0,
+            -0.5, -0.5,   0.5f, 0,  -1,  0, 0, 0,
+            -0.5f, -0.5, -0.5f, 0,  -1,  0, 0, 1,
+            0.5f, -0.5,  -0.5f, 0,  -1,  0, 1, 1,
+            0.5,  -0.5,  -0.5f, 0,  -1,  0, 1, 1,
+            0.5f, -0.5,   0.5f, 0,  -1,  0, 1, 0,
+            -0.5f, -0.5,  0.5f, 0,  -1,  0, 0, 0,
+
+            -0.5,   0.5f,  0.5,   0,  0,  1, 0, 0,
+            -0.5f,  -0.5f,  0.5,  0,  0,  1, 0, 1,
+            0.5f,   -0.5f,  0.5,  0,  0,  1, 1, 1,
+            0.5,    -0.5f, 0.5,   0,  0,  1, 1, 1,
+            0.5f,  0.5f,  0.5,    0,  0,  1, 1, 0,
+            -0.5f,   0.5f,  0.5,  0,  0,  1, 0, 0,
+            -0.5,   0.5f,  -0.5,   0,  0,  -1, 0, 0,
+            -0.5f,  -0.5f,  -0.5,  0,  0,  -1, 0, 1,
+            0.5f,   -0.5f,  -0.5,  0,  0,  -1, 1, 1,
+            0.5,    -0.5f, -0.5,   0,  0,  -1, 1, 1,
+            0.5f,  0.5f,  -0.5,    0,  0,  -1, 1, 0,
+            -0.5f,   0.5f,  -0.5,  0,  0,  -1, 0, 0,
     };
+
     triangleVertexBuffer = ELVertexBuffer::alloc()->init(data, sizeof(data), ELVertexBufferTypeStatic);
     ELVertexAttribute positionAttr;
     positionAttr.dataType = ELVertexAttributeDataTypeFloat;
-    positionAttr.sizeInBytes = sizeof(GLfloat) * 4;
+    positionAttr.sizeInBytes = sizeof(GLfloat) * 3;
     positionAttr.offsetInBytes = 0;
     positionAttr.name = "position";
     triangleVertexBuffer->addAttribute(positionAttr);
     ELVertexAttribute colorAttr;
     colorAttr.dataType = ELVertexAttributeDataTypeFloat;
     colorAttr.sizeInBytes = sizeof(GLfloat) * 3;
-    colorAttr.offsetInBytes = sizeof(GLfloat) * 4;
+    colorAttr.offsetInBytes = sizeof(GLfloat) * 3;
     colorAttr.name = "color";
     triangleVertexBuffer->addAttribute(colorAttr);
+    ELVertexAttribute uvAttr;
+    uvAttr.dataType = ELVertexAttributeDataTypeFloat;
+    uvAttr.sizeInBytes = sizeof(GLfloat) * 2;
+    uvAttr.offsetInBytes = sizeof(GLfloat) * 6;
+    uvAttr.name = "uv";
+    triangleVertexBuffer->addAttribute(uvAttr);
 }
 
 void gameLoop() {
+    static float angle = 0.0;
+    angle += 0.01;
+    ELMatrix4 finalMatrix = ELMatrix4Identity;
+
+    ELMatrix4 projection = ELMatrix4MakePerspective(90.0 * M_PI / 180.0, 640 / 480.0, 0.1, 1000);
+    ELMatrix4 view = ELMatrix4MakeLookAt(0,0,2,0,0,0,0,1,0);
+    ELMatrix4 model = ELMatrix4MakeRotation(angle, 1, 1, 1);
+
+    finalMatrix = ELMatrix4Multiply(view, model);
+    finalMatrix = ELMatrix4Multiply(projection, finalMatrix);
     renderer->prepare();
-//    renderer->drawPrimitives(ELPrimitivesTypeTriangle, triangleVertexBuffer);
-    renderer->drawPrimitives(ELPrimitivesTypeLine, triangleVertexBuffer);
+    renderer->pipline->setUniform(finalMatrix, renderer->pipline->getUniformLocation("transform"));
+    renderer->pipline->bindTexture(diffuseTexture, renderer->pipline->getUniformLocation("diffuse"), 0);
+    renderer->drawPrimitives(ELPrimitivesTypeTriangle, triangleVertexBuffer);
 }

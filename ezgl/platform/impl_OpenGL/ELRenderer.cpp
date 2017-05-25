@@ -12,6 +12,7 @@
 ELRendererPtr ELRenderer::init(ELRenderPassPtr renderPass, ELRenderPiplinePtr pipline) {
     self->renderPass = renderPass;
     self->pipline = pipline;
+    glEnable(GL_DEPTH_TEST);
     return self;
 }
 

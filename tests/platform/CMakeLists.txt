@@ -14,6 +14,11 @@ if(NOT OPENGL_FOUND)
     message(ERROR " OPENGL not found!")
 endif(NOT OPENGL_FOUND)
 
-
 add_executable(ELPlatformTests main.cpp ${PlatformSrc})
 target_link_libraries(ELPlatformTests ELPlatform ${GLUT_LIBRARY} ${OPENGL_LIBRARIES} glfw)
+
+
+include(../../CopyFiles.text)
+copy_files(CopyAssets ./ ${CMAKE_BINARY_DIR})
+
+add_dependencies(ELPlatformTests CopyAssets)

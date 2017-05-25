@@ -9,7 +9,9 @@ enum ELPixelFormat {
     ELPixelFormatRGB,
     ELPixelFormatRGBA,
     ELPixelFormatAlpha,
-    ELPixelFormatDepth
+    ELPixelFormatDepth,
+    ELPixelFormatLA,
+    ELPixelFormatL,
 };
 
 #endif //EZGL_ELPIXELFORMAT_H

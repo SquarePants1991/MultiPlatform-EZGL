@@ -9,9 +9,24 @@
 #include "types/EZGLTypes.h"
 #include "ELCrossPlatformObject.h"
 
+enum ELTextureStoreType {
+    ELTextureStoreTypeCPU = 1 << 0,
+    ELTextureStoreTypeGPU = 1 << 1,
+};
+enum ELTextureChannelFormat {
+    ELTextureChannelFormatUC,
+};
+
 classDefExt(ELTexture, public ELCrossPlatformObject)
 public:
-    ELTexturePtr init(ELPixelFormat pixelFormat, char *imageData, ELInt dataLength);
+    ELInt width;
+    ELInt height;
+    unsigned char *imageData;
+    ELTextureChannelFormat channelFormat;
+    ELInt numberOfChannel;
+    ELPixelFormat pixelFormat;
+    ELTexturePtr init(ELPixelFormat pixelFormat, unsigned char *imageData, ELInt width, ELInt height, ELTextureStoreType storeType = ELTextureStoreTypeGPU);
+    ELTexturePtr init(std::string imagePath, ELTextureStoreType storeType = ELTextureStoreTypeGPU, ELPixelFormat pixelFormat = ELPixelFormatRGBA);
 defEnd
 
 

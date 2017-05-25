@@ -71,10 +71,9 @@ void ELRenderPipline::setUniform(ELMatrix4 val, ELInt location) {
 void ELRenderPipline::bindTexture(ELTexturePtr texture, ELInt uniformLocation, ELInt textureID) {
     ELInt glTextureVal = texture->__crossplatformFetchInt("glVal");
     if (glTextureVal >= 0) {
+        glUniform1i(uniformLocation, textureID);
         glActiveTexture(GL_TEXTURE0 + textureID);
         glBindTexture(GL_TEXTURE_2D, glTextureVal);
-        glUniform1i(uniformLocation, textureID);
-        glBindTexture(GL_TEXTURE_2D, 0);
     }
 }
 

@@ -1,0 +1,20 @@
+macro(copy_files target GLOBPAT0 DESTINATION)
+    file(GLOB COPY_FILES
+            RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+            ${GLOBPAT0}/*
+            ${GLOBPAT0}/**/*)
+    make_directory(${DESTINATION})
+    add_custom_target(${target} ALL
+            COMMENT "Copying files: ${GLOBPAT}")
+    foreach(FILENAME ${COPY_FILES})
+        message("Copying ${CMAKE_CURRENT_SOURCE_DIR}/${FILENAME}")
+        set(SRC "${CMAKE_CURRENT_SOURCE_DIR}/${FILENAME}")
+        get_filename_component(fileName ${FILENAME} NAME)
+        set(DST "${DESTINATION}/${fileName}")
+        message(${SRC}${DST})
+        add_custom_command(
+                TARGET ${target}
+                COMMAND ${CMAKE_COMMAND} -E copy ${SRC} ${DST}
+        )
+    endforeach(FILENAME)
+endmacro(copy_files)
