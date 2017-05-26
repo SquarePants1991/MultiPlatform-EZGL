@@ -5,11 +5,11 @@
 #include "ELPlatform.h"
 
 void init();
+
 void gameLoop();
 
-int main(void)
-{
-    GLFWwindow* window;
+int main(void) {
+    GLFWwindow *window;
     /* Initialize the library */
     if (!glfwInit())
         return -1;
@@ -19,8 +19,7 @@ int main(void)
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     /* Create a windowed mode window and its OpenGL context */
     window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
-    if (!window)
-    {
+    if (!window) {
         glfwTerminate();
         return -1;
     }
@@ -28,17 +27,16 @@ int main(void)
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1);
-    glewExperimental=true;
+    glewExperimental = true;
     if (glewInit() != GLEW_OK)
         return -1;
-    printf("%s", (char *)glGetString ( GL_SHADING_LANGUAGE_VERSION ));
+    printf("%s", (char *) glGetString(GL_SHADING_LANGUAGE_VERSION));
 
     ELGLAdapter::defaultAdapter()->setup(window);
     init();
 
     /* Loop until the user closes the window */
-    while (!glfwWindowShouldClose(window))
-    {
+    while (!glfwWindowShouldClose(window)) {
         gameLoop();
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
@@ -55,10 +53,12 @@ ELRenderPassPtr mainRenderPass;
 ELRendererPtr renderer;
 ELVertexBufferPtr triangleVertexBuffer;
 ELTexturePtr diffuseTexture;
+
 void init() {
     ELRenderTargetPtr defaultRenderTarget = ELRenderTarget::defaultTarget();
 
     ELAssets::shared()->addSearchPath("/Users/wangyang/Documents/Projects/On Git/EZGLKit_M/tests/platform/");
+    ELAssets::shared()->addSearchPath("/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/tests/platform/");
 
     std::string vertexShader = ELFileUtil::stringContentOfShader(ELAssets::shared()->findFile("vertex.glsl"));
     std::string fragmentShader = ELFileUtil::stringContentOfShader(ELAssets::shared()->findFile("fragment.glsl"));
@@ -76,45 +76,45 @@ void init() {
     diffuseTexture = ELTexture::alloc()->init(imagePath);
     static GLfloat data[] = {
             // X轴0.5处的平面
-            0.5,  -0.5,    0.5f, 1,  0,  0, 0, 0,
-            0.5,  -0.5f,  -0.5f, 1,  0,  0, 0, 1,
-            0.5,  0.5f,   -0.5f, 1,  0,  0, 1, 1,
-            0.5,  0.5,    -0.5f, 1,  0,  0, 1, 1,
-            0.5,  0.5f,    0.5f, 1,  0,  0, 1, 0,
-            0.5,  -0.5f,   0.5f, 1,  0,  0, 0, 0,
+            0.5, -0.5, 0.5f, 1, 0, 0, 0, 0,
+            0.5, -0.5f, -0.5f, 1, 0, 0, 0, 1,
+            0.5, 0.5f, -0.5f, 1, 0, 0, 1, 1,
+            0.5, 0.5, -0.5f, 1, 0, 0, 1, 1,
+            0.5, 0.5f, 0.5f, 1, 0, 0, 1, 0,
+            0.5, -0.5f, 0.5f, 1, 0, 0, 0, 0,
             // X轴-0.5处的平面
-            -0.5,  -0.5,    0.5f, -1,  0,  0, 0, 0,
-            -0.5,  -0.5f,  -0.5f, -1,  0,  0, 0, 1,
-            -0.5,  0.5f,   -0.5f, -1,  0,  0, 1, 1,
-            -0.5,  0.5,    -0.5f, -1,  0,  0, 1, 1,
-            -0.5,  0.5f,    0.5f, -1,  0,  0, 1, 0,
-            -0.5,  -0.5f,   0.5f, -1,  0,  0, 0, 0,
+            -0.5, -0.5, 0.5f, -1, 0, 0, 0, 0,
+            -0.5, -0.5f, -0.5f, -1, 0, 0, 0, 1,
+            -0.5, 0.5f, -0.5f, -1, 0, 0, 1, 1,
+            -0.5, 0.5, -0.5f, -1, 0, 0, 1, 1,
+            -0.5, 0.5f, 0.5f, -1, 0, 0, 1, 0,
+            -0.5, -0.5f, 0.5f, -1, 0, 0, 0, 0,
 
-            -0.5,  0.5,  0.5f, 0,  1,  0, 0, 0,
-            -0.5f, 0.5, -0.5f, 0,  1,  0, 0, 1,
-            0.5f, 0.5,  -0.5f, 0,  1,  0, 1, 1,
-            0.5,  0.5,  -0.5f, 0,  1,  0, 1, 1,
-            0.5f, 0.5,   0.5f, 0,  1,  0, 1, 0,
-            -0.5f, 0.5,  0.5f, 0,  1,  0, 0, 0,
-            -0.5, -0.5,   0.5f, 0,  -1,  0, 0, 0,
-            -0.5f, -0.5, -0.5f, 0,  -1,  0, 0, 1,
-            0.5f, -0.5,  -0.5f, 0,  -1,  0, 1, 1,
-            0.5,  -0.5,  -0.5f, 0,  -1,  0, 1, 1,
-            0.5f, -0.5,   0.5f, 0,  -1,  0, 1, 0,
-            -0.5f, -0.5,  0.5f, 0,  -1,  0, 0, 0,
+            -0.5, 0.5, 0.5f, 0, 1, 0, 0, 0,
+            -0.5f, 0.5, -0.5f, 0, 1, 0, 0, 1,
+            0.5f, 0.5, -0.5f, 0, 1, 0, 1, 1,
+            0.5, 0.5, -0.5f, 0, 1, 0, 1, 1,
+            0.5f, 0.5, 0.5f, 0, 1, 0, 1, 0,
+            -0.5f, 0.5, 0.5f, 0, 1, 0, 0, 0,
+            -0.5, -0.5, 0.5f, 0, -1, 0, 0, 0,
+            -0.5f, -0.5, -0.5f, 0, -1, 0, 0, 1,
+            0.5f, -0.5, -0.5f, 0, -1, 0, 1, 1,
+            0.5, -0.5, -0.5f, 0, -1, 0, 1, 1,
+            0.5f, -0.5, 0.5f, 0, -1, 0, 1, 0,
+            -0.5f, -0.5, 0.5f, 0, -1, 0, 0, 0,
 
-            -0.5,   0.5f,  0.5,   0,  0,  1, 0, 0,
-            -0.5f,  -0.5f,  0.5,  0,  0,  1, 0, 1,
-            0.5f,   -0.5f,  0.5,  0,  0,  1, 1, 1,
-            0.5,    -0.5f, 0.5,   0,  0,  1, 1, 1,
-            0.5f,  0.5f,  0.5,    0,  0,  1, 1, 0,
-            -0.5f,   0.5f,  0.5,  0,  0,  1, 0, 0,
-            -0.5,   0.5f,  -0.5,   0,  0,  -1, 0, 0,
-            -0.5f,  -0.5f,  -0.5,  0,  0,  -1, 0, 1,
-            0.5f,   -0.5f,  -0.5,  0,  0,  -1, 1, 1,
-            0.5,    -0.5f, -0.5,   0,  0,  -1, 1, 1,
-            0.5f,  0.5f,  -0.5,    0,  0,  -1, 1, 0,
-            -0.5f,   0.5f,  -0.5,  0,  0,  -1, 0, 0,
+            -0.5, 0.5f, 0.5, 0, 0, 1, 0, 0,
+            -0.5f, -0.5f, 0.5, 0, 0, 1, 0, 1,
+            0.5f, -0.5f, 0.5, 0, 0, 1, 1, 1,
+            0.5, -0.5f, 0.5, 0, 0, 1, 1, 1,
+            0.5f, 0.5f, 0.5, 0, 0, 1, 1, 0,
+            -0.5f, 0.5f, 0.5, 0, 0, 1, 0, 0,
+            -0.5, 0.5f, -0.5, 0, 0, -1, 0, 0,
+            -0.5f, -0.5f, -0.5, 0, 0, -1, 0, 1,
+            0.5f, -0.5f, -0.5, 0, 0, -1, 1, 1,
+            0.5, -0.5f, -0.5, 0, 0, -1, 1, 1,
+            0.5f, 0.5f, -0.5, 0, 0, -1, 1, 0,
+            -0.5f, 0.5f, -0.5, 0, 0, -1, 0, 0,
     };
 
     triangleVertexBuffer = ELVertexBuffer::alloc()->init(data, sizeof(data), ELVertexBufferTypeStatic);
@@ -144,7 +144,7 @@ void gameLoop() {
     ELMatrix4 finalMatrix = ELMatrix4Identity;
 
     ELMatrix4 projection = ELMatrix4MakePerspective(90.0 * M_PI / 180.0, 640 / 480.0, 0.1, 1000);
-    ELMatrix4 view = ELMatrix4MakeLookAt(0,0,2,0,0,0,0,1,0);
+    ELMatrix4 view = ELMatrix4MakeLookAt(0, 0, 2, 0, 0, 0, 0, 1, 0);
     ELMatrix4 model = ELMatrix4MakeRotation(angle, 1, 1, 1);
 
     finalMatrix = ELMatrix4Multiply(view, model);

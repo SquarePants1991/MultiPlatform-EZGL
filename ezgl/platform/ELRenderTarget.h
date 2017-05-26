@@ -23,9 +23,9 @@ public:
     bool stencilBufferEnabled;  // 是否启用Stencil缓冲区
     bool isBindTexture;         // 是否渲染到纹理
 
-    ELRenderTargetPtr init(ELPixelFormat pixelFormat, ELVector2 size, bool bindTexture, bool enableDepthBuffer = true, bool enableStencilBuffer = true);
+    ELRenderTargetPtr init(ELPixelFormat pixelFormat, ELVector2 size, bool bindTexture, bool enableDepthBuffer = true, bool enableStencilBuffer = true, bool enableColorBuffer = true);
     static ELRenderTargetPtr defaultTarget();
-
+    ~ELRenderTarget();
 defEnd
 
 
