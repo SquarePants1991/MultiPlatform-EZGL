@@ -6,7 +6,6 @@
 #define EZGL_ELCPPBASE_H
 
 #include <stdio.h>
-#include <memory>
 
 #define ELClass(className) \
 class className;\

@@ -14,7 +14,7 @@
 		8E867CAA1EE55E0C00E16D53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E867CA91EE55E0C00E16D53 /* Assets.xcassets */; };
 		8E867CAD1EE55E0C00E16D53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E867CAB1EE55E0C00E16D53 /* LaunchScreen.storyboard */; };
 		8E867CB81EE55E0D00E16D53 /* ezglTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E867CB71EE55E0D00E16D53 /* ezglTests.m */; };
-		8E867D5F1EE55F3500E16D53 /* EZGLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E867D5A1EE55EDC00E16D53 /* EZGLib.framework */; };
+		8E867D7B1EE5607400E16D53 /* EZGLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E867D781EE5606B00E16D53 /* EZGLib.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,28 +25,41 @@
 			remoteGlobalIDString = 8E867C991EE55E0C00E16D53;
 			remoteInfo = ezgl;
 		};
-		8E867D591EE55EDC00E16D53 /* PBXContainerItemProxy */ = {
+		8E867D771EE5606B00E16D53 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8E867D541EE55EDC00E16D53 /* EZGLib.xcodeproj */;
+			containerPortal = 8E867D721EE5606B00E16D53 /* EZGLib.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 8E867CCC1EE55E6300E16D53;
 			remoteInfo = EZGLib;
 		};
-		8E867D5B1EE55EDC00E16D53 /* PBXContainerItemProxy */ = {
+		8E867D791EE5606B00E16D53 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8E867D541EE55EDC00E16D53 /* EZGLib.xcodeproj */;
+			containerPortal = 8E867D721EE5606B00E16D53 /* EZGLib.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 8E867CD51EE55E6300E16D53;
 			remoteInfo = EZGLibTests;
 		};
-		8E867D5D1EE55EEA00E16D53 /* PBXContainerItemProxy */ = {
+		8E867D7C1EE5612F00E16D53 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8E867D541EE55EDC00E16D53 /* EZGLib.xcodeproj */;
+			containerPortal = 8E867D721EE5606B00E16D53 /* EZGLib.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 8E867CCB1EE55E6300E16D53;
 			remoteInfo = EZGLib;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8E867D651EE5602A00E16D53 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8E867C9A1EE55E0C00E16D53 /* ezgl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ezgl.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,7 +75,7 @@
 		8E867CB31EE55E0D00E16D53 /* ezglTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ezglTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E867CB71EE55E0D00E16D53 /* ezglTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ezglTests.m; sourceTree = "<group>"; };
 		8E867CB91EE55E0D00E16D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8E867D541EE55EDC00E16D53 /* EZGLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EZGLib.xcodeproj; path = ../EZGLib/EZGLib.xcodeproj; sourceTree = "<group>"; };
+		8E867D721EE5606B00E16D53 /* EZGLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EZGLib.xcodeproj; path = ../EZGLib/EZGLib.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E867D5F1EE55F3500E16D53 /* EZGLib.framework in Frameworks */,
+				8E867D7B1EE5607400E16D53 /* EZGLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +100,7 @@
 		8E867C911EE55E0C00E16D53 = {
 			isa = PBXGroup;
 			children = (
-				8E867D541EE55EDC00E16D53 /* EZGLib.xcodeproj */,
+				8E867D721EE5606B00E16D53 /* EZGLib.xcodeproj */,
 				8E867C9C1EE55E0C00E16D53 /* ezgl */,
 				8E867CB61EE55E0D00E16D53 /* ezglTests */,
 				8E867C9B1EE55E0C00E16D53 /* Products */,
@@ -136,11 +149,11 @@
 			path = ezglTests;
 			sourceTree = "<group>";
 		};
-		8E867D551EE55EDC00E16D53 /* Products */ = {
+		8E867D731EE5606B00E16D53 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8E867D5A1EE55EDC00E16D53 /* EZGLib.framework */,
-				8E867D5C1EE55EDC00E16D53 /* EZGLibTests.xctest */,
+				8E867D781EE5606B00E16D53 /* EZGLib.framework */,
+				8E867D7A1EE5606B00E16D53 /* EZGLibTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,11 +168,12 @@
 				8E867C961EE55E0C00E16D53 /* Sources */,
 				8E867C971EE55E0C00E16D53 /* Frameworks */,
 				8E867C981EE55E0C00E16D53 /* Resources */,
+				8E867D651EE5602A00E16D53 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8E867D5E1EE55EEA00E16D53 /* PBXTargetDependency */,
+				8E867D7D1EE5612F00E16D53 /* PBXTargetDependency */,
 			);
 			name = ezgl;
 			productName = ezgl;
@@ -219,8 +233,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 8E867D551EE55EDC00E16D53 /* Products */;
-					ProjectRef = 8E867D541EE55EDC00E16D53 /* EZGLib.xcodeproj */;
+					ProductGroup = 8E867D731EE5606B00E16D53 /* Products */;
+					ProjectRef = 8E867D721EE5606B00E16D53 /* EZGLib.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -232,18 +246,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		8E867D5A1EE55EDC00E16D53 /* EZGLib.framework */ = {
+		8E867D781EE5606B00E16D53 /* EZGLib.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = EZGLib.framework;
-			remoteRef = 8E867D591EE55EDC00E16D53 /* PBXContainerItemProxy */;
+			remoteRef = 8E867D771EE5606B00E16D53 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		8E867D5C1EE55EDC00E16D53 /* EZGLibTests.xctest */ = {
+		8E867D7A1EE5606B00E16D53 /* EZGLibTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = EZGLibTests.xctest;
-			remoteRef = 8E867D5B1EE55EDC00E16D53 /* PBXContainerItemProxy */;
+			remoteRef = 8E867D791EE5606B00E16D53 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -295,10 +309,10 @@
 			target = 8E867C991EE55E0C00E16D53 /* ezgl */;
 			targetProxy = 8E867CB41EE55E0D00E16D53 /* PBXContainerItemProxy */;
 		};
-		8E867D5E1EE55EEA00E16D53 /* PBXTargetDependency */ = {
+		8E867D7D1EE5612F00E16D53 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = EZGLib;
-			targetProxy = 8E867D5D1EE55EEA00E16D53 /* PBXContainerItemProxy */;
+			targetProxy = 8E867D7C1EE5612F00E16D53 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -417,6 +431,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = P48344HVQL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"${BUILD_DIR}/Debug-iphonesimulator/",
+					"${BUILD_DIR}/Debug-iphonesimulator/",
+				);
 				INFOPLIST_FILE = ezgl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dx168.ezgl;
@@ -429,6 +447,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = P48344HVQL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"${BUILD_DIR}/Debug-iphonesimulator/",
+					"${BUILD_DIR}/Debug-iphonesimulator/",
+				);
 				INFOPLIST_FILE = ezgl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dx168.ezgl;

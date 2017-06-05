@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-@import EZGLib;
+#import <EZGLib/ELPlatform.h>
 
 @interface ViewController ()
 
