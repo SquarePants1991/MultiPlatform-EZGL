@@ -9,31 +9,31 @@
 crossplatform_var_int(glVal)
 
 ELTexturePtr ELTexture::init(std::string imagePath, ELTextureStoreType storeType, ELPixelFormat pixelFormat) {
+    int format, glPixelFormat;
+    switch (pixelFormat) {
+        case ELPixelFormatRGBA:
+            format = SOIL_LOAD_RGBA;
+            glPixelFormat = GL_RGBA;
+            break;
+        case ELPixelFormatRGB:
+            format = SOIL_LOAD_RGB;
+            glPixelFormat = GL_RGB;
+            break;
+        case ELPixelFormatAlpha:
+        case ELPixelFormatL:
+        case ELPixelFormatDepth:
+            format = SOIL_LOAD_L;
+            glPixelFormat = GL_LUMINANCE;
+            break;
+        case ELPixelFormatLA:
+            format = SOIL_LOAD_LA;
+            glPixelFormat = GL_LUMINANCE_ALPHA;
+            break;
+        default:
+            format = SOIL_LOAD_AUTO;
+    }
+    self->imageData = SOIL_load_image(imagePath.c_str(), &width, &height, &numberOfChannel, format);
     if (storeType & ELTextureStoreTypeGPU) {
-        int format, glPixelFormat;
-        switch (pixelFormat) {
-            case ELPixelFormatRGBA:
-                format = SOIL_LOAD_RGBA;
-                glPixelFormat = GL_RGBA;
-                break;
-            case ELPixelFormatRGB:
-                format = SOIL_LOAD_RGB;
-                glPixelFormat = GL_RGB;
-                break;
-            case ELPixelFormatAlpha:
-            case ELPixelFormatL:
-            case ELPixelFormatDepth:
-                format = SOIL_LOAD_L;
-                glPixelFormat = GL_LUMINANCE;
-                break;
-            case ELPixelFormatLA:
-                format = SOIL_LOAD_LA;
-                glPixelFormat = GL_LUMINANCE_ALPHA;
-                break;
-            default:
-                format = SOIL_LOAD_AUTO;
-        }
-        self->imageData = SOIL_load_image(imagePath.c_str(), &width, &height, &numberOfChannel, format);
         GLuint texture;
         glGenTextures(1, &texture);
         glBindTexture(GL_TEXTURE_2D, texture);
@@ -49,10 +49,10 @@ ELTexturePtr ELTexture::init(std::string imagePath, ELTextureStoreType storeType
         self->pixelFormat = pixelFormat;
     }
 
-//    if (!(storeType & ELTextureStoreTypeCPU)) {
-//        delete(self->imageData);
-//        self->imageData = NULL;
-//    }
+    if (!(storeType & ELTextureStoreTypeCPU)) {
+        delete(self->imageData);
+        self->imageData = NULL;
+    }
     return self;
 }
 

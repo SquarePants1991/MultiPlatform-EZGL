@@ -10,10 +10,11 @@ crossplatform_var_int(texture)
 crossplatform_var_int(colorBuffer)
 crossplatform_var_int(depthBuffer)
 
-ELRenderTargetPtr ELRenderTarget::init(ELPixelFormat pixelFormat, ELVector2 size, bool bindTexture, bool enableDepthBuffer, bool enableStencilBuffer, bool enableColorBuffer) {
+ELRenderTargetPtr ELRenderTarget::init(ELPixelFormat pixelFormat, ELVector2 size, bool bindTexture, bool bindDepthTexture,bool enableDepthBuffer, bool enableStencilBuffer, bool enableColorBuffer) {
     this->pixelFormat = pixelFormat;
     this->size = size;
     this->isBindTexture = bindTexture;
+    this->isBindDepthTexture = bindDepthTexture;
     this->colorBufferEnabled = enableColorBuffer;
     this->depthBufferEnabled = enableDepthBuffer;
     this->stencilBufferEnabled = enableStencilBuffer;
@@ -24,11 +25,13 @@ ELRenderTargetPtr ELRenderTarget::init(ELPixelFormat pixelFormat, ELVector2 size
 
     GLuint framebuffer;
     GLuint texture;
+    GLuint depthTexture;
     GLuint depthBuffer;
     GLuint colorBuffer;
 
     glGenFramebuffers(1, &framebuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+
 
     if (enableColorBuffer) {
         if (bindTexture) {
@@ -41,6 +44,8 @@ ELRenderTargetPtr ELRenderTarget::init(ELPixelFormat pixelFormat, ELVector2 size
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
             glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture, 0);
             textureSet(this, texture);
+            this->bindTexture = ELTexture::alloc()->init(ELPixelFormatRGBA, NULL, size.x, size.y);
+            this->bindTexture->__crossplatformAttach("glVal", (ELInt)texture);
         } else {
             glGenRenderbuffers(1, &colorBuffer);
             glBindRenderbuffer(GL_RENDERBUFFER, colorBuffer);
@@ -51,16 +56,29 @@ ELRenderTargetPtr ELRenderTarget::init(ELPixelFormat pixelFormat, ELVector2 size
     }
 
     if (enableDepthBuffer) {
-        glGenRenderbuffers(1, &depthBuffer);
-        glBindRenderbuffer(GL_RENDERBUFFER, depthBuffer);
-        if (enableStencilBuffer) {
-            glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, size.x, size.y);
+        if (bindDepthTexture) {
+            glGenTextures(1, &depthTexture);
+            glBindTexture(GL_TEXTURE_2D, depthTexture);
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, size.x, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depthTexture, 0);
+            this->bindDepthTexture = ELTexture::alloc()->init(ELPixelFormatDepth, NULL, size.x, size.y);
+            this->bindDepthTexture->__crossplatformAttach("glVal", (ELInt)depthTexture);
         } else {
-            glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, size.x, size.y);
-        }
+            glGenRenderbuffers(1, &depthBuffer);
+            glBindRenderbuffer(GL_RENDERBUFFER, depthBuffer);
+            if (enableStencilBuffer) {
+                glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, size.x, size.y);
+            } else {
+                glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, size.x, size.y);
+            }
 
-        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthBuffer);
-        depthBufferSet(this, depthBuffer);
+            glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthBuffer);
+            depthBufferSet(this, depthBuffer);
+        }
     }
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -90,5 +108,5 @@ ELRenderTargetPtr ELRenderTarget::defaultTarget() {
 
 ELRenderTarget::~ELRenderTarget() {
     ELInt framebuffer = framebufferGet(this);
-    glDeleteFramebuffers(1, &f           ramebuffer);
+    glDeleteFramebuffers(1, (GLuint *)&framebuffer);
 }

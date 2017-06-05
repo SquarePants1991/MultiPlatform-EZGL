@@ -51,8 +51,17 @@ int main(void) {
 ELRenderPiplinePtr pipline;
 ELRenderPassPtr mainRenderPass;
 ELRendererPtr renderer;
-ELVertexBufferPtr triangleVertexBuffer;
+ELVertexBufferPtr cubeVertexBuffer;
+ELVertexBufferPtr squareVertexBuffer;
 ELTexturePtr diffuseTexture;
+
+ELRenderTargetPtr renderToTextureTarget;
+ELRenderPassPtr renderToTextureRenderPass;
+ELRendererPtr renderToTextureRender;
+
+ELRenderTargetPtr renderToDepthTextureTarget;
+ELRenderPassPtr renderToDepthTextureRenderPass;
+ELRendererPtr renderToDepthTextureRender;
 
 void init() {
     ELRenderTargetPtr defaultRenderTarget = ELRenderTarget::defaultTarget();
@@ -117,25 +126,48 @@ void init() {
             -0.5f, 0.5f, -0.5, 0, 0, -1, 0, 0,
     };
 
-    triangleVertexBuffer = ELVertexBuffer::alloc()->init(data, sizeof(data), ELVertexBufferTypeStatic);
+    cubeVertexBuffer = ELVertexBuffer::alloc()->init(data, sizeof(data), ELVertexBufferTypeStatic);
     ELVertexAttribute positionAttr;
     positionAttr.dataType = ELVertexAttributeDataTypeFloat;
     positionAttr.sizeInBytes = sizeof(GLfloat) * 3;
     positionAttr.offsetInBytes = 0;
     positionAttr.name = "position";
-    triangleVertexBuffer->addAttribute(positionAttr);
+    cubeVertexBuffer->addAttribute(positionAttr);
     ELVertexAttribute colorAttr;
     colorAttr.dataType = ELVertexAttributeDataTypeFloat;
     colorAttr.sizeInBytes = sizeof(GLfloat) * 3;
     colorAttr.offsetInBytes = sizeof(GLfloat) * 3;
     colorAttr.name = "color";
-    triangleVertexBuffer->addAttribute(colorAttr);
+    cubeVertexBuffer->addAttribute(colorAttr);
     ELVertexAttribute uvAttr;
     uvAttr.dataType = ELVertexAttributeDataTypeFloat;
     uvAttr.sizeInBytes = sizeof(GLfloat) * 2;
     uvAttr.offsetInBytes = sizeof(GLfloat) * 6;
     uvAttr.name = "uv";
-    triangleVertexBuffer->addAttribute(uvAttr);
+    cubeVertexBuffer->addAttribute(uvAttr);
+
+
+    static GLfloat squareData[] = {
+            -0.5, 0.5f, -0.5, 0, 0, 1, 0, 0,
+            -0.5f, -0.5f, -0.5, 0, 0, 1, 0, 1,
+            0.5f, -0.5f, -0.5, 0, 0, 1, 1, 1,
+            0.5, -0.5f, -0.5, 0, 0, 1, 1, 1,
+            0.5f, 0.5f, -0.5, 0, 0, 1, 1, 0,
+            -0.5f, 0.5f, -0.5, 0, 0, 1, 0, 0
+    };
+    squareVertexBuffer = ELVertexBuffer::alloc()->init(squareData, sizeof(squareData), ELVertexBufferTypeStatic);
+    squareVertexBuffer->addAttribute(positionAttr);
+    squareVertexBuffer->addAttribute(colorAttr);
+    squareVertexBuffer->addAttribute(uvAttr);
+
+
+    renderToTextureTarget = ELRenderTarget::alloc()->init(ELPixelFormatRGBA, ELVector2Make(1024, 1024), true, false, true, true, true);
+    renderToTextureRenderPass = ELRenderPass::alloc()->init(config, renderToTextureTarget);
+    renderToTextureRender = ELRenderer::alloc()->init(renderToTextureRenderPass, pipline);
+
+    renderToDepthTextureTarget = ELRenderTarget::alloc()->init(ELPixelFormatDepth, ELVector2Make(1024, 1024), false, true, true, false, false);
+    renderToDepthTextureRenderPass = ELRenderPass::alloc()->init(config, renderToDepthTextureTarget);
+    renderToDepthTextureRender = ELRenderer::alloc()->init(renderToDepthTextureRenderPass, pipline);
 }
 
 void gameLoop() {
@@ -149,8 +181,28 @@ void gameLoop() {
 
     finalMatrix = ELMatrix4Multiply(view, model);
     finalMatrix = ELMatrix4Multiply(projection, finalMatrix);
+    renderToTextureRender->prepare();
+    renderToTextureRender->pipline->setUniform(finalMatrix, renderToTextureRender->pipline->getUniformLocation("transform"));
+    renderToTextureRender->pipline->bindTexture(diffuseTexture, renderToTextureRender->pipline->getUniformLocation("diffuse"), 0);
+    renderToTextureRender->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
+
+    renderToDepthTextureRender->prepare();
+    renderToDepthTextureRender->pipline->setUniform(finalMatrix, renderToDepthTextureRender->pipline->getUniformLocation("transform"));
+    renderToDepthTextureRender->pipline->bindTexture(diffuseTexture, renderToDepthTextureRender->pipline->getUniformLocation("diffuse"), 0);
+    renderToDepthTextureRender->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
+
     renderer->prepare();
     renderer->pipline->setUniform(finalMatrix, renderer->pipline->getUniformLocation("transform"));
     renderer->pipline->bindTexture(diffuseTexture, renderer->pipline->getUniformLocation("diffuse"), 0);
-    renderer->drawPrimitives(ELPrimitivesTypeTriangle, triangleVertexBuffer);
+    renderer->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
+
+    renderer->pipline->bindTexture(renderToTextureTarget->bindTexture, renderer->pipline->getUniformLocation("diffuse"), 0);
+    projection = ELMatrix4MakeOrtho(-0.5, 3.5, -3.5, 0.5, 0, 100);
+    renderer->pipline->setUniform(projection, renderer->pipline->getUniformLocation("transform"));
+    renderer->drawPrimitives(ELPrimitivesTypeTriangle, squareVertexBuffer);
+
+    renderer->pipline->bindTexture(renderToDepthTextureTarget->bindDepthTexture, renderer->pipline->getUniformLocation("diffuse"), 0);
+    projection = ELMatrix4MakeOrtho(-0.5, 3.5, -2.5, 1.5, 0, 100);
+    renderer->pipline->setUniform(projection, renderer->pipline->getUniformLocation("transform"));
+    renderer->drawPrimitives(ELPrimitivesTypeTriangle, squareVertexBuffer);
 }

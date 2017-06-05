@@ -17,6 +17,8 @@ ELRendererPtr ELRenderer::init(ELRenderPassPtr renderPass, ELRenderPiplinePtr pi
 }
 
 void ELRenderer::prepare() {
+    glBindFramebuffer(GL_FRAMEBUFFER, self->renderPass->renderTarget->__crossplatformFetchInt("framebuffer"));
+    glViewport(0, 0, self->renderPass->renderTarget->size.x, self->renderPass->renderTarget->size.y);
     if (renderPass->config.loadAction == ELRenderPassLoadActionClear) {
         ELVector4 clearColor = renderPass->config.clearColor;
         glClearColor(clearColor.r, clearColor.g, clearColor.b, clearColor.a);

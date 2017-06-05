@@ -1,0 +1,552 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8E867CD61EE55E6300E16D53 /* EZGLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E867CCC1EE55E6300E16D53 /* EZGLib.framework */; };
+		8E867CDB1EE55E6300E16D53 /* EZGLibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E867CDA1EE55E6300E16D53 /* EZGLibTests.m */; };
+		8E867D241EE55EBC00E16D53 /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E867CF01EE55EBC00E16D53 /* CMakeLists.txt */; };
+		8E867D251EE55EBC00E16D53 /* ELAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867CF11EE55EBC00E16D53 /* ELAdapter.h */; };
+		8E867D261EE55EBC00E16D53 /* ELCppBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867CF21EE55EBC00E16D53 /* ELCppBase.h */; };
+		8E867D271EE55EBC00E16D53 /* ELCrossPlatformObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E867CF31EE55EBC00E16D53 /* ELCrossPlatformObject.cpp */; };
+		8E867D281EE55EBC00E16D53 /* ELCrossPlatformObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867CF41EE55EBC00E16D53 /* ELCrossPlatformObject.h */; };
+		8E867D291EE55EBC00E16D53 /* ELPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867CF51EE55EBC00E16D53 /* ELPlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8E867D2A1EE55EBC00E16D53 /* ELRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867CF61EE55EBC00E16D53 /* ELRenderer.h */; };
+		8E867D2B1EE55EBC00E16D53 /* ELRenderPass.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867CF71EE55EBC00E16D53 /* ELRenderPass.h */; };
+		8E867D2C1EE55EBC00E16D53 /* ELRenderPipline.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867CF81EE55EBC00E16D53 /* ELRenderPipline.h */; };
+		8E867D2D1EE55EBC00E16D53 /* ELRenderTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867CF91EE55EBC00E16D53 /* ELRenderTarget.h */; };
+		8E867D2E1EE55EBC00E16D53 /* ELTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867CFA1EE55EBC00E16D53 /* ELTexture.h */; };
+		8E867D2F1EE55EBC00E16D53 /* ELVertexBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867CFB1EE55EBC00E16D53 /* ELVertexBuffer.h */; };
+		8E867D421EE55EBC00E16D53 /* ELGeometryTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867D111EE55EBC00E16D53 /* ELGeometryTypes.h */; };
+		8E867D431EE55EBC00E16D53 /* ELMatrix3.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867D121EE55EBC00E16D53 /* ELMatrix3.h */; };
+		8E867D441EE55EBC00E16D53 /* ELMatrix4.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867D131EE55EBC00E16D53 /* ELMatrix4.h */; };
+		8E867D451EE55EBC00E16D53 /* ELPixelFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867D141EE55EBC00E16D53 /* ELPixelFormat.h */; };
+		8E867D461EE55EBC00E16D53 /* ELQuaternion.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867D151EE55EBC00E16D53 /* ELQuaternion.h */; };
+		8E867D471EE55EBC00E16D53 /* ELTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867D161EE55EBC00E16D53 /* ELTransform.h */; };
+		8E867D481EE55EBC00E16D53 /* ELVector2.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867D171EE55EBC00E16D53 /* ELVector2.h */; };
+		8E867D491EE55EBC00E16D53 /* ELVector3.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867D181EE55EBC00E16D53 /* ELVector3.h */; };
+		8E867D4A1EE55EBC00E16D53 /* ELVector4.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867D191EE55EBC00E16D53 /* ELVector4.h */; };
+		8E867D4B1EE55EBC00E16D53 /* EZGLBasicTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867D1A1EE55EBC00E16D53 /* EZGLBasicTypes.h */; };
+		8E867D4C1EE55EBC00E16D53 /* EZGLMatrixTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867D1B1EE55EBC00E16D53 /* EZGLMatrixTypes.h */; };
+		8E867D4D1EE55EBC00E16D53 /* EZGLTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867D1C1EE55EBC00E16D53 /* EZGLTypes.h */; };
+		8E867D4E1EE55EBC00E16D53 /* EZGLVectorTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867D1D1EE55EBC00E16D53 /* EZGLVectorTypes.h */; };
+		8E867D4F1EE55EBC00E16D53 /* ELAssets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E867D1F1EE55EBC00E16D53 /* ELAssets.cpp */; };
+		8E867D501EE55EBC00E16D53 /* ELAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867D201EE55EBC00E16D53 /* ELAssets.h */; };
+		8E867D511EE55EBC00E16D53 /* ELFileUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E867D211EE55EBC00E16D53 /* ELFileUtil.cpp */; };
+		8E867D521EE55EBC00E16D53 /* ELFileUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867D221EE55EBC00E16D53 /* ELFileUtil.h */; };
+		8E867D531EE55EBC00E16D53 /* ELUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E867D231EE55EBC00E16D53 /* ELUtils.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8E867CD71EE55E6300E16D53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E867CC31EE55E6300E16D53 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8E867CCB1EE55E6300E16D53;
+			remoteInfo = EZGLib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8E867CCC1EE55E6300E16D53 /* EZGLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EZGLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E867CD01EE55E6300E16D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E867CD51EE55E6300E16D53 /* EZGLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EZGLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E867CDA1EE55E6300E16D53 /* EZGLibTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EZGLibTests.m; sourceTree = "<group>"; };
+		8E867CDC1EE55E6300E16D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E867CF01EE55EBC00E16D53 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		8E867CF11EE55EBC00E16D53 /* ELAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAdapter.h; sourceTree = "<group>"; };
+		8E867CF21EE55EBC00E16D53 /* ELCppBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCppBase.h; sourceTree = "<group>"; };
+		8E867CF31EE55EBC00E16D53 /* ELCrossPlatformObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ELCrossPlatformObject.cpp; sourceTree = "<group>"; };
+		8E867CF41EE55EBC00E16D53 /* ELCrossPlatformObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCrossPlatformObject.h; sourceTree = "<group>"; };
+		8E867CF51EE55EBC00E16D53 /* ELPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELPlatform.h; sourceTree = "<group>"; };
+		8E867CF61EE55EBC00E16D53 /* ELRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELRenderer.h; sourceTree = "<group>"; };
+		8E867CF71EE55EBC00E16D53 /* ELRenderPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELRenderPass.h; sourceTree = "<group>"; };
+		8E867CF81EE55EBC00E16D53 /* ELRenderPipline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELRenderPipline.h; sourceTree = "<group>"; };
+		8E867CF91EE55EBC00E16D53 /* ELRenderTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELRenderTarget.h; sourceTree = "<group>"; };
+		8E867CFA1EE55EBC00E16D53 /* ELTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTexture.h; sourceTree = "<group>"; };
+		8E867CFB1EE55EBC00E16D53 /* ELVertexBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELVertexBuffer.h; sourceTree = "<group>"; };
+		8E867D111EE55EBC00E16D53 /* ELGeometryTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELGeometryTypes.h; sourceTree = "<group>"; };
+		8E867D121EE55EBC00E16D53 /* ELMatrix3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELMatrix3.h; sourceTree = "<group>"; };
+		8E867D131EE55EBC00E16D53 /* ELMatrix4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELMatrix4.h; sourceTree = "<group>"; };
+		8E867D141EE55EBC00E16D53 /* ELPixelFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELPixelFormat.h; sourceTree = "<group>"; };
+		8E867D151EE55EBC00E16D53 /* ELQuaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuaternion.h; sourceTree = "<group>"; };
+		8E867D161EE55EBC00E16D53 /* ELTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTransform.h; sourceTree = "<group>"; };
+		8E867D171EE55EBC00E16D53 /* ELVector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELVector2.h; sourceTree = "<group>"; };
+		8E867D181EE55EBC00E16D53 /* ELVector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELVector3.h; sourceTree = "<group>"; };
+		8E867D191EE55EBC00E16D53 /* ELVector4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELVector4.h; sourceTree = "<group>"; };
+		8E867D1A1EE55EBC00E16D53 /* EZGLBasicTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZGLBasicTypes.h; sourceTree = "<group>"; };
+		8E867D1B1EE55EBC00E16D53 /* EZGLMatrixTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZGLMatrixTypes.h; sourceTree = "<group>"; };
+		8E867D1C1EE55EBC00E16D53 /* EZGLTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZGLTypes.h; sourceTree = "<group>"; };
+		8E867D1D1EE55EBC00E16D53 /* EZGLVectorTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZGLVectorTypes.h; sourceTree = "<group>"; };
+		8E867D1F1EE55EBC00E16D53 /* ELAssets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ELAssets.cpp; sourceTree = "<group>"; };
+		8E867D201EE55EBC00E16D53 /* ELAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAssets.h; sourceTree = "<group>"; };
+		8E867D211EE55EBC00E16D53 /* ELFileUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ELFileUtil.cpp; sourceTree = "<group>"; };
+		8E867D221EE55EBC00E16D53 /* ELFileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELFileUtil.h; sourceTree = "<group>"; };
+		8E867D231EE55EBC00E16D53 /* ELUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELUtils.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8E867CC81EE55E6300E16D53 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E867CD21EE55E6300E16D53 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E867CD61EE55E6300E16D53 /* EZGLib.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8E867CC21EE55E6300E16D53 = {
+			isa = PBXGroup;
+			children = (
+				8E867CCE1EE55E6300E16D53 /* EZGLib */,
+				8E867CD91EE55E6300E16D53 /* EZGLibTests */,
+				8E867CCD1EE55E6300E16D53 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8E867CCD1EE55E6300E16D53 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8E867CCC1EE55E6300E16D53 /* EZGLib.framework */,
+				8E867CD51EE55E6300E16D53 /* EZGLibTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8E867CCE1EE55E6300E16D53 /* EZGLib */ = {
+			isa = PBXGroup;
+			children = (
+				8E867CEF1EE55EBC00E16D53 /* platform */,
+				8E867CD01EE55E6300E16D53 /* Info.plist */,
+			);
+			path = EZGLib;
+			sourceTree = "<group>";
+		};
+		8E867CD91EE55E6300E16D53 /* EZGLibTests */ = {
+			isa = PBXGroup;
+			children = (
+				8E867CDA1EE55E6300E16D53 /* EZGLibTests.m */,
+				8E867CDC1EE55E6300E16D53 /* Info.plist */,
+			);
+			path = EZGLibTests;
+			sourceTree = "<group>";
+		};
+		8E867CEF1EE55EBC00E16D53 /* platform */ = {
+			isa = PBXGroup;
+			children = (
+				8E867CF01EE55EBC00E16D53 /* CMakeLists.txt */,
+				8E867CF11EE55EBC00E16D53 /* ELAdapter.h */,
+				8E867CF21EE55EBC00E16D53 /* ELCppBase.h */,
+				8E867CF31EE55EBC00E16D53 /* ELCrossPlatformObject.cpp */,
+				8E867CF41EE55EBC00E16D53 /* ELCrossPlatformObject.h */,
+				8E867CF51EE55EBC00E16D53 /* ELPlatform.h */,
+				8E867CF61EE55EBC00E16D53 /* ELRenderer.h */,
+				8E867CF71EE55EBC00E16D53 /* ELRenderPass.h */,
+				8E867CF81EE55EBC00E16D53 /* ELRenderPipline.h */,
+				8E867CF91EE55EBC00E16D53 /* ELRenderTarget.h */,
+				8E867CFA1EE55EBC00E16D53 /* ELTexture.h */,
+				8E867CFB1EE55EBC00E16D53 /* ELVertexBuffer.h */,
+				8E867D101EE55EBC00E16D53 /* types */,
+				8E867D1E1EE55EBC00E16D53 /* utils */,
+			);
+			name = platform;
+			path = ../../../../ezgl/platform;
+			sourceTree = "<group>";
+		};
+		8E867D101EE55EBC00E16D53 /* types */ = {
+			isa = PBXGroup;
+			children = (
+				8E867D111EE55EBC00E16D53 /* ELGeometryTypes.h */,
+				8E867D121EE55EBC00E16D53 /* ELMatrix3.h */,
+				8E867D131EE55EBC00E16D53 /* ELMatrix4.h */,
+				8E867D141EE55EBC00E16D53 /* ELPixelFormat.h */,
+				8E867D151EE55EBC00E16D53 /* ELQuaternion.h */,
+				8E867D161EE55EBC00E16D53 /* ELTransform.h */,
+				8E867D171EE55EBC00E16D53 /* ELVector2.h */,
+				8E867D181EE55EBC00E16D53 /* ELVector3.h */,
+				8E867D191EE55EBC00E16D53 /* ELVector4.h */,
+				8E867D1A1EE55EBC00E16D53 /* EZGLBasicTypes.h */,
+				8E867D1B1EE55EBC00E16D53 /* EZGLMatrixTypes.h */,
+				8E867D1C1EE55EBC00E16D53 /* EZGLTypes.h */,
+				8E867D1D1EE55EBC00E16D53 /* EZGLVectorTypes.h */,
+			);
+			path = types;
+			sourceTree = "<group>";
+		};
+		8E867D1E1EE55EBC00E16D53 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				8E867D1F1EE55EBC00E16D53 /* ELAssets.cpp */,
+				8E867D201EE55EBC00E16D53 /* ELAssets.h */,
+				8E867D211EE55EBC00E16D53 /* ELFileUtil.cpp */,
+				8E867D221EE55EBC00E16D53 /* ELFileUtil.h */,
+				8E867D231EE55EBC00E16D53 /* ELUtils.h */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8E867CC91EE55E6300E16D53 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E867D291EE55EBC00E16D53 /* ELPlatform.h in Headers */,
+				8E867D2B1EE55EBC00E16D53 /* ELRenderPass.h in Headers */,
+				8E867D2F1EE55EBC00E16D53 /* ELVertexBuffer.h in Headers */,
+				8E867D441EE55EBC00E16D53 /* ELMatrix4.h in Headers */,
+				8E867D261EE55EBC00E16D53 /* ELCppBase.h in Headers */,
+				8E867D451EE55EBC00E16D53 /* ELPixelFormat.h in Headers */,
+				8E867D2C1EE55EBC00E16D53 /* ELRenderPipline.h in Headers */,
+				8E867D4C1EE55EBC00E16D53 /* EZGLMatrixTypes.h in Headers */,
+				8E867D501EE55EBC00E16D53 /* ELAssets.h in Headers */,
+				8E867D4D1EE55EBC00E16D53 /* EZGLTypes.h in Headers */,
+				8E867D471EE55EBC00E16D53 /* ELTransform.h in Headers */,
+				8E867D4B1EE55EBC00E16D53 /* EZGLBasicTypes.h in Headers */,
+				8E867D531EE55EBC00E16D53 /* ELUtils.h in Headers */,
+				8E867D2E1EE55EBC00E16D53 /* ELTexture.h in Headers */,
+				8E867D521EE55EBC00E16D53 /* ELFileUtil.h in Headers */,
+				8E867D431EE55EBC00E16D53 /* ELMatrix3.h in Headers */,
+				8E867D461EE55EBC00E16D53 /* ELQuaternion.h in Headers */,
+				8E867D251EE55EBC00E16D53 /* ELAdapter.h in Headers */,
+				8E867D281EE55EBC00E16D53 /* ELCrossPlatformObject.h in Headers */,
+				8E867D4E1EE55EBC00E16D53 /* EZGLVectorTypes.h in Headers */,
+				8E867D421EE55EBC00E16D53 /* ELGeometryTypes.h in Headers */,
+				8E867D2D1EE55EBC00E16D53 /* ELRenderTarget.h in Headers */,
+				8E867D2A1EE55EBC00E16D53 /* ELRenderer.h in Headers */,
+				8E867D4A1EE55EBC00E16D53 /* ELVector4.h in Headers */,
+				8E867D481EE55EBC00E16D53 /* ELVector2.h in Headers */,
+				8E867D491EE55EBC00E16D53 /* ELVector3.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8E867CCB1EE55E6300E16D53 /* EZGLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E867CE01EE55E6300E16D53 /* Build configuration list for PBXNativeTarget "EZGLib" */;
+			buildPhases = (
+				8E867CC71EE55E6300E16D53 /* Sources */,
+				8E867CC81EE55E6300E16D53 /* Frameworks */,
+				8E867CC91EE55E6300E16D53 /* Headers */,
+				8E867CCA1EE55E6300E16D53 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EZGLib;
+			productName = EZGLib;
+			productReference = 8E867CCC1EE55E6300E16D53 /* EZGLib.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8E867CD41EE55E6300E16D53 /* EZGLibTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E867CE31EE55E6300E16D53 /* Build configuration list for PBXNativeTarget "EZGLibTests" */;
+			buildPhases = (
+				8E867CD11EE55E6300E16D53 /* Sources */,
+				8E867CD21EE55E6300E16D53 /* Frameworks */,
+				8E867CD31EE55E6300E16D53 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8E867CD81EE55E6300E16D53 /* PBXTargetDependency */,
+			);
+			name = EZGLibTests;
+			productName = EZGLibTests;
+			productReference = 8E867CD51EE55E6300E16D53 /* EZGLibTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8E867CC31EE55E6300E16D53 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = wangyang;
+				TargetAttributes = {
+					8E867CCB1EE55E6300E16D53 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = P48344HVQL;
+						ProvisioningStyle = Automatic;
+					};
+					8E867CD41EE55E6300E16D53 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = P48344HVQL;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 8E867CC61EE55E6300E16D53 /* Build configuration list for PBXProject "EZGLib" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8E867CC21EE55E6300E16D53;
+			productRefGroup = 8E867CCD1EE55E6300E16D53 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8E867CCB1EE55E6300E16D53 /* EZGLib */,
+				8E867CD41EE55E6300E16D53 /* EZGLibTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8E867CCA1EE55E6300E16D53 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E867D241EE55EBC00E16D53 /* CMakeLists.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E867CD31EE55E6300E16D53 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8E867CC71EE55E6300E16D53 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E867D511EE55EBC00E16D53 /* ELFileUtil.cpp in Sources */,
+				8E867D271EE55EBC00E16D53 /* ELCrossPlatformObject.cpp in Sources */,
+				8E867D4F1EE55EBC00E16D53 /* ELAssets.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E867CD11EE55E6300E16D53 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E867CDB1EE55E6300E16D53 /* EZGLibTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8E867CD81EE55E6300E16D53 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8E867CCB1EE55E6300E16D53 /* EZGLib */;
+			targetProxy = 8E867CD71EE55E6300E16D53 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8E867CDE1EE55E6300E16D53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8E867CDF1EE55E6300E16D53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8E867CE11EE55E6300E16D53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = P48344HVQL;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EZGLib/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ocean.me.EZGLib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		8E867CE21EE55E6300E16D53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = P48344HVQL;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EZGLib/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ocean.me.EZGLib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		8E867CE41EE55E6300E16D53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = P48344HVQL;
+				INFOPLIST_FILE = EZGLibTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ocean.me.EZGLibTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8E867CE51EE55E6300E16D53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = P48344HVQL;
+				INFOPLIST_FILE = EZGLibTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ocean.me.EZGLibTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8E867CC61EE55E6300E16D53 /* Build configuration list for PBXProject "EZGLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E867CDE1EE55E6300E16D53 /* Debug */,
+				8E867CDF1EE55E6300E16D53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E867CE01EE55E6300E16D53 /* Build configuration list for PBXNativeTarget "EZGLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E867CE11EE55E6300E16D53 /* Debug */,
+				8E867CE21EE55E6300E16D53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E867CE31EE55E6300E16D53 /* Build configuration list for PBXNativeTarget "EZGLibTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E867CE41EE55E6300E16D53 /* Debug */,
+				8E867CE51EE55E6300E16D53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8E867CC31EE55E6300E16D53 /* Project object */;
+}
