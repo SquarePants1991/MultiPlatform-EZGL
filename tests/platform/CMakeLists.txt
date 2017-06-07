@@ -1,6 +1,8 @@
 file(GLOB PlatformSrc
         "*.h"
         "*.cpp"
+        "Test Scenes/*.h"
+        "Test Scenes/*.cpp"
         )
 
 include_directories(${CMAKE_SOURCE_DIR}/ezgl/platform)

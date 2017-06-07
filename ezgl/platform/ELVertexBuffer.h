@@ -32,12 +32,15 @@ public:
     std::vector<ELVertexAttribute> attributes;
     std::vector<unsigned char> buffer;
     ELVertexBufferType bufferType;
+    ELInt vertexSizeInBytes;
+    bool useIndex; // 是否使用索引
 public:
     ELVertexBufferPtr init();
-    ELVertexBufferPtr init(void *data, ELInt size, ELVertexBufferType bufferType);
+    ELVertexBufferPtr init(void *data, ELInt sizeInBytes, ELInt vertexSizeInBytes,ELVertexBufferType bufferType);
     void append(void *data, ELInt size);
     ELVertexBufferPtr subbuffer(ELInt from, ELInt length);
     ELInt size();
+    ELInt vertexCount();
     void clear();
     void *data();
     void addAttribute(ELVertexAttribute attribute);

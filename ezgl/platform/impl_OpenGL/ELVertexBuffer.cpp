@@ -24,31 +24,18 @@ static void updateVBO(ELVertexBufferPtr buffer) {
     glBufferData(GL_ARRAY_BUFFER, buffer->size(), buffer->data(), glBufferType);
 }
 
-//static void genVAO(ELVertexBufferPtr buffer) {
-//    GLuint vao;
-//    GLuint vbo = (GLuint)(buffer->__crossplatformFetchInt("vbo"));
-//    glBindBuffer(GL_ARRAY_BUFFER, vbo);
-//    glGenVertexArrays(1, &vao);
-//    glBindVertexArray(vao);
-//
-//    for (int i = 0; i < buffer->attributes.size(); ++i) {
-//        ELVertexAttribute attr = buffer->attributes.at(i);
-//        glGetAttribLocation();
-//    }
-//
-//    glBindVertexArray(0);
-//}
-
 ELVertexBufferPtr ELVertexBuffer::init() {
     genVBO(self);
     return self;
 }
 
-ELVertexBufferPtr ELVertexBuffer::init(void *data, ELInt size, ELVertexBufferType bufferType) {
-    for (int i = 0; i < size; ++i) {
+ELVertexBufferPtr ELVertexBuffer::init(void *data, ELInt sizeInBytes, ELInt vertexSizeInBytes, ELVertexBufferType bufferType) {
+    for (int i = 0; i < sizeInBytes; ++i) {
         buffer.push_back(*((unsigned char *)data + i));
     }
+    self->useIndex = false;
     self->bufferType = bufferType;
+    self->vertexSizeInBytes = vertexSizeInBytes;
     genVBO(self);
     return self;
 }
@@ -62,6 +49,14 @@ void ELVertexBuffer::append(void *data, ELInt size) {
 
 ELInt ELVertexBuffer::size() {
     return buffer.size();
+}
+
+ELInt ELVertexBuffer::vertexCount() {
+    if (useIndex) {
+        //TODO: 为支持索引留下缺口
+        return 0;
+    }
+    return buffer.size() / vertexSizeInBytes;
 }
 
 void ELVertexBuffer::clear() {
@@ -79,6 +74,6 @@ void ELVertexBuffer::addAttribute(ELVertexAttribute attribute) {
 ELVertexBufferPtr ELVertexBuffer::subbuffer(ELInt from, ELInt length) {
     void *bufferData = data();
     void *bufferStart = (void *)((unsigned char *)bufferData + from);
-    ELVertexBufferPtr subBuffer = ELVertexBuffer::alloc()->init(bufferStart, length, bufferType);
+    ELVertexBufferPtr subBuffer = ELVertexBuffer::alloc()->init(bufferStart, length, self->vertexSizeInBytes, bufferType);
     return subBuffer;
 }

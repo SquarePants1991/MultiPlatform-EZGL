@@ -6,6 +6,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <cstdlib>
+#include <cassert>
 
 bool createProgram(const char *vertexShader, const char *fragmentShader, GLuint *pProgram);
 bool compileShader(GLuint *shader, GLenum type, const GLchar *source);
@@ -13,11 +14,19 @@ bool validateProgram(GLuint prog);
 bool linkProgram(GLuint prog);
 
 crossplatform_var_int(program)
+crossplatform_var_int(maxTextureUnits)
+
+// 用来进行纹理资源计数
+static int gl_texture_id_counter = 0;
 
 ELRenderPiplinePtr ELRenderPipline::init(std::string vertexShader, std::string fragmentShader) {
     GLuint program;
     createProgram(vertexShader.c_str(), fragmentShader.c_str(), &program);
     programSet(this, program);
+
+    int maxTextureUnits;
+    glGetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS, &maxTextureUnits);
+    maxTextureUnitsSet(this, maxTextureUnits);
     return self;
 }
 
@@ -68,13 +77,19 @@ void ELRenderPipline::setUniform(ELMatrix4 val, ELInt location) {
     glUniformMatrix4fv(location, 1, false, val.m);
 }
 
-void ELRenderPipline::bindTexture(ELTexturePtr texture, ELInt uniformLocation, ELInt textureID) {
+void ELRenderPipline::bindTexture(ELTexturePtr texture, ELInt uniformLocation) {
+    assert (gl_texture_id_counter < maxTextureUnitsGet(this));
     ELInt glTextureVal = texture->__crossplatformFetchInt("glVal");
     if (glTextureVal >= 0) {
-        glUniform1i(uniformLocation, textureID);
-        glActiveTexture(GL_TEXTURE0 + textureID);
+        glUniform1i(uniformLocation, gl_texture_id_counter);
+        glActiveTexture(GL_TEXTURE0 + gl_texture_id_counter);
         glBindTexture(GL_TEXTURE_2D, glTextureVal);
     }
+    gl_texture_id_counter++;
+}
+
+void ELRenderPipline::clearState() {
+    gl_texture_id_counter = 0;
 }
 
 

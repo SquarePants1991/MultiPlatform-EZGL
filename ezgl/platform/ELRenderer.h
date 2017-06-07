@@ -10,6 +10,7 @@
 #include "types/EZGLTypes.h"
 #include "ELRenderPass.h"
 #include "ELVertexBuffer.h"
+#include "ELCompositionVertexBuffer.h"
 #include "ELRenderPipline.h"
 
 enum ELPrimitivesType {
@@ -27,6 +28,7 @@ public:
 
     void prepare();
     void drawPrimitives(ELPrimitivesType type, ELVertexBufferPtr vertexBuffer);
+    void drawPrimitives(ELPrimitivesType type, ELCompositionVertexBufferPtr vertexBuffer);
     void drawIndexedPrimitives(ELPrimitivesType type, ELVertexBufferPtr vertexBuffer, ELVertexBufferPtr indexBuffer);
     void endRender();
 

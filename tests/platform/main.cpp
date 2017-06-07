@@ -1,12 +1,31 @@
 #include "impl_OpenGL/ELGLAdapter.h"
 #include <GLFW/glfw3.h>
-#include <ELRenderPass.h>
-#include <ELPlatform.h>
 #include "ELPlatform.h"
+#include "TestScene.h"
+#include <sstream>
 
-void init();
+std::vector<TestScene *> testScenes;
+std::vector<std::string> sceneNames;
 
+#define RegisterTestScene(Name, Desc) \
+    sceneNames.push_back(Desc);\
+    testScenes.push_back(new Name());
+
+#include "Test Scenes/BasicFlowTests.h"
+#include "Test Scenes/MultiBufferTests.h"
+
+void registerScenes() {
+    RegisterTestScene(BasicFlowTests, "基本渲染流程测试&渲染到纹理");
+    RegisterTestScene(MultiBufferTests, "使用多Buffer渲染单个物体");
+}
+
+int currentShowSceneIndex = 0;
+double lastTime;
+double elapsedTime;
+void init(GLFWwindow *);
 void gameLoop();
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+void syncTitle(GLFWwindow* window);
 
 int main(void) {
     GLFWwindow *window;
@@ -33,7 +52,7 @@ int main(void) {
     printf("%s", (char *) glGetString(GL_SHADING_LANGUAGE_VERSION));
 
     ELGLAdapter::defaultAdapter()->setup(window);
-    init();
+    init(window);
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window)) {
@@ -48,161 +67,49 @@ int main(void) {
     return 0;
 }
 
-ELRenderPiplinePtr pipline;
-ELRenderPassPtr mainRenderPass;
-ELRendererPtr renderer;
-ELVertexBufferPtr cubeVertexBuffer;
-ELVertexBufferPtr squareVertexBuffer;
-ELTexturePtr diffuseTexture;
-
-ELRenderTargetPtr renderToTextureTarget;
-ELRenderPassPtr renderToTextureRenderPass;
-ELRendererPtr renderToTextureRender;
-
-ELRenderTargetPtr renderToDepthTextureTarget;
-ELRenderPassPtr renderToDepthTextureRenderPass;
-ELRendererPtr renderToDepthTextureRender;
-
-void init() {
-    ELRenderTargetPtr defaultRenderTarget = ELRenderTarget::defaultTarget();
-
-    ELAssets::shared()->addSearchPath("/Users/wangyang/Documents/Projects/On Git/EZGLKit_M/tests/platform/");
-    ELAssets::shared()->addSearchPath("/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/tests/platform/");
-
-    std::string vertexShader = ELFileUtil::stringContentOfShader(ELAssets::shared()->findFile("vertex.glsl"));
-    std::string fragmentShader = ELFileUtil::stringContentOfShader(ELAssets::shared()->findFile("fragment.glsl"));
-
-    pipline = ELRenderPipline::alloc()->init(vertexShader, fragmentShader);
-
-    ELRenderPassConfig config = ELRenderPassConfig();
-    config.clearColor = ELVector4Make(0.1, 0.1, 0.1, 1.0);
-    config.loadAction = ELRenderPassLoadActionClear;
-    mainRenderPass = ELRenderPass::alloc()->init(config, defaultRenderTarget);
-
-    renderer = ELRenderer::alloc()->init(mainRenderPass, pipline);
-
-    std::string imagePath = ELAssets::shared()->findFile("texture.jpg");
-    diffuseTexture = ELTexture::alloc()->init(imagePath);
-    static GLfloat data[] = {
-            // X轴0.5处的平面
-            0.5, -0.5, 0.5f, 1, 0, 0, 0, 0,
-            0.5, -0.5f, -0.5f, 1, 0, 0, 0, 1,
-            0.5, 0.5f, -0.5f, 1, 0, 0, 1, 1,
-            0.5, 0.5, -0.5f, 1, 0, 0, 1, 1,
-            0.5, 0.5f, 0.5f, 1, 0, 0, 1, 0,
-            0.5, -0.5f, 0.5f, 1, 0, 0, 0, 0,
-            // X轴-0.5处的平面
-            -0.5, -0.5, 0.5f, -1, 0, 0, 0, 0,
-            -0.5, -0.5f, -0.5f, -1, 0, 0, 0, 1,
-            -0.5, 0.5f, -0.5f, -1, 0, 0, 1, 1,
-            -0.5, 0.5, -0.5f, -1, 0, 0, 1, 1,
-            -0.5, 0.5f, 0.5f, -1, 0, 0, 1, 0,
-            -0.5, -0.5f, 0.5f, -1, 0, 0, 0, 0,
-
-            -0.5, 0.5, 0.5f, 0, 1, 0, 0, 0,
-            -0.5f, 0.5, -0.5f, 0, 1, 0, 0, 1,
-            0.5f, 0.5, -0.5f, 0, 1, 0, 1, 1,
-            0.5, 0.5, -0.5f, 0, 1, 0, 1, 1,
-            0.5f, 0.5, 0.5f, 0, 1, 0, 1, 0,
-            -0.5f, 0.5, 0.5f, 0, 1, 0, 0, 0,
-            -0.5, -0.5, 0.5f, 0, -1, 0, 0, 0,
-            -0.5f, -0.5, -0.5f, 0, -1, 0, 0, 1,
-            0.5f, -0.5, -0.5f, 0, -1, 0, 1, 1,
-            0.5, -0.5, -0.5f, 0, -1, 0, 1, 1,
-            0.5f, -0.5, 0.5f, 0, -1, 0, 1, 0,
-            -0.5f, -0.5, 0.5f, 0, -1, 0, 0, 0,
-
-            -0.5, 0.5f, 0.5, 0, 0, 1, 0, 0,
-            -0.5f, -0.5f, 0.5, 0, 0, 1, 0, 1,
-            0.5f, -0.5f, 0.5, 0, 0, 1, 1, 1,
-            0.5, -0.5f, 0.5, 0, 0, 1, 1, 1,
-            0.5f, 0.5f, 0.5, 0, 0, 1, 1, 0,
-            -0.5f, 0.5f, 0.5, 0, 0, 1, 0, 0,
-            -0.5, 0.5f, -0.5, 0, 0, -1, 0, 0,
-            -0.5f, -0.5f, -0.5, 0, 0, -1, 0, 1,
-            0.5f, -0.5f, -0.5, 0, 0, -1, 1, 1,
-            0.5, -0.5f, -0.5, 0, 0, -1, 1, 1,
-            0.5f, 0.5f, -0.5, 0, 0, -1, 1, 0,
-            -0.5f, 0.5f, -0.5, 0, 0, -1, 0, 0,
-    };
-
-    cubeVertexBuffer = ELVertexBuffer::alloc()->init(data, sizeof(data), ELVertexBufferTypeStatic);
-    ELVertexAttribute positionAttr;
-    positionAttr.dataType = ELVertexAttributeDataTypeFloat;
-    positionAttr.sizeInBytes = sizeof(GLfloat) * 3;
-    positionAttr.offsetInBytes = 0;
-    positionAttr.name = "position";
-    cubeVertexBuffer->addAttribute(positionAttr);
-    ELVertexAttribute colorAttr;
-    colorAttr.dataType = ELVertexAttributeDataTypeFloat;
-    colorAttr.sizeInBytes = sizeof(GLfloat) * 3;
-    colorAttr.offsetInBytes = sizeof(GLfloat) * 3;
-    colorAttr.name = "color";
-    cubeVertexBuffer->addAttribute(colorAttr);
-    ELVertexAttribute uvAttr;
-    uvAttr.dataType = ELVertexAttributeDataTypeFloat;
-    uvAttr.sizeInBytes = sizeof(GLfloat) * 2;
-    uvAttr.offsetInBytes = sizeof(GLfloat) * 6;
-    uvAttr.name = "uv";
-    cubeVertexBuffer->addAttribute(uvAttr);
-
-
-    static GLfloat squareData[] = {
-            -0.5, 0.5f, -0.5, 0, 0, 1, 0, 0,
-            -0.5f, -0.5f, -0.5, 0, 0, 1, 0, 1,
-            0.5f, -0.5f, -0.5, 0, 0, 1, 1, 1,
-            0.5, -0.5f, -0.5, 0, 0, 1, 1, 1,
-            0.5f, 0.5f, -0.5, 0, 0, 1, 1, 0,
-            -0.5f, 0.5f, -0.5, 0, 0, 1, 0, 0
-    };
-    squareVertexBuffer = ELVertexBuffer::alloc()->init(squareData, sizeof(squareData), ELVertexBufferTypeStatic);
-    squareVertexBuffer->addAttribute(positionAttr);
-    squareVertexBuffer->addAttribute(colorAttr);
-    squareVertexBuffer->addAttribute(uvAttr);
-
-
-    renderToTextureTarget = ELRenderTarget::alloc()->init(ELPixelFormatRGBA, ELVector2Make(1024, 1024), true, false, true, true, true);
-    renderToTextureRenderPass = ELRenderPass::alloc()->init(config, renderToTextureTarget);
-    renderToTextureRender = ELRenderer::alloc()->init(renderToTextureRenderPass, pipline);
-
-    renderToDepthTextureTarget = ELRenderTarget::alloc()->init(ELPixelFormatDepth, ELVector2Make(1024, 1024), false, true, true, false, false);
-    renderToDepthTextureRenderPass = ELRenderPass::alloc()->init(config, renderToDepthTextureTarget);
-    renderToDepthTextureRender = ELRenderer::alloc()->init(renderToDepthTextureRenderPass, pipline);
+void init(GLFWwindow *window) {
+    registerScenes();
+    glfwSetKeyCallback(window, key_callback);
+    lastTime = glfwGetTime();
+    elapsedTime = 0;
+    syncTitle(window);
 }
 
 void gameLoop() {
-    static float angle = 0.0;
-    angle += 0.01;
-    ELMatrix4 finalMatrix = ELMatrix4Identity;
+    if (testScenes.size() <= 0) {
+        return;
+    }
+    double now = glfwGetTime();
+    double deltaTime = now - lastTime;
+    elapsedTime += deltaTime;
+    lastTime = now;
+    TestScene *scene = testScenes[currentShowSceneIndex];
+    scene->update(deltaTime);
+}
 
-    ELMatrix4 projection = ELMatrix4MakePerspective(90.0 * M_PI / 180.0, 640 / 480.0, 0.1, 1000);
-    ELMatrix4 view = ELMatrix4MakeLookAt(0, 0, 2, 0, 0, 0, 0, 1, 0);
-    ELMatrix4 model = ELMatrix4MakeRotation(angle, 1, 1, 1);
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+    if (key == GLFW_KEY_LEFT && action == GLFW_PRESS) {
+        currentShowSceneIndex --;
+        if (currentShowSceneIndex < 0) {
+            currentShowSceneIndex = sceneNames.size() - 1;
+        }
+    } else if (key == GLFW_KEY_RIGHT && action == GLFW_PRESS) {
+        currentShowSceneIndex ++;
+        if (currentShowSceneIndex > sceneNames.size() - 1) {
+            currentShowSceneIndex = 0;
+        }
+    }
+    syncTitle(window);
+}
 
-    finalMatrix = ELMatrix4Multiply(view, model);
-    finalMatrix = ELMatrix4Multiply(projection, finalMatrix);
-    renderToTextureRender->prepare();
-    renderToTextureRender->pipline->setUniform(finalMatrix, renderToTextureRender->pipline->getUniformLocation("transform"));
-    renderToTextureRender->pipline->bindTexture(diffuseTexture, renderToTextureRender->pipline->getUniformLocation("diffuse"), 0);
-    renderToTextureRender->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
-
-    renderToDepthTextureRender->prepare();
-    renderToDepthTextureRender->pipline->setUniform(finalMatrix, renderToDepthTextureRender->pipline->getUniformLocation("transform"));
-    renderToDepthTextureRender->pipline->bindTexture(diffuseTexture, renderToDepthTextureRender->pipline->getUniformLocation("diffuse"), 0);
-    renderToDepthTextureRender->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
-
-    renderer->prepare();
-    renderer->pipline->setUniform(finalMatrix, renderer->pipline->getUniformLocation("transform"));
-    renderer->pipline->bindTexture(diffuseTexture, renderer->pipline->getUniformLocation("diffuse"), 0);
-    renderer->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
-
-    renderer->pipline->bindTexture(renderToTextureTarget->bindTexture, renderer->pipline->getUniformLocation("diffuse"), 0);
-    projection = ELMatrix4MakeOrtho(-0.5, 3.5, -3.5, 0.5, 0, 100);
-    renderer->pipline->setUniform(projection, renderer->pipline->getUniformLocation("transform"));
-    renderer->drawPrimitives(ELPrimitivesTypeTriangle, squareVertexBuffer);
-
-    renderer->pipline->bindTexture(renderToDepthTextureTarget->bindDepthTexture, renderer->pipline->getUniformLocation("diffuse"), 0);
-    projection = ELMatrix4MakeOrtho(-0.5, 3.5, -2.5, 1.5, 0, 100);
-    renderer->pipline->setUniform(projection, renderer->pipline->getUniformLocation("transform"));
-    renderer->drawPrimitives(ELPrimitivesTypeTriangle, squareVertexBuffer);
+void syncTitle(GLFWwindow* window) {
+    if (sceneNames.size() <= 0) {
+        return;
+    }
+    std::stringstream titleStream;
+    titleStream << "（ " << currentShowSceneIndex + 1 << " / " << sceneNames.size() << " ） ";
+    titleStream << sceneNames[currentShowSceneIndex];
+    std::string copyOfStr = titleStream.str();
+    glfwSetWindowTitle(window, copyOfStr.c_str());
 }
