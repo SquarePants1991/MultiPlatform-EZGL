@@ -121,5 +121,5 @@ void IndexBufferTests::update(ELFloat deltaTime) {
     renderer->prepare();
     renderer->pipline->setUniform(finalMatrix, renderer->pipline->getUniformLocation("transform"));
     renderer->pipline->bindTexture(diffuseTexture, renderer->pipline->getUniformLocation("diffuse"));
-    renderer->drawPrimitives(ELPrimitivesTypeLine, cubeVertexBuffer);
+    renderer->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
 }
