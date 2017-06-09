@@ -31,13 +31,15 @@ classDefExt(ELVertexBuffer, public ELCrossPlatformObject)
 public:
     std::vector<ELVertexAttribute> attributes;
     std::vector<unsigned char> buffer;
+    std::vector<ELInt> indexBuffer;
     ELVertexBufferType bufferType;
     ELInt vertexSizeInBytes;
     bool useIndex; // 是否使用索引
 public:
-    ELVertexBufferPtr init();
+    ELVertexBufferPtr init(ELInt vertexSizeInBytes, ELVertexBufferType bufferType);
     ELVertexBufferPtr init(void *data, ELInt sizeInBytes, ELInt vertexSizeInBytes,ELVertexBufferType bufferType);
     void append(void *data, ELInt size);
+    void flushBuffer();
     ELVertexBufferPtr subbuffer(ELInt from, ELInt length);
     ELInt size();
     ELInt vertexCount();
@@ -45,6 +47,14 @@ public:
     void *data();
     void addAttribute(ELVertexAttribute attribute);
 
+    // 索引操作
+    void enableIndex();
+    void appendIndex(void *data, ELInt size);
+    void appendIndex(ELInt index);
+    void clearIndex();
+    ELInt *indexData();
+    ELInt indexBufferSize();
+    void flushIndexBuffer();
 defEnd
 
 #endif //EZGL_ELVERTEXBUFFER_H

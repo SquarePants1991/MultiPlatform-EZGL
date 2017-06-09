@@ -24,7 +24,26 @@ static void updateVBO(ELVertexBufferPtr buffer) {
     glBufferData(GL_ARRAY_BUFFER, buffer->size(), buffer->data(), glBufferType);
 }
 
-ELVertexBufferPtr ELVertexBuffer::init() {
+static void genIBO(ELVertexBufferPtr buffer) {
+    GLuint ibo;
+    glGenBuffers(1, &ibo);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+    GLenum glBufferType = buffer->bufferType == ELVertexBufferTypeDynamic ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW;
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, buffer->indexBufferSize(), buffer->indexData(), glBufferType);
+    buffer->__crossplatformAttach("ibo", (ELInt)ibo);
+}
+
+static void updateIBO(ELVertexBufferPtr buffer) {
+    GLuint ibo = (GLuint)(buffer->__crossplatformFetchInt("ibo"));
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+    GLenum glBufferType = buffer->bufferType == ELVertexBufferTypeDynamic ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW;
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, buffer->indexBufferSize(), buffer->indexData(), glBufferType);
+}
+
+ELVertexBufferPtr ELVertexBuffer::init(ELInt vertexSizeInBytes, ELVertexBufferType bufferType) {
+    self->useIndex = false;
+    self->bufferType = bufferType;
+    self->vertexSizeInBytes = vertexSizeInBytes;
     genVBO(self);
     return self;
 }
@@ -42,8 +61,11 @@ ELVertexBufferPtr ELVertexBuffer::init(void *data, ELInt sizeInBytes, ELInt vert
 
 void ELVertexBuffer::append(void *data, ELInt size) {
     for (int i = 0; i < size; ++i) {
-        buffer.push_back(*((unsigned char *)data + i));
+        buffer.push_back(*((unsigned char *) data + i));
     }
+}
+
+void ELVertexBuffer::flushBuffer() {
     updateVBO(self);
 }
 
@@ -53,8 +75,7 @@ ELInt ELVertexBuffer::size() {
 
 ELInt ELVertexBuffer::vertexCount() {
     if (useIndex) {
-        //TODO: 为支持索引留下缺口
-        return 0;
+        return indexBuffer.size();
     }
     return buffer.size() / vertexSizeInBytes;
 }
@@ -76,4 +97,44 @@ ELVertexBufferPtr ELVertexBuffer::subbuffer(ELInt from, ELInt length) {
     void *bufferStart = (void *)((unsigned char *)bufferData + from);
     ELVertexBufferPtr subBuffer = ELVertexBuffer::alloc()->init(bufferStart, length, self->vertexSizeInBytes, bufferType);
     return subBuffer;
+}
+
+void ELVertexBuffer::enableIndex() {
+    if (self->useIndex) {
+        return;
+    }
+    self->useIndex = true;
+    genIBO(self);
+}
+
+void ELVertexBuffer::appendIndex(void *data, ELInt size) {
+    if (self->useIndex) {
+        for (int i = 0; i < size; ++i) {
+            indexBuffer.push_back(*((ELInt *)data + i));
+        }
+    }
+}
+
+void ELVertexBuffer::appendIndex(ELInt index) {
+    if (self->useIndex) {
+        indexBuffer.push_back(index);
+    }
+}
+
+void ELVertexBuffer::clearIndex() {
+    if (self->useIndex) {
+        indexBuffer.clear();
+    }
+}
+
+ELInt *ELVertexBuffer::indexData() {
+    return (ELInt *)indexBuffer.data();
+}
+
+ELInt ELVertexBuffer::indexBufferSize() {
+    return indexBuffer.size() * sizeof(ELInt);
+}
+
+void ELVertexBuffer::flushIndexBuffer() {
+    updateIBO(self);
 }

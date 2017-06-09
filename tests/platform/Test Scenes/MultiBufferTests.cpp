@@ -113,6 +113,7 @@ MultiBufferTests::MultiBufferTests() {
 
     cubeVertexBuffer = ELCompositionVertexBuffer::alloc()->init();
     ELVertexBufferPtr verticesBuffer = ELVertexBuffer::alloc()->init(vertices, sizeof(vertices), sizeof(ELFloat) * 3, ELVertexBufferTypeStatic);
+    verticesBuffer->flushBuffer();
     ELVertexAttribute positionAttr;
     positionAttr.dataType = ELVertexAttributeDataTypeFloat;
     positionAttr.sizeInBytes = sizeof(ELFloat) * 3;

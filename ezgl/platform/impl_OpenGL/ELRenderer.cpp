@@ -57,6 +57,7 @@ void ELRenderer::drawPrimitives(ELPrimitivesType type, ELCompositionVertexBuffer
     bool vaoExists;
     GLuint vao = beginDraw(self, vertexBuffer.get(), program, &vaoExists);
     ELVertexBufferPtr firstBuffer = vertexBuffer->buffers.at(0);
+    bool useIndex = false;
     if (!vaoExists) {
         glBindVertexArray(vao);
         for (auto iter = vertexBuffer->buffers.begin(); iter != vertexBuffer->buffers.end(); ++iter) {
@@ -64,6 +65,11 @@ void ELRenderer::drawPrimitives(ELPrimitivesType type, ELCompositionVertexBuffer
             ELInt vertexSize = subBuffer->vertexSizeInBytes;
             GLuint vbo = subBuffer->__crossplatformFetchInt("vbo");
             glBindBuffer(GL_ARRAY_BUFFER, vbo);
+            if (subBuffer->useIndex) {
+                GLuint ibo = subBuffer->__crossplatformFetchInt("ibo");
+                glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+                useIndex = true;
+            }
 
             for (int i = 0; i < subBuffer->attributes.size(); ++i) {
                 ELVertexAttribute attr = subBuffer->attributes.at(i);
@@ -95,7 +101,11 @@ void ELRenderer::drawPrimitives(ELPrimitivesType type, ELCompositionVertexBuffer
             break;
     }
     glBindVertexArray(vao);
-    glDrawArrays(drawType, 0, vertexBuffer->vertexCount());
+    if (useIndex) {
+        glDrawElements(drawType, vertexBuffer->vertexCount(), GL_UNSIGNED_INT, NULL);
+    } else {
+        glDrawArrays(drawType, 0, vertexBuffer->vertexCount());
+    }
 }
 
 void ELRenderer::drawPrimitives(ELPrimitivesType type, ELVertexBufferPtr vertexBuffer) {
@@ -110,6 +120,10 @@ void ELRenderer::drawPrimitives(ELPrimitivesType type, ELVertexBufferPtr vertexB
         glBindVertexArray(vao);
         GLuint vbo = vertexBuffer->__crossplatformFetchInt("vbo");
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
+        if (vertexBuffer->useIndex) {
+            GLuint ibo = vertexBuffer->__crossplatformFetchInt("ibo");
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+        }
 
         for (int i = 0; i < vertexBuffer->attributes.size(); ++i) {
             ELVertexAttribute attr = vertexBuffer->attributes.at(i);
@@ -140,7 +154,12 @@ void ELRenderer::drawPrimitives(ELPrimitivesType type, ELVertexBufferPtr vertexB
             break;
     }
     glBindVertexArray(vao);
-    glDrawArrays(drawType, 0, vertexBuffer->vertexCount());
+    if (vertexBuffer->useIndex) {
+        glDrawElements(drawType, vertexBuffer->vertexCount(), GL_UNSIGNED_INT, NULL);
+    } else {
+        glDrawArrays(drawType, 0, vertexBuffer->vertexCount());
+    }
+
 }
 
 void ELRenderer::drawIndexedPrimitives(ELPrimitivesType type, ELVertexBufferPtr vertexBuffer, ELVertexBufferPtr indexBuffer) {
