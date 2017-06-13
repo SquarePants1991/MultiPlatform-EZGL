@@ -21,6 +21,20 @@ enum ELPrimitivesType {
     ELPrimitivesTypePoint,
 };
 
+enum ELBlendFactor {
+    ELBlendFactorUndef = -1,
+    ELBlendFactorOne = 0,
+    ELBlendFactorZero,
+    ELBlendFactorSrcAlpha,
+    ELBlendFactorSrcColor,
+    ELBlendFactorDstAlpha,
+    ELBlendFactorDstColor,
+    ELBlendFactorOneMinusSrcAlpha,
+    ELBlendFactorOneMinusSrcColor,
+    ELBlendFactorOneMinusDstAlpha,
+    ELBlendFactorOneMinusDstColor,
+};
+
 classDefExt(ELRenderer, ELCrossPlatformObject)
 
 public:
@@ -29,12 +43,19 @@ public:
     void prepare();
     void drawPrimitives(ELPrimitivesType type, ELVertexBufferPtr vertexBuffer);
     void drawPrimitives(ELPrimitivesType type, ELCompositionVertexBufferPtr vertexBuffer);
-    void drawIndexedPrimitives(ELPrimitivesType type, ELVertexBufferPtr vertexBuffer, ELVertexBufferPtr indexBuffer);
     void endRender();
+
+    void enableBlend();
+    void disableBlend();
+    void setBlendMode(ELBlendFactor srcFactor, ELBlendFactor dstFactor);
 
 public:
     ELRenderPassPtr renderPass;
     ELRenderPiplinePtr pipline;
+    // Blend Mode
+    bool isBlendEnabled;
+    ELBlendFactor srcBlendFactor;
+    ELBlendFactor dstBlendFactor;
 
 defEnd
 

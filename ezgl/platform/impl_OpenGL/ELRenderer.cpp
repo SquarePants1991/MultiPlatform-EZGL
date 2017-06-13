@@ -24,10 +24,34 @@ GLuint beginDraw(ELRendererPtr renderer, ELCrossPlatformObject *vertexBuffer, GL
     return vao;
 }
 
+void setupBlend(bool enabled, GLenum srcFactor, GLenum dstFactor) {
+    static bool _enabled = false;
+    static int _srcFactor = -1;
+    static int _dstFactor = -1;
+    if (enabled != _enabled) {
+        _enabled = enabled;
+        if (enabled) {
+            glEnable(GL_BLEND);
+        } else {
+            glDisable(GL_BLEND);
+        }
+    }
+    if (enabled) {
+        if (dstFactor != _dstFactor || srcFactor != _srcFactor) {
+            _srcFactor = srcFactor;
+            _dstFactor = dstFactor;
+            glBlendFunc(srcFactor, dstFactor);
+        }
+    }
+}
+
 ELRendererPtr ELRenderer::init(ELRenderPassPtr renderPass, ELRenderPiplinePtr pipline) {
     self->renderPass = renderPass;
     self->pipline = pipline;
-    glEnable(GL_DEPTH_TEST);
+    // init blend vars
+    self->isBlendEnabled = false;
+    self->srcBlendFactor = ELBlendFactorUndef;
+    self->dstBlendFactor = ELBlendFactorUndef;
     return self;
 }
 
@@ -46,6 +70,21 @@ void ELRenderer::prepare() {
     GLuint program = this->pipline->__crossplatformFetchInt("program");
     this->pipline->clearState();
     glUseProgram(program);
+
+    // Blend Setup
+    static GLenum glBlendFactors[] = {
+            GL_ONE,
+            GL_ZERO,
+            GL_SRC_ALPHA,
+            GL_SRC_COLOR,
+            GL_DST_ALPHA,
+            GL_DST_COLOR,
+            GL_ONE_MINUS_SRC_ALPHA,
+            GL_ONE_MINUS_SRC_COLOR,
+            GL_ONE_MINUS_DST_ALPHA,
+            GL_ONE_MINUS_DST_COLOR,
+    };
+    setupBlend(self->isBlendEnabled, glBlendFactors[self->srcBlendFactor], glBlendFactors[self->dstBlendFactor]);
 }
 
 void ELRenderer::endRender() {
@@ -162,7 +201,18 @@ void ELRenderer::drawPrimitives(ELPrimitivesType type, ELVertexBufferPtr vertexB
 
 }
 
-void ELRenderer::drawIndexedPrimitives(ELPrimitivesType type, ELVertexBufferPtr vertexBuffer, ELVertexBufferPtr indexBuffer) {
-
+void ELRenderer::enableBlend() {
+    if (self->isBlendEnabled == false) {
+        self->isBlendEnabled = true;
+    }
 }
 
+void ELRenderer::disableBlend() {
+    if (self->isBlendEnabled == true) {
+        self->isBlendEnabled = false;
+    }
+}
+void ELRenderer::setBlendMode(ELBlendFactor srcFactor, ELBlendFactor dstFactor) {
+    self->srcBlendFactor = srcFactor;
+    self->dstBlendFactor = dstFactor;
+}

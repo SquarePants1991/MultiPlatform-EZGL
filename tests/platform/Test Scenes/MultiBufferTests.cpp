@@ -7,8 +7,7 @@
 
 MultiBufferTests::MultiBufferTests() {
     ELRenderTargetPtr defaultRenderTarget = ELRenderTarget::defaultTarget();
-
-    ELAssets::shared()->addSearchPath("/Users/wangyang/Documents/Projects/On Git/EZGLKit_M/tests/platform/");
+    ELAssets::shared()->addSearchPath("/Users/wangyang/Documents/Codes/OnGit/MultiPlatform-EZGL/tests/platform/");
     ELAssets::shared()->addSearchPath("/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/tests/platform/");
 
     std::string vertexShader = ELFileUtil::stringContentOfShader(ELAssets::shared()->findFile("vertex.glsl"));
