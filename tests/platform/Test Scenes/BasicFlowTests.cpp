@@ -109,6 +109,9 @@ BasicFlowTests::BasicFlowTests() {
     renderToDepthTextureTarget = ELRenderTarget::alloc()->init(ELPixelFormatDepth, ELVector2Make(1024, 1024), false, true, true, false, false);
     renderToDepthTextureRenderPass = ELRenderPass::alloc()->init(config, renderToDepthTextureTarget);
     renderToDepthTextureRender = ELRenderer::alloc()->init(renderToDepthTextureRenderPass, pipline);
+
+    renderer->enableDepthTest();
+    renderToTextureRender->disableDepthTest();
 }
 
 void BasicFlowTests::update(ELFloat deltaTime) {

@@ -49,6 +49,9 @@ public:
     void disableBlend();
     void setBlendMode(ELBlendFactor srcFactor, ELBlendFactor dstFactor);
 
+    void enableDepthTest();
+    void disableDepthTest();
+
 public:
     ELRenderPassPtr renderPass;
     ELRenderPiplinePtr pipline;
@@ -56,6 +59,8 @@ public:
     bool isBlendEnabled;
     ELBlendFactor srcBlendFactor;
     ELBlendFactor dstBlendFactor;
+    // Depth Test
+    bool isDepthTestEnabled;
 
 defEnd
 

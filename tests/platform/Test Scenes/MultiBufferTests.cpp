@@ -136,6 +136,9 @@ MultiBufferTests::MultiBufferTests() {
 
     cubeVertexBuffer->appendVertexBuffer(verticesBuffer);
     cubeVertexBuffer->appendVertexBuffer(uvNormalBuffer);
+
+
+    renderer->enableDepthTest();
 }
 
 void MultiBufferTests::update(ELFloat deltaTime) {

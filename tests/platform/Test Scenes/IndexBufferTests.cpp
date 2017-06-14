@@ -104,6 +104,8 @@ IndexBufferTests::IndexBufferTests() {
     cubeVertexBuffer->enableIndex();
     cubeVertexBuffer->appendIndex(cubeDataIndice, 36);
     cubeVertexBuffer->flushIndexBuffer();
+
+    renderer->enableDepthTest();
 }
 
 void IndexBufferTests::update(ELFloat deltaTime) {

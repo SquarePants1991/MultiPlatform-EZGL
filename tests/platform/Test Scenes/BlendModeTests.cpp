@@ -75,6 +75,7 @@ BlendModeTests::BlendModeTests() {
 
     renderer->enableBlend();
     renderer->setBlendMode(ELBlendFactorOneMinusSrcAlpha, ELBlendFactorDstAlpha);
+    renderer->enableDepthTest();
 }
 
 void BlendModeTests::update(ELFloat deltaTime) {

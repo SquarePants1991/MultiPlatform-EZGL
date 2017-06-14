@@ -45,6 +45,18 @@ void setupBlend(bool enabled, GLenum srcFactor, GLenum dstFactor) {
     }
 }
 
+void setupDepthTest(bool enabled) {
+    static bool _enabled = false;
+    if (enabled != _enabled) {
+        _enabled = enabled;
+        if (enabled) {
+            glEnable(GL_DEPTH_TEST);
+        } else {
+            glDisable(GL_DEPTH_TEST);
+        }
+    }
+}
+
 ELRendererPtr ELRenderer::init(ELRenderPassPtr renderPass, ELRenderPiplinePtr pipline) {
     self->renderPass = renderPass;
     self->pipline = pipline;
@@ -52,6 +64,8 @@ ELRendererPtr ELRenderer::init(ELRenderPassPtr renderPass, ELRenderPiplinePtr pi
     self->isBlendEnabled = false;
     self->srcBlendFactor = ELBlendFactorUndef;
     self->dstBlendFactor = ELBlendFactorUndef;
+    // init depth test vars
+    self->isDepthTestEnabled = false;
     return self;
 }
 
@@ -85,6 +99,9 @@ void ELRenderer::prepare() {
             GL_ONE_MINUS_DST_COLOR,
     };
     setupBlend(self->isBlendEnabled, glBlendFactors[self->srcBlendFactor], glBlendFactors[self->dstBlendFactor]);
+
+    // Depth Test Setup
+    setupDepthTest(self->isDepthTestEnabled);
 }
 
 void ELRenderer::endRender() {
@@ -215,4 +232,12 @@ void ELRenderer::disableBlend() {
 void ELRenderer::setBlendMode(ELBlendFactor srcFactor, ELBlendFactor dstFactor) {
     self->srcBlendFactor = srcFactor;
     self->dstBlendFactor = dstFactor;
+}
+
+void ELRenderer::enableDepthTest() {
+    self->isDepthTestEnabled = true;
+}
+
+void ELRenderer::disableDepthTest() {
+    self->isDepthTestEnabled = false;
 }
