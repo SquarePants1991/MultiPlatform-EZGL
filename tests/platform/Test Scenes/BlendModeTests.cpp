@@ -74,7 +74,7 @@ BlendModeTests::BlendModeTests() {
     cubeVertexBuffer->flushIndexBuffer();
 
     renderer->enableBlend();
-    renderer->setBlendMode(ELBlendFactorOneMinusSrcAlpha, ELBlendFactorDstAlpha);
+    renderer->setBlendMode(ELBlendFactorSrcAlpha, ELBlendFactorOneMinusSrcAlpha);
     renderer->enableDepthTest();
 }
 
@@ -91,21 +91,36 @@ void BlendModeTests::update(ELFloat deltaTime) {
     finalMatrix = ELMatrix4Multiply(projection, finalMatrix);
 
     renderer->prepare();
+    model = ELMatrix4MakeTranslation(0.0, 0.2, -0.2);
+    finalMatrix = ELMatrix4Identity;
+    finalMatrix = ELMatrix4Multiply(view, model);
+    finalMatrix = ELMatrix4Multiply(projection, finalMatrix);
+    renderer->pipline->setUniform(finalMatrix, renderer->pipline->getUniformLocation("transform"));
+    renderer->pipline->setUniform( ELVector4Make(1.0, 0.0, 1.0, 1.0), renderer->pipline->getUniformLocation("color"));
+    renderer->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
+
+    renderer->disableDepthWrite();
+    model = ELMatrix4MakeTranslation(0.2, 0.1, 0.3);
+    finalMatrix = ELMatrix4Identity;
+    finalMatrix = ELMatrix4Multiply(view, model);
+    finalMatrix = ELMatrix4Multiply(projection, finalMatrix);
     renderer->pipline->setUniform(finalMatrix, renderer->pipline->getUniformLocation("transform"));
     renderer->pipline->setUniform( ELVector4Make(1.0, 0.0, 0.0, 0.5), renderer->pipline->getUniformLocation("color"));
     renderer->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
 
 
-    model = ELMatrix4MakeTranslation(0.2, 0.1, 0);
+    model = ELMatrix4MakeTranslation(0.25, 0.2, 0.2);
     finalMatrix = ELMatrix4Identity;
     finalMatrix = ELMatrix4Multiply(view, model);
     finalMatrix = ELMatrix4Multiply(projection, finalMatrix);
     renderer->pipline->setUniform(finalMatrix, renderer->pipline->getUniformLocation("transform"));
     renderer->pipline->setUniform(ELVector4Make(0.0, 0.7, 0.0, 0.5), renderer->pipline->getUniformLocation("color"));
     renderer->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
+    renderer->enableDepthWrite();
+
 
 
     static float elapsedTime = 0.0;
     elapsedTime += deltaTime;
-    renderer->setBlendMode(ELBlendFactorOneMinusSrcAlpha, (ELBlendFactor)(((int)elapsedTime) % 9));
+//    renderer->setBlendMode(ELBlendFactorOneMinusSrcAlpha, (ELBlendFactor)(((int)elapsedTime) % 9));
 }

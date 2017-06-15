@@ -24,7 +24,7 @@ GLuint beginDraw(ELRendererPtr renderer, ELCrossPlatformObject *vertexBuffer, GL
     return vao;
 }
 
-void setupBlend(bool enabled, GLenum srcFactor, GLenum dstFactor) {
+inline void setupBlend(bool enabled, GLenum srcFactor, GLenum dstFactor) {
     static bool _enabled = false;
     static int _srcFactor = -1;
     static int _dstFactor = -1;
@@ -45,7 +45,7 @@ void setupBlend(bool enabled, GLenum srcFactor, GLenum dstFactor) {
     }
 }
 
-void setupDepthTest(bool enabled) {
+inline void setupDepthTest(bool enabled) {
     static bool _enabled = false;
     if (enabled != _enabled) {
         _enabled = enabled;
@@ -53,6 +53,18 @@ void setupDepthTest(bool enabled) {
             glEnable(GL_DEPTH_TEST);
         } else {
             glDisable(GL_DEPTH_TEST);
+        }
+    }
+}
+
+inline void setupDepthWrite(bool enabled) {
+    static bool _enabled = false;
+    if (enabled != _enabled) {
+        _enabled = enabled;
+        if (enabled) {
+            glDepthMask(GL_TRUE);
+        } else {
+            glDepthMask(GL_FALSE);
         }
     }
 }
@@ -66,10 +78,15 @@ ELRendererPtr ELRenderer::init(ELRenderPassPtr renderPass, ELRenderPiplinePtr pi
     self->dstBlendFactor = ELBlendFactorUndef;
     // init depth test vars
     self->isDepthTestEnabled = false;
+    // init depth mask vars
+    self->isDepthWriteEnabled = false;
     return self;
 }
 
 void ELRenderer::prepare() {
+    // Depth Write Setup
+    setupDepthWrite(self->isDepthWriteEnabled);
+
     glBindFramebuffer(GL_FRAMEBUFFER, self->renderPass->renderTarget->__crossplatformFetchInt("framebuffer"));
     glViewport(0, 0, self->renderPass->renderTarget->size.x, self->renderPass->renderTarget->size.y);
     if (renderPass->config.loadAction == ELRenderPassLoadActionClear) {
@@ -236,8 +253,22 @@ void ELRenderer::setBlendMode(ELBlendFactor srcFactor, ELBlendFactor dstFactor) 
 
 void ELRenderer::enableDepthTest() {
     self->isDepthTestEnabled = true;
+    self->isDepthWriteEnabled = true;
+    setupDepthTest(self->isDepthTestEnabled);
+    setupDepthWrite(self->isDepthWriteEnabled);
 }
 
 void ELRenderer::disableDepthTest() {
     self->isDepthTestEnabled = false;
+    setupDepthTest(self->isDepthTestEnabled);
+}
+
+void ELRenderer::enableDepthWrite() {
+    self->isDepthWriteEnabled = true;
+    setupDepthWrite(self->isDepthWriteEnabled);
+}
+
+void ELRenderer::disableDepthWrite() {
+    self->isDepthWriteEnabled = false;
+    setupDepthWrite(self->isDepthWriteEnabled);
 }

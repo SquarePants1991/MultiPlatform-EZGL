@@ -112,6 +112,7 @@ BasicFlowTests::BasicFlowTests() {
 
     renderer->enableDepthTest();
     renderToTextureRender->disableDepthTest();
+    renderToDepthTextureRender->enableDepthTest();
 }
 
 void BasicFlowTests::update(ELFloat deltaTime) {

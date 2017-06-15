@@ -52,6 +52,9 @@ public:
     void enableDepthTest();
     void disableDepthTest();
 
+    void enableDepthWrite();
+    void disableDepthWrite();
+
 public:
     ELRenderPassPtr renderPass;
     ELRenderPiplinePtr pipline;
@@ -61,6 +64,8 @@ public:
     ELBlendFactor dstBlendFactor;
     // Depth Test
     bool isDepthTestEnabled;
+    // Depth Write
+    bool isDepthWriteEnabled;
 
 defEnd
 
