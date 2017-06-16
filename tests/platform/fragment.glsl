@@ -8,5 +8,6 @@ in vec2 fragUV;
 uniform sampler2D diffuse;
 
 void main() {
-    outColor = texture(diffuse, fragUV);
+    vec4 surfaceColor = texture(diffuse, fragUV);
+    outColor = surfaceColor;
 }

@@ -6,12 +6,13 @@
 #define EZGL_ELPIXELFORMAT_H
 
 enum ELPixelFormat {
+    ELPixelFormatUnKnown,
     ELPixelFormatRGB,
     ELPixelFormatRGBA,
     ELPixelFormatAlpha,
     ELPixelFormatDepth,
     ELPixelFormatLA,
-    ELPixelFormatL,
+    ELPixelFormatL
 };
 
 #endif //EZGL_ELPIXELFORMAT_H

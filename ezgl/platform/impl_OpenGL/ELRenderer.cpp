@@ -87,6 +87,7 @@ void ELRenderer::prepare() {
     // Depth Write Setup
     setupDepthWrite(self->isDepthWriteEnabled);
 
+
     glBindFramebuffer(GL_FRAMEBUFFER, self->renderPass->renderTarget->__crossplatformFetchInt("framebuffer"));
     glViewport(0, 0, self->renderPass->renderTarget->size.x, self->renderPass->renderTarget->size.y);
     if (renderPass->config.loadAction == ELRenderPassLoadActionClear) {
@@ -119,6 +120,9 @@ void ELRenderer::prepare() {
 
     // Depth Test Setup
     setupDepthTest(self->isDepthTestEnabled);
+
+    glEnable(GL_ALPHA_TEST);
+//    glAlphaFunc(GL_GREATER, 0.0);
 }
 
 void ELRenderer::endRender() {
