@@ -36,7 +36,8 @@ enum ELBlendFactor {
 };
 
 enum ELTest {
-    ELTestNever,
+    ELTestNone = -1,
+    ELTestNever = 0,
     ELTestAlways,
     ELTestLess,
     ELTestGreater,
@@ -47,7 +48,8 @@ enum ELTest {
 };
 
 enum ELStencilOp {
-    ELStencilOpKeep,
+    ELStencilOpNone = -1,
+    ELStencilOpKeep = 0,
     ELStencilOpZero,
     ELStencilOpIncrement,
     ELStencilOpIncrementWrap,

@@ -133,8 +133,8 @@ EL_INLINE ELMatrix4 ELMatrix4SetColumn(ELMatrix4 matrix, int column, ELVector4 v
 
 EL_INLINE ELMatrix4 ELMatrix4Transpose(ELMatrix4 matrix);
 
-static ELMatrix4 ELMatrix4Invert(ELMatrix4 matrix, bool * __nullable isInvertible);
-ELMatrix4 ELMatrix4InvertAndTranspose(ELMatrix4 matrix, bool * __nullable isInvertible);
+static ELMatrix4 ELMatrix4Invert(ELMatrix4 matrix, bool *  isInvertible);
+ELMatrix4 ELMatrix4InvertAndTranspose(ELMatrix4 matrix, bool *  isInvertible);
 
 EL_INLINE ELMatrix4 ELMatrix4Multiply(ELMatrix4 matrixLeft, ELMatrix4 matrixRight);
 
@@ -553,7 +553,7 @@ return m;
 #endif
 }
 
-static ELMatrix4 ELMatrix4Invert(ELMatrix4 matrix, bool * __nullable isInvertible) {
+static ELMatrix4 ELMatrix4Invert(ELMatrix4 matrix, bool *  isInvertible) {
     double inv[16], det;
     int i;
     double *m = (double *)matrix.m;

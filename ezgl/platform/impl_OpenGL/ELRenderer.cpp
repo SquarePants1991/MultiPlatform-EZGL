@@ -72,8 +72,8 @@ inline void setupDepthWrite(bool enabled) {
 inline void setupStencil(bool enabled, ELInt stencilMask, ELStencilOpArgs opArgs, ELStencilFuncArgs funcArgs) {
     static bool _enabled = false;
     static ELInt _stencilMask = 0xff;
-    static ELStencilOpArgs _stencilOpArgs = { ELStencilOpKeep, ELStencilOpKeep, ELStencilOpReplace };
-    static ELStencilFuncArgs _funcArgs = { ELTestAlways, 0 };
+    static ELStencilOpArgs _stencilOpArgs = { ELStencilOpNone, ELStencilOpNone, ELStencilOpNone };
+    static ELStencilFuncArgs _funcArgs = { ELTestNone, 0 };
     if (enabled != _enabled) {
         _enabled = enabled;
         if (enabled) {

@@ -59,6 +59,8 @@ int main(void) {
         return -1;
     printf("%s", (char *) glGetString(GL_SHADING_LANGUAGE_VERSION));
 
+    ELAssets::shared()->addSearchPath("/home/ocean/文档/Codes/MultiPlatform-EZGL/tests/platform/");
+
     ELGLAdapter::defaultAdapter()->setup(window);
     init(window);
 

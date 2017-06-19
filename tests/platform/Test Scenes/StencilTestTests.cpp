@@ -163,23 +163,25 @@ void StencilTestTests::update(ELFloat deltaTime) {
     ELMatrix4 view = ELMatrix4MakeLookAt(0, 0, 2, 0, 0, 0, 0, 1, 0);
     ELMatrix4 model = ELMatrix4Identity;
 
-    model = ELMatrix4Identity;
-    finalMatrix = ELMatrix4Multiply(view, model);
-    finalMatrix = ELMatrix4Multiply(projection, finalMatrix);
-    renderer->pipline->setUniform(finalMatrix, renderer->pipline->getUniformLocation("transform"));
+    renderer->prepare();
 
     renderer->setStencilFunc(ELTestAlways, 1, 0xff);
     renderer->setStencilOperations(ELStencilOpKeep, ELStencilOpKeep, ELStencilOpReplace);
     renderer->setStencilMask(0xFF);
+
+    model = ELMatrix4MakeTranslation(0, 0, -1.0);
+    finalMatrix = ELMatrix4Multiply(view, model);
+    finalMatrix = ELMatrix4Multiply(projection, finalMatrix);
+    renderer->pipline->setUniform(finalMatrix, renderer->pipline->getUniformLocation("transform"));
     renderer->drawPrimitives(ELPrimitivesTypeTriangle, squareVertexBuffer);
 
 
     renderer->setStencilFunc(ELTestEqual, 1, 0xff);
     renderer->setStencilMask(0x00);
+
     model = ELMatrix4MakeRotation(angle, 1, 1, 1);
     finalMatrix = ELMatrix4Multiply(view, model);
     finalMatrix = ELMatrix4Multiply(projection, finalMatrix);
-    renderer->prepare();
     renderer->pipline->setUniform(finalMatrix, renderer->pipline->getUniformLocation("transform"));
     renderer->pipline->bindTexture(diffuseTexture, renderer->pipline->getUniformLocation("diffuse"));
     renderer->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
