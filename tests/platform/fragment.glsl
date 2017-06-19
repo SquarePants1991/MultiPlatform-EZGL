@@ -9,5 +9,8 @@ uniform sampler2D diffuse;
 
 void main() {
     vec4 surfaceColor = texture(diffuse, fragUV);
+    if (surfaceColor.a <= 0.0) {
+        discard;
+    }
     outColor = surfaceColor;
 }

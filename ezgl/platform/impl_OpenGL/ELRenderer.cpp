@@ -120,9 +120,6 @@ void ELRenderer::prepare() {
 
     // Depth Test Setup
     setupDepthTest(self->isDepthTestEnabled);
-
-    glEnable(GL_ALPHA_TEST);
-//    glAlphaFunc(GL_GREATER, 0.0);
 }
 
 void ELRenderer::endRender() {
