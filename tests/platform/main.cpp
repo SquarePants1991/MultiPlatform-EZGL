@@ -16,13 +16,15 @@ std::vector<std::string> sceneNames;
 #include "Test Scenes/IndexBufferTests.h"
 #include "Test Scenes/BlendModeTests.h"
 #include "Test Scenes/AlphaTestTests.h"
+#include "Test Scenes/StencilTestTests.h"
 
 void registerScenes() {
     RegisterTestScene(BasicFlowTests, "基本渲染流程测试&渲染到纹理");
     RegisterTestScene(MultiBufferTests, "使用多Buffer渲染单个物体");
     RegisterTestScene(IndexBufferTests, "使用索引Buffer渲染单个物体");
     RegisterTestScene(BlendModeTests, "Blend Mode测试");
-    RegisterTestScene(AlphaTestTests, "ALpha Test测试");
+    RegisterTestScene(AlphaTestTests, "Alpha Test测试");
+    RegisterTestScene(StencilTestTests, "Stencil Test测试");
 }
 
 int currentShowSceneIndex = 0;

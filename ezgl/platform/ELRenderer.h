@@ -35,6 +35,64 @@ enum ELBlendFactor {
     ELBlendFactorOneMinusDstColor,
 };
 
+enum ELTest {
+    ELTestNever,
+    ELTestAlways,
+    ELTestLess,
+    ELTestGreater,
+    ELTestEqual,
+    ELTestLessEqual,
+    ELTestGreaterEqual,
+    ELTestNotEqual,
+};
+
+enum ELStencilOp {
+    ELStencilOpKeep,
+    ELStencilOpZero,
+    ELStencilOpIncrement,
+    ELStencilOpIncrementWrap,
+    ELStencilOpDecrement,
+    ELStencilOpDecrementWrap,
+    ELStencilOpInvert,
+    ELStencilOpReplace,
+};
+
+typedef struct {
+    ELTest testType;
+    ELInt ref;
+    ELInt mask;
+} ELStencilFuncArgs;
+
+static inline ELStencilFuncArgs ELStencilFuncArgsMake(ELTest testType, ELInt ref, ELInt mask) {
+    ELStencilFuncArgs arg;
+    arg.testType = testType;
+    arg.ref = ref;
+    arg.mask = mask;
+    return arg;
+}
+
+static inline bool ELStencilFuncArgsEqual(ELStencilFuncArgs left, ELStencilFuncArgs right) {
+    return left.mask == right.mask && left.ref == right.ref && left.testType == right.testType;
+}
+
+typedef struct {
+    ELStencilOp stencilTestFailed;
+    ELStencilOp depthTestFailed;
+    ELStencilOp success;
+} ELStencilOpArgs;
+
+static inline ELStencilOpArgs ELStencilOpArgsMake(ELStencilOp stencilTestFailed, ELStencilOp depthTestFailed, ELStencilOp success) {
+    ELStencilOpArgs arg;
+    arg.stencilTestFailed = stencilTestFailed;
+    arg.depthTestFailed = depthTestFailed;
+    arg.success = success;
+    return arg;
+}
+
+static inline bool ELStencilOpArgsEqual(ELStencilOpArgs left, ELStencilOpArgs right) {
+    return left.stencilTestFailed == right.stencilTestFailed && left.depthTestFailed == right.depthTestFailed && left.success == right.success;
+}
+
 classDefExt(ELRenderer, ELCrossPlatformObject)
 
 public:
@@ -55,6 +113,13 @@ public:
     void enableDepthWrite();
     void disableDepthWrite();
 
+    void enableStencilTest();
+    void disableStencilTest();
+    void setStencilFunc(ELTest testType, ELInt ref, ELInt mask);
+    void setStencilOperations(ELStencilOp stFailed, ELStencilOp dpFailed, ELStencilOp allSuccess);
+    void setStencilMask(ELInt mask);
+
+
 public:
     ELRenderPassPtr renderPass;
     ELRenderPiplinePtr pipline;
@@ -66,6 +131,11 @@ public:
     bool isDepthTestEnabled;
     // Depth Write
     bool isDepthWriteEnabled;
+    // Stencil Test
+    bool isStencilTestEnabled;
+    ELInt stencilMask;
+    ELStencilFuncArgs stencilFuncArgs;
+    ELStencilOpArgs stencilOpArgs;
 
 defEnd
 

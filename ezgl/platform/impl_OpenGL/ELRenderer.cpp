@@ -69,6 +69,58 @@ inline void setupDepthWrite(bool enabled) {
     }
 }
 
+inline void setupStencil(bool enabled, ELInt stencilMask, ELStencilOpArgs opArgs, ELStencilFuncArgs funcArgs) {
+    static bool _enabled = false;
+    static ELInt _stencilMask = 0xff;
+    static ELStencilOpArgs _stencilOpArgs = { ELStencilOpKeep, ELStencilOpKeep, ELStencilOpReplace };
+    static ELStencilFuncArgs _funcArgs = { ELTestAlways, 0 };
+    if (enabled != _enabled) {
+        _enabled = enabled;
+        if (enabled) {
+            glEnable(GL_STENCIL_TEST);
+        } else {
+            glDisable(GL_STENCIL_TEST);
+        }
+    }
+
+    static GLenum GLTests[] = {
+        GL_NEVER,
+        GL_ALWAYS,
+        GL_LESS,
+        GL_GREATER,
+        GL_EQUAL,
+        GL_LEQUAL,
+        GL_GEQUAL,
+        GL_NOTEQUAL,
+    };
+
+    static GLenum GLStencilOps[] = {
+        GL_KEEP,
+        GL_ZERO,
+        GL_INCR,
+        GL_INCR_WRAP,
+        GL_DECR,
+        GL_DECR_WRAP,
+        GL_INVERT,
+        GL_REPLACE,
+    };
+
+    if (_enabled) {
+        if (stencilMask != _stencilMask) {
+            _stencilMask = stencilMask;
+            glStencilMask(_stencilMask);
+        }
+        if (ELStencilOpArgsEqual(opArgs, _stencilOpArgs) == false) {
+            _stencilOpArgs = opArgs;
+            glStencilOp(GLStencilOps[_stencilOpArgs.stencilTestFailed], GLStencilOps[_stencilOpArgs.depthTestFailed], GLStencilOps[_stencilOpArgs.success]);
+        }
+        if (ELStencilFuncArgsEqual(funcArgs, _funcArgs) == false) {
+            _funcArgs = funcArgs;
+            glStencilFunc(GLTests[_funcArgs.testType], _funcArgs.ref, _funcArgs.mask);
+        }
+    }
+}
+
 ELRendererPtr ELRenderer::init(ELRenderPassPtr renderPass, ELRenderPiplinePtr pipline) {
     self->renderPass = renderPass;
     self->pipline = pipline;
@@ -80,6 +132,11 @@ ELRendererPtr ELRenderer::init(ELRenderPassPtr renderPass, ELRenderPiplinePtr pi
     self->isDepthTestEnabled = false;
     // init depth mask vars
     self->isDepthWriteEnabled = false;
+    // init stencil mask vars
+    self->isStencilTestEnabled = false;
+    self->stencilMask = 0xff;
+    self->stencilOpArgs = ELStencilOpArgsMake(ELStencilOpKeep, ELStencilOpKeep, ELStencilOpReplace);
+    self->stencilFuncArgs = ELStencilFuncArgsMake(ELTestAlways, 0, 0xFF);
     return self;
 }
 
@@ -120,6 +177,8 @@ void ELRenderer::prepare() {
 
     // Depth Test Setup
     setupDepthTest(self->isDepthTestEnabled);
+
+    setupStencil(self->isStencilTestEnabled, self->stencilMask, self->stencilOpArgs, self->stencilFuncArgs);
 }
 
 void ELRenderer::endRender() {
@@ -272,4 +331,29 @@ void ELRenderer::enableDepthWrite() {
 void ELRenderer::disableDepthWrite() {
     self->isDepthWriteEnabled = false;
     setupDepthWrite(self->isDepthWriteEnabled);
+}
+
+void ELRenderer::enableStencilTest() {
+    self->isStencilTestEnabled = true;
+    setupStencil(self->isStencilTestEnabled, self->stencilMask, self->stencilOpArgs, self->stencilFuncArgs);
+}
+
+void ELRenderer::disableStencilTest() {
+    self->isStencilTestEnabled = false;
+    setupStencil(self->isStencilTestEnabled, self->stencilMask, self->stencilOpArgs, self->stencilFuncArgs);
+}
+
+void ELRenderer::setStencilFunc(ELTest testType, ELInt ref, ELInt mask) {
+    self->stencilFuncArgs = ELStencilFuncArgsMake(testType, ref, mask);
+    setupStencil(self->isStencilTestEnabled, self->stencilMask, self->stencilOpArgs, self->stencilFuncArgs);
+}
+
+void ELRenderer::setStencilOperations(ELStencilOp stFailed, ELStencilOp dpFailed, ELStencilOp allSuccess) {
+    self->stencilOpArgs = ELStencilOpArgsMake(stFailed, dpFailed, allSuccess);
+    setupStencil(self->isStencilTestEnabled, self->stencilMask, self->stencilOpArgs, self->stencilFuncArgs);
+}
+
+void ELRenderer::setStencilMask(ELInt mask) {
+    self->stencilMask = mask;
+    setupStencil(self->isStencilTestEnabled, self->stencilMask, self->stencilOpArgs, self->stencilFuncArgs);
 }
