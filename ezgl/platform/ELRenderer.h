@@ -111,6 +111,7 @@ public:
 
     void enableDepthTest();
     void disableDepthTest();
+    void setDepthFunc(ELTest testType);
 
     void enableDepthWrite();
     void disableDepthWrite();
@@ -131,6 +132,7 @@ public:
     ELBlendFactor dstBlendFactor;
     // Depth Test
     bool isDepthTestEnabled;
+    ELTest depthFunc;
     // Depth Write
     bool isDepthWriteEnabled;
     // Stencil Test

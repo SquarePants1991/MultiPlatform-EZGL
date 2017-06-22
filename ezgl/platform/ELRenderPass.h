@@ -17,8 +17,17 @@ enum ELRenderPassLoadAction {
 
 typedef struct {
     ELVector4 clearColor;
+    ELInt clearDepth;
     ELRenderPassLoadAction loadAction;
 } ELRenderPassConfig;
+
+static inline ELRenderPassConfig ELRenderPassConfigDefault() {
+    ELRenderPassConfig config;
+    config.clearDepth = 1.0;
+    config.clearColor = ELVector4Make(0, 0, 0, 0);
+    config.loadAction = ELRenderPassLoadActionClear;
+    return config;
+}
 
 classDefExt(ELRenderPass, ELCrossPlatformObject)
 

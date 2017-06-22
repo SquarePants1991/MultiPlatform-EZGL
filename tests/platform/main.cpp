@@ -17,6 +17,7 @@ std::vector<std::string> sceneNames;
 #include "Test Scenes/BlendModeTests.h"
 #include "Test Scenes/AlphaTestTests.h"
 #include "Test Scenes/StencilTestTests.h"
+#include "Test Scenes/DepthTestTests.h"
 
 void registerScenes() {
     RegisterTestScene(BasicFlowTests, "基本渲染流程测试&渲染到纹理");
@@ -25,6 +26,7 @@ void registerScenes() {
     RegisterTestScene(BlendModeTests, "Blend Mode测试");
     RegisterTestScene(AlphaTestTests, "Alpha Test测试");
     RegisterTestScene(StencilTestTests, "Stencil Test测试");
+    RegisterTestScene(DepthTestTests, "Depth Test测试");
 }
 
 int currentShowSceneIndex = 0;

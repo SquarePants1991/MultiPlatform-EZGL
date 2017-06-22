@@ -15,7 +15,7 @@ IndexBufferTests::IndexBufferTests() {
 
     pipline = ELRenderPipline::alloc()->init(vertexShader, fragmentShader);
 
-    ELRenderPassConfig config = ELRenderPassConfig();
+    ELRenderPassConfig config = ELRenderPassConfigDefault();
     config.clearColor = ELVector4Make(0.1, 0.1, 0.1, 1.0);
     config.loadAction = ELRenderPassLoadActionClear;
     mainRenderPass = ELRenderPass::alloc()->init(config, defaultRenderTarget);

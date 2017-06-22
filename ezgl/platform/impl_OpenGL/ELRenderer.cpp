@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include "../types/EZGLTypes.h"
 #include "../ELPlatform.h"
+#include "../ELRenderPass.h"
 
 GLuint beginDraw(ELRendererPtr renderer, ELCrossPlatformObject *vertexBuffer, GLuint program, bool *vaoExists) {
     char buffer[255];
@@ -54,6 +55,24 @@ inline void setupDepthTest(bool enabled) {
         } else {
             glDisable(GL_DEPTH_TEST);
         }
+    }
+}
+
+inline void setupDepthFunc(ELTest testType) {
+    static ELTest _testType = ELTestNone;
+    if (testType != _testType) {
+        _testType = testType;
+        static GLenum GLTests[] = {
+                GL_NEVER,
+                GL_ALWAYS,
+                GL_LESS,
+                GL_GREATER,
+                GL_EQUAL,
+                GL_LEQUAL,
+                GL_GEQUAL,
+                GL_NOTEQUAL,
+        };
+        glDepthFunc(GLTests[testType]);
     }
 }
 
@@ -130,6 +149,7 @@ ELRendererPtr ELRenderer::init(ELRenderPassPtr renderPass, ELRenderPiplinePtr pi
     self->dstBlendFactor = ELBlendFactorUndef;
     // init depth test vars
     self->isDepthTestEnabled = false;
+    self->depthFunc = ELTestLessEqual;
     // init depth mask vars
     self->isDepthWriteEnabled = false;
     // init stencil mask vars
@@ -150,6 +170,9 @@ void ELRenderer::prepare() {
     if (renderPass->config.loadAction == ELRenderPassLoadActionClear) {
         ELVector4 clearColor = renderPass->config.clearColor;
         glClearColor(clearColor.r, clearColor.g, clearColor.b, clearColor.a);
+        if (renderPass->renderTarget->depthBufferEnabled) {
+            glClearDepth(renderPass->config.clearDepth);
+        }
         GLbitfield clearMask = renderPass->renderTarget->colorBufferEnabled ? GL_COLOR_BUFFER_BIT : 0;
         clearMask |= renderPass->renderTarget->depthBufferEnabled ? GL_DEPTH_BUFFER_BIT : 0;
         clearMask |= renderPass->renderTarget->stencilBufferEnabled ? GL_STENCIL_BUFFER_BIT : 0;
@@ -177,6 +200,7 @@ void ELRenderer::prepare() {
 
     // Depth Test Setup
     setupDepthTest(self->isDepthTestEnabled);
+    setupDepthFunc(self->depthFunc);
 
     setupStencil(self->isStencilTestEnabled, self->stencilMask, self->stencilOpArgs, self->stencilFuncArgs);
 }
@@ -321,6 +345,11 @@ void ELRenderer::enableDepthTest() {
 void ELRenderer::disableDepthTest() {
     self->isDepthTestEnabled = false;
     setupDepthTest(self->isDepthTestEnabled);
+}
+
+void ELRenderer::setDepthFunc(ELTest testType) {
+    self->depthFunc = testType;
+    setupDepthFunc(testType);
 }
 
 void ELRenderer::enableDepthWrite() {
