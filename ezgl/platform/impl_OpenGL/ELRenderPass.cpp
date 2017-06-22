@@ -8,8 +8,8 @@
 #include "../types/EZGLTypes.h"
 
 ELRenderPassPtr ELRenderPass::init(ELRenderPassConfig config, ELRenderTargetPtr renderTarget) {
-    self->config = config;
-    self->renderTarget = renderTarget;
-    return self;
+    selv->config = config;
+    selv->renderTarget = renderTarget;
+    return selv;
 }
 

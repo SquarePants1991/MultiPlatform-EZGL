@@ -13,7 +13,7 @@ struct _ELTransform {
     ELQuaternion quaternion;
     ELVector3 scale;
 };
-typedef _ELTransform ELTransform;
+typedef struct _ELTransform ELTransform;
 
 const ELTransform ELTransformIdentity = {
         {0, 0, 0},

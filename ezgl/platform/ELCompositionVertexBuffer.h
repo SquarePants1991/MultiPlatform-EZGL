@@ -15,7 +15,7 @@ classDefExt(ELCompositionVertexBuffer, public ELCrossPlatformObject)
 public:
     std::vector<ELVertexBufferPtr> buffers;
     ELCompositionVertexBufferPtr init() {
-        return self;
+        return selv;
     }
 
     void appendVertexBuffer(ELVertexBufferPtr vertexBuffer) {

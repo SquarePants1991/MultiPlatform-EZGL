@@ -32,14 +32,14 @@ ELTexturePtr ELTexture::init(std::string imagePath, ELTextureStoreType storeType
         default:
             format = SOIL_LOAD_AUTO;
     }
-    self->imageData = SOIL_load_image(imagePath.c_str(), &width, &height, &numberOfChannel, format);
+    selv->imageData = SOIL_load_image(imagePath.c_str(), &width, &height, &numberOfChannel, format);
     if (storeType & ELTextureStoreTypeGPU) {
         GLuint texture;
         glGenTextures(1, &texture);
         glBindTexture(GL_TEXTURE_2D, texture);
         glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
         glTexImage2D(GL_TEXTURE_2D, 0, glPixelFormat, (GLsizei) width, (GLsizei) height, 0, glPixelFormat,
-                     GL_UNSIGNED_BYTE, self->imageData);
+                     GL_UNSIGNED_BYTE, selv->imageData);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE );
@@ -47,15 +47,15 @@ ELTexturePtr ELTexture::init(std::string imagePath, ELTextureStoreType storeType
         glBindTexture(GL_TEXTURE_2D, 0);
 
         glValSet(this, texture);
-        self->channelFormat = ELTextureChannelFormatUC;
-        self->pixelFormat = pixelFormat;
+        selv->channelFormat = ELTextureChannelFormatUC;
+        selv->pixelFormat = pixelFormat;
     }
 
     if (!(storeType & ELTextureStoreTypeCPU)) {
-        delete(self->imageData);
-        self->imageData = NULL;
+        delete(selv->imageData);
+        selv->imageData = NULL;
     }
-    return self;
+    return selv;
 }
 
 ELTexturePtr ELTexture::init(ELPixelFormat pixelFormat, unsigned char *imageData, ELInt width, ELInt height, ELTextureStoreType storeType) {
@@ -92,15 +92,15 @@ ELTexturePtr ELTexture::init(ELPixelFormat pixelFormat, unsigned char *imageData
         glBindTexture(GL_TEXTURE_2D, 0);
 
         glValSet(this, texture);
-        self->channelFormat = ELTextureChannelFormatUC;
-        self->pixelFormat = pixelFormat;
+        selv->channelFormat = ELTextureChannelFormatUC;
+        selv->pixelFormat = pixelFormat;
     }
 
     if (storeType & ELTextureStoreTypeCPU) {
-        self->imageData = imageData;
+        selv->imageData = imageData;
     } else {
-        self->imageData = NULL;
+        selv->imageData = NULL;
         delete(imageData);
     }
-    return self;
+    return selv;
 }

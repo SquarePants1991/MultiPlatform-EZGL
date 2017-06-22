@@ -86,7 +86,7 @@ ELRenderTargetPtr ELRenderTarget::init(ELPixelFormat pixelFormat, ELVector2 size
     framebufferSet(this, framebuffer);
 
 
-    return self;
+    return selv;
 }
 
 ELRenderTargetPtr ELRenderTarget::defaultTarget() {

@@ -41,6 +41,6 @@ ELAlloc(className)
 
 #define defEnd };
 
-#define self _strong_self()
+#define selv _strong_self()
 
 #endif //EZGL_ELCPPBASE_H

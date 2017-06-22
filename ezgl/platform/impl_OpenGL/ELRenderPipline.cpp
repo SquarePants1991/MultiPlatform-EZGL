@@ -27,7 +27,7 @@ ELRenderPiplinePtr ELRenderPipline::init(std::string vertexShader, std::string f
     int maxTextureUnits;
     glGetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS, &maxTextureUnits);
     maxTextureUnitsSet(this, maxTextureUnits);
-    return self;
+    return selv;
 }
 
 ELRenderPipline::~ELRenderPipline() {

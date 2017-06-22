@@ -11,8 +11,9 @@
 #include "ELRenderTarget.h"
 
 enum ELRenderPassLoadAction {
-    ELRenderPassLoadActionClear,
-    ELRenderPassLoadActionLoad
+    ELRenderPassLoadActionNotCare = 0,
+    ELRenderPassLoadActionClear = 1,
+    ELRenderPassLoadActionLoad = 2
 };
 
 typedef struct {
@@ -29,7 +30,7 @@ static inline ELRenderPassConfig ELRenderPassConfigDefault() {
     return config;
 }
 
-classDefExt(ELRenderPass, ELCrossPlatformObject)
+classDefExt(ELRenderPass, public ELCrossPlatformObject)
 
 public:
     ELRenderPassConfig config;

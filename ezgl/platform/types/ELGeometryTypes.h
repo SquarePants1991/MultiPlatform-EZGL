@@ -19,7 +19,7 @@ struct _ELMaterial {
     ELUint normalMap;
     ELUint specularMap;
 };
-typedef _ELMaterial ELMaterial;
+typedef struct _ELMaterial ELMaterial;
 
 const ELMaterial ELMaterialDefault = {
         {1.0, 1.0, 1.0, 1.0},

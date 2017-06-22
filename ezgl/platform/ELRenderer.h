@@ -95,7 +95,7 @@ static inline bool ELStencilOpArgsEqual(ELStencilOpArgs left, ELStencilOpArgs ri
     return left.stencilTestFailed == right.stencilTestFailed && left.depthTestFailed == right.depthTestFailed && left.success == right.success;
 }
 
-classDefExt(ELRenderer, ELCrossPlatformObject)
+classDefExt(ELRenderer, public ELCrossPlatformObject)
 
 public:
     ELRendererPtr init(ELRenderPassPtr renderPass, ELRenderPiplinePtr pipline);

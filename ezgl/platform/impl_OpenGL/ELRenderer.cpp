@@ -141,32 +141,32 @@ inline void setupStencil(bool enabled, ELInt stencilMask, ELStencilOpArgs opArgs
 }
 
 ELRendererPtr ELRenderer::init(ELRenderPassPtr renderPass, ELRenderPiplinePtr pipline) {
-    self->renderPass = renderPass;
-    self->pipline = pipline;
+    selv->renderPass = renderPass;
+    selv->pipline = pipline;
     // init blend vars
-    self->isBlendEnabled = false;
-    self->srcBlendFactor = ELBlendFactorUndef;
-    self->dstBlendFactor = ELBlendFactorUndef;
+    selv->isBlendEnabled = false;
+    selv->srcBlendFactor = ELBlendFactorUndef;
+    selv->dstBlendFactor = ELBlendFactorUndef;
     // init depth test vars
-    self->isDepthTestEnabled = false;
-    self->depthFunc = ELTestLessEqual;
+    selv->isDepthTestEnabled = false;
+    selv->depthFunc = ELTestLessEqual;
     // init depth mask vars
-    self->isDepthWriteEnabled = false;
+    selv->isDepthWriteEnabled = false;
     // init stencil mask vars
-    self->isStencilTestEnabled = false;
-    self->stencilMask = 0xff;
-    self->stencilOpArgs = ELStencilOpArgsMake(ELStencilOpKeep, ELStencilOpKeep, ELStencilOpReplace);
-    self->stencilFuncArgs = ELStencilFuncArgsMake(ELTestAlways, 0, 0xFF);
-    return self;
+    selv->isStencilTestEnabled = false;
+    selv->stencilMask = 0xff;
+    selv->stencilOpArgs = ELStencilOpArgsMake(ELStencilOpKeep, ELStencilOpKeep, ELStencilOpReplace);
+    selv->stencilFuncArgs = ELStencilFuncArgsMake(ELTestAlways, 0, 0xFF);
+    return selv;
 }
 
 void ELRenderer::prepare() {
     // Depth Write Setup
-    setupDepthWrite(self->isDepthWriteEnabled);
+    setupDepthWrite(selv->isDepthWriteEnabled);
 
 
-    glBindFramebuffer(GL_FRAMEBUFFER, self->renderPass->renderTarget->__crossplatformFetchInt("framebuffer"));
-    glViewport(0, 0, self->renderPass->renderTarget->size.x, self->renderPass->renderTarget->size.y);
+    glBindFramebuffer(GL_FRAMEBUFFER, selv->renderPass->renderTarget->__crossplatformFetchInt("framebuffer"));
+    glViewport(0, 0, selv->renderPass->renderTarget->size.x, selv->renderPass->renderTarget->size.y);
     if (renderPass->config.loadAction == ELRenderPassLoadActionClear) {
         ELVector4 clearColor = renderPass->config.clearColor;
         glClearColor(clearColor.r, clearColor.g, clearColor.b, clearColor.a);
@@ -196,13 +196,13 @@ void ELRenderer::prepare() {
             GL_ONE_MINUS_DST_ALPHA,
             GL_ONE_MINUS_DST_COLOR,
     };
-    setupBlend(self->isBlendEnabled, glBlendFactors[self->srcBlendFactor], glBlendFactors[self->dstBlendFactor]);
+    setupBlend(selv->isBlendEnabled, glBlendFactors[selv->srcBlendFactor], glBlendFactors[selv->dstBlendFactor]);
 
     // Depth Test Setup
-    setupDepthTest(self->isDepthTestEnabled);
-    setupDepthFunc(self->depthFunc);
+    setupDepthTest(selv->isDepthTestEnabled);
+    setupDepthFunc(selv->depthFunc);
 
-    setupStencil(self->isStencilTestEnabled, self->stencilMask, self->stencilOpArgs, self->stencilFuncArgs);
+    setupStencil(selv->isStencilTestEnabled, selv->stencilMask, selv->stencilOpArgs, selv->stencilFuncArgs);
 }
 
 void ELRenderer::endRender() {
@@ -210,9 +210,9 @@ void ELRenderer::endRender() {
 }
 
 void ELRenderer::drawPrimitives(ELPrimitivesType type, ELCompositionVertexBufferPtr vertexBuffer) {
-    GLuint program = self->pipline->__crossplatformFetchInt("program");
+    GLuint program = selv->pipline->__crossplatformFetchInt("program");
     bool vaoExists;
-    GLuint vao = beginDraw(self, vertexBuffer.get(), program, &vaoExists);
+    GLuint vao = beginDraw(selv, vertexBuffer.get(), program, &vaoExists);
     ELVertexBufferPtr firstBuffer = vertexBuffer->buffers.at(0);
     bool useIndex = false;
     if (!vaoExists) {
@@ -270,9 +270,9 @@ void ELRenderer::drawPrimitives(ELPrimitivesType type, ELVertexBufferPtr vertexB
         return;
     }
     ELInt  vertexSize = vertexBuffer->vertexSizeInBytes;
-    GLuint program = self->pipline->__crossplatformFetchInt("program");
+    GLuint program = selv->pipline->__crossplatformFetchInt("program");
     bool vaoExists;
-    GLuint vao = beginDraw(self, vertexBuffer.get(), program, &vaoExists);
+    GLuint vao = beginDraw(selv, vertexBuffer.get(), program, &vaoExists);
     if (!vaoExists) {
         glBindVertexArray(vao);
         GLuint vbo = vertexBuffer->__crossplatformFetchInt("vbo");
@@ -320,69 +320,69 @@ void ELRenderer::drawPrimitives(ELPrimitivesType type, ELVertexBufferPtr vertexB
 }
 
 void ELRenderer::enableBlend() {
-    if (self->isBlendEnabled == false) {
-        self->isBlendEnabled = true;
+    if (selv->isBlendEnabled == false) {
+        selv->isBlendEnabled = true;
     }
 }
 
 void ELRenderer::disableBlend() {
-    if (self->isBlendEnabled == true) {
-        self->isBlendEnabled = false;
+    if (selv->isBlendEnabled == true) {
+        selv->isBlendEnabled = false;
     }
 }
 void ELRenderer::setBlendMode(ELBlendFactor srcFactor, ELBlendFactor dstFactor) {
-    self->srcBlendFactor = srcFactor;
-    self->dstBlendFactor = dstFactor;
+    selv->srcBlendFactor = srcFactor;
+    selv->dstBlendFactor = dstFactor;
 }
 
 void ELRenderer::enableDepthTest() {
-    self->isDepthTestEnabled = true;
-    self->isDepthWriteEnabled = true;
-    setupDepthTest(self->isDepthTestEnabled);
-    setupDepthWrite(self->isDepthWriteEnabled);
+    selv->isDepthTestEnabled = true;
+    selv->isDepthWriteEnabled = true;
+    setupDepthTest(selv->isDepthTestEnabled);
+    setupDepthWrite(selv->isDepthWriteEnabled);
 }
 
 void ELRenderer::disableDepthTest() {
-    self->isDepthTestEnabled = false;
-    setupDepthTest(self->isDepthTestEnabled);
+    selv->isDepthTestEnabled = false;
+    setupDepthTest(selv->isDepthTestEnabled);
 }
 
 void ELRenderer::setDepthFunc(ELTest testType) {
-    self->depthFunc = testType;
+    selv->depthFunc = testType;
     setupDepthFunc(testType);
 }
 
 void ELRenderer::enableDepthWrite() {
-    self->isDepthWriteEnabled = true;
-    setupDepthWrite(self->isDepthWriteEnabled);
+    selv->isDepthWriteEnabled = true;
+    setupDepthWrite(selv->isDepthWriteEnabled);
 }
 
 void ELRenderer::disableDepthWrite() {
-    self->isDepthWriteEnabled = false;
-    setupDepthWrite(self->isDepthWriteEnabled);
+    selv->isDepthWriteEnabled = false;
+    setupDepthWrite(selv->isDepthWriteEnabled);
 }
 
 void ELRenderer::enableStencilTest() {
-    self->isStencilTestEnabled = true;
-    setupStencil(self->isStencilTestEnabled, self->stencilMask, self->stencilOpArgs, self->stencilFuncArgs);
+    selv->isStencilTestEnabled = true;
+    setupStencil(selv->isStencilTestEnabled, selv->stencilMask, selv->stencilOpArgs, selv->stencilFuncArgs);
 }
 
 void ELRenderer::disableStencilTest() {
-    self->isStencilTestEnabled = false;
-    setupStencil(self->isStencilTestEnabled, self->stencilMask, self->stencilOpArgs, self->stencilFuncArgs);
+    selv->isStencilTestEnabled = false;
+    setupStencil(selv->isStencilTestEnabled, selv->stencilMask, selv->stencilOpArgs, selv->stencilFuncArgs);
 }
 
 void ELRenderer::setStencilFunc(ELTest testType, ELInt ref, ELInt mask) {
-    self->stencilFuncArgs = ELStencilFuncArgsMake(testType, ref, mask);
-    setupStencil(self->isStencilTestEnabled, self->stencilMask, self->stencilOpArgs, self->stencilFuncArgs);
+    selv->stencilFuncArgs = ELStencilFuncArgsMake(testType, ref, mask);
+    setupStencil(selv->isStencilTestEnabled, selv->stencilMask, selv->stencilOpArgs, selv->stencilFuncArgs);
 }
 
 void ELRenderer::setStencilOperations(ELStencilOp stFailed, ELStencilOp dpFailed, ELStencilOp allSuccess) {
-    self->stencilOpArgs = ELStencilOpArgsMake(stFailed, dpFailed, allSuccess);
-    setupStencil(self->isStencilTestEnabled, self->stencilMask, self->stencilOpArgs, self->stencilFuncArgs);
+    selv->stencilOpArgs = ELStencilOpArgsMake(stFailed, dpFailed, allSuccess);
+    setupStencil(selv->isStencilTestEnabled, selv->stencilMask, selv->stencilOpArgs, selv->stencilFuncArgs);
 }
 
 void ELRenderer::setStencilMask(ELInt mask) {
-    self->stencilMask = mask;
-    setupStencil(self->isStencilTestEnabled, self->stencilMask, self->stencilOpArgs, self->stencilFuncArgs);
+    selv->stencilMask = mask;
+    setupStencil(selv->isStencilTestEnabled, selv->stencilMask, selv->stencilOpArgs, selv->stencilFuncArgs);
 }
