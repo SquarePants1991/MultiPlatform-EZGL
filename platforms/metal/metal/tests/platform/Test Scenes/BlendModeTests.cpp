@@ -1,10 +1,11 @@
 //
-// Created by wang yang on 2017/6/22.
+// Created by wang yang on 2017/6/13.
 //
 
-#include "DepthTestTests.h"
+#include "BlendModeTests.h"
 
-DepthTestTests::DepthTestTests() {
+
+BlendModeTests::BlendModeTests() {
     ELRenderTargetPtr defaultRenderTarget = ELRenderTarget::defaultTarget();
 
     ELAssets::shared()->addSearchPath("/Users/wangyang/Documents/Codes/OnGit/MultiPlatform-EZGL/tests/platform/");
@@ -17,7 +18,6 @@ DepthTestTests::DepthTestTests() {
 
     ELRenderPassConfig config = ELRenderPassConfigDefault();
     config.clearColor = ELVector4Make(0.1, 0.1, 0.1, 1.0);
-    config.clearDepth = 0.0;
     config.loadAction = ELRenderPassLoadActionClear;
     mainRenderPass = ELRenderPass::alloc()->init(config, defaultRenderTarget);
 
@@ -73,11 +73,12 @@ DepthTestTests::DepthTestTests() {
     cubeVertexBuffer->appendIndex(plane1, 6);
     cubeVertexBuffer->flushIndexBuffer();
 
+    renderer->enableBlend();
+    renderer->setBlendMode(ELBlendFactorSrcAlpha, ELBlendFactorOneMinusSrcAlpha);
     renderer->enableDepthTest();
-    renderer->setDepthFunc(ELTestGreaterEqual);
 }
 
-void DepthTestTests::update(ELFloat deltaTime) {
+void BlendModeTests::update(ELFloat deltaTime) {
     static float angle = 0.0;
     angle += 0.01;
     ELMatrix4 finalMatrix = ELMatrix4Identity;
@@ -90,36 +91,36 @@ void DepthTestTests::update(ELFloat deltaTime) {
     finalMatrix = ELMatrix4Multiply(projection, finalMatrix);
 
     renderer->prepare();
-    model = ELMatrix4MakeTranslation(0.0, 0.2, 0.3);
+    model = ELMatrix4MakeTranslation(0.0, 0.2, -0.2);
     finalMatrix = ELMatrix4Identity;
     finalMatrix = ELMatrix4Multiply(view, model);
     finalMatrix = ELMatrix4Multiply(projection, finalMatrix);
     renderer->pipline->setUniform(finalMatrix, renderer->pipline->getUniformLocation("transform"));
-    renderer->pipline->setUniform( ELVector4Make(1.0, 0.0, 0.0, 1.0), renderer->pipline->getUniformLocation("color"));
+    renderer->pipline->setUniform( ELVector4Make(1.0, 0.0, 1.0, 1.0), renderer->pipline->getUniformLocation("color"));
     renderer->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
 
-    model = ELMatrix4MakeTranslation(0.2, 0.1, 0.2);
+    renderer->disableDepthWrite();
+    model = ELMatrix4MakeTranslation(0.2, 0.1, 0.3);
     finalMatrix = ELMatrix4Identity;
     finalMatrix = ELMatrix4Multiply(view, model);
     finalMatrix = ELMatrix4Multiply(projection, finalMatrix);
     renderer->pipline->setUniform(finalMatrix, renderer->pipline->getUniformLocation("transform"));
-    renderer->pipline->setUniform( ELVector4Make(0.0, 1.0, 0.0, 1.0), renderer->pipline->getUniformLocation("color"));
+    renderer->pipline->setUniform( ELVector4Make(1.0, 0.0, 0.0, 0.5), renderer->pipline->getUniformLocation("color"));
     renderer->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
 
 
-    model = ELMatrix4MakeTranslation(0.25, 0.2, 0.1);
+    model = ELMatrix4MakeTranslation(0.25, 0.2, 0.2);
     finalMatrix = ELMatrix4Identity;
     finalMatrix = ELMatrix4Multiply(view, model);
     finalMatrix = ELMatrix4Multiply(projection, finalMatrix);
     renderer->pipline->setUniform(finalMatrix, renderer->pipline->getUniformLocation("transform"));
-    renderer->pipline->setUniform(ELVector4Make(0.0, 0.0, 1.0, 1.0), renderer->pipline->getUniformLocation("color"));
+    renderer->pipline->setUniform(ELVector4Make(0.0, 0.7, 0.0, 0.5), renderer->pipline->getUniformLocation("color"));
     renderer->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
+    renderer->enableDepthWrite();
+
+
 
     static float elapsedTime = 0.0;
     elapsedTime += deltaTime;
-    if ((int)elapsedTime % 2 == 0) {
-        renderer->setDepthFunc(ELTestGreaterEqual);
-    } else {
-        renderer->setDepthFunc(ELTestNever);
-    }
+//    renderer->setBlendMode(ELBlendFactorOneMinusSrcAlpha, (ELBlendFactor)(((int)elapsedTime) % 9));
 }

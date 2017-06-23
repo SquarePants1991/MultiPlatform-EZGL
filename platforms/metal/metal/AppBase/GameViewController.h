@@ -15,7 +15,7 @@
 //   protocol, which allows our renderer object to get and set drawable properties such as pixel
 //   format and sample count
 
-@interface GameViewController : NSViewController<MTKViewDelegate>
+@interface GameViewController : NSViewController <MTKViewDelegate>
 
 @end
 

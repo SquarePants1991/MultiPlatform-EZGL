@@ -60,7 +60,7 @@ typedef struct {
 - (void)setupEnv {
     pipline = ELRenderPipline::alloc()->init("passThroughVertex", "passThroughFragment");
     ELRenderPassConfig config;
-    config.clearColor = ELVector4Make(1.0, 1.0, 0.0, 1.0);
+    config.clearColor = ELVector4Make(0.0, 0.0, 0.0, 1.0);
     config.loadAction = ELRenderPassLoadActionClear;
     ELRenderPassPtr renderPass = ELRenderPass::alloc()->init(config, ELRenderTarget::defaultTarget());
     renderer = ELRenderer::alloc()->init(renderPass, pipline);

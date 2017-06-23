@@ -10,6 +10,15 @@
 		D31169F81EFBB11000E50855 /* Shaders.metal in Resources */ = {isa = PBXBuildFile; fileRef = D3AF49721EFBA023009D94CD /* Shaders.metal */; };
 		D31C95ED1EFBA7F4007774C5 /* GameViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D31C95EB1EFBA749007774C5 /* GameViewController.mm */; };
 		D358CA161EFBBD5600179E2F /* NSObjectHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = D358CA151EFBBD5600179E2F /* NSObjectHolder.m */; };
+		D3A23A641EFCF6E40072C068 /* blend_fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = D3A23A461EFCF6E40072C068 /* blend_fragment.glsl */; };
+		D3A23A661EFCF6E40072C068 /* fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = D3A23A481EFCF6E40072C068 /* fragment.glsl */; };
+		D3A23A671EFCF6E40072C068 /* grass_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D3A23A491EFCF6E40072C068 /* grass_02.jpg */; };
+		D3A23A6A1EFCF6E40072C068 /* BasicFlowTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3A23A4E1EFCF6E40072C068 /* BasicFlowTests.cpp */; };
+		D3A23A701EFCF6E50072C068 /* TestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3A23A5A1EFCF6E40072C068 /* TestScene.cpp */; };
+		D3A23A721EFCF6E50072C068 /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A23A5D1EFCF6E40072C068 /* tree.png */; };
+		D3A23A731EFCF6E50072C068 /* tree2.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A23A5E1EFCF6E40072C068 /* tree2.png */; };
+		D3A23A741EFCF6E50072C068 /* vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = D3A23A5F1EFCF6E40072C068 /* vertex.glsl */; };
+		D3A23A791EFCF7780072C068 /* PlatformTestsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D3A23A781EFCF7780072C068 /* PlatformTestsViewController.mm */; };
 		D3AF49741EFBA06B009D94CD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3AF49691EFBA023009D94CD /* MainMenu.xib */; };
 		D3AF49BD1EFBA09C009D94CD /* EZGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3AF497C1EFBA09C009D94CD /* EZGL.cpp */; };
 		D3AF49BF1EFBA09C009D94CD /* ELCrossPlatformObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3AF49831EFBA09C009D94CD /* ELCrossPlatformObject.cpp */; };
@@ -33,6 +42,22 @@
 		D31C95EC1EFBA749007774C5 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		D358CA141EFBBD5600179E2F /* NSObjectHolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObjectHolder.h; sourceTree = "<group>"; };
 		D358CA151EFBBD5600179E2F /* NSObjectHolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObjectHolder.m; sourceTree = "<group>"; };
+		D3A23A441EFCF6E40072C068 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		D3A23A461EFCF6E40072C068 /* blend_fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = blend_fragment.glsl; sourceTree = "<group>"; };
+		D3A23A471EFCF6E40072C068 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		D3A23A481EFCF6E40072C068 /* fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fragment.glsl; sourceTree = "<group>"; };
+		D3A23A491EFCF6E40072C068 /* grass_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grass_02.jpg; sourceTree = "<group>"; };
+		D3A23A4E1EFCF6E40072C068 /* BasicFlowTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicFlowTests.cpp; sourceTree = "<group>"; };
+		D3A23A4F1EFCF6E40072C068 /* BasicFlowTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicFlowTests.h; sourceTree = "<group>"; };
+		D3A23A5A1EFCF6E40072C068 /* TestScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScene.cpp; sourceTree = "<group>"; };
+		D3A23A5B1EFCF6E40072C068 /* TestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScene.h; sourceTree = "<group>"; };
+		D3A23A5C1EFCF6E40072C068 /* texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = texture.jpg; sourceTree = "<group>"; };
+		D3A23A5D1EFCF6E40072C068 /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree.png; sourceTree = "<group>"; };
+		D3A23A5E1EFCF6E40072C068 /* tree2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree2.png; sourceTree = "<group>"; };
+		D3A23A5F1EFCF6E40072C068 /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vertex.glsl; sourceTree = "<group>"; };
+		D3A23A611EFCF6E40072C068 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		D3A23A771EFCF7780072C068 /* PlatformTestsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlatformTestsViewController.h; sourceTree = "<group>"; };
+		D3A23A781EFCF7780072C068 /* PlatformTestsViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PlatformTestsViewController.mm; sourceTree = "<group>"; };
 		D3AF49461EFB9E73009D94CD /* metal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3AF49661EFBA023009D94CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D3AF49671EFBA023009D94CD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -97,6 +122,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3A23A431EFCF6E40072C068 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				D3A23A441EFCF6E40072C068 /* CMakeLists.txt */,
+				D3A23A451EFCF6E40072C068 /* platform */,
+				D3A23A601EFCF6E40072C068 /* renderer */,
+			);
+			name = tests;
+			path = ../../../tests;
+			sourceTree = "<group>";
+		};
+		D3A23A451EFCF6E40072C068 /* platform */ = {
+			isa = PBXGroup;
+			children = (
+				D3A23A461EFCF6E40072C068 /* blend_fragment.glsl */,
+				D3A23A471EFCF6E40072C068 /* CMakeLists.txt */,
+				D3A23A481EFCF6E40072C068 /* fragment.glsl */,
+				D3A23A491EFCF6E40072C068 /* grass_02.jpg */,
+				D3A23A4B1EFCF6E40072C068 /* Test Scenes */,
+				D3A23A5A1EFCF6E40072C068 /* TestScene.cpp */,
+				D3A23A5B1EFCF6E40072C068 /* TestScene.h */,
+				D3A23A5C1EFCF6E40072C068 /* texture.jpg */,
+				D3A23A5D1EFCF6E40072C068 /* tree.png */,
+				D3A23A5E1EFCF6E40072C068 /* tree2.png */,
+				D3A23A5F1EFCF6E40072C068 /* vertex.glsl */,
+			);
+			path = platform;
+			sourceTree = "<group>";
+		};
+		D3A23A4B1EFCF6E40072C068 /* Test Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				D3A23A4E1EFCF6E40072C068 /* BasicFlowTests.cpp */,
+				D3A23A4F1EFCF6E40072C068 /* BasicFlowTests.h */,
+			);
+			path = "Test Scenes";
+			sourceTree = "<group>";
+		};
+		D3A23A601EFCF6E40072C068 /* renderer */ = {
+			isa = PBXGroup;
+			children = (
+				D3A23A611EFCF6E40072C068 /* CMakeLists.txt */,
+			);
+			path = renderer;
+			sourceTree = "<group>";
+		};
 		D3AF493D1EFB9E72009D94CD = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +189,7 @@
 			children = (
 				D3AF49CF1EFBA10F009D94CD /* impl_Metal */,
 				D3AF49751EFBA09C009D94CD /* ezgl */,
+				D3A23A431EFCF6E40072C068 /* tests */,
 				D3AF49651EFBA023009D94CD /* AppBase */,
 			);
 			path = metal;
@@ -136,6 +208,8 @@
 				D3AF496D1EFBA023009D94CD /* Info.plist */,
 				D3AF496E1EFBA023009D94CD /* main.m */,
 				D3AF49721EFBA023009D94CD /* Shaders.metal */,
+				D3A23A771EFCF7780072C068 /* PlatformTestsViewController.h */,
+				D3A23A781EFCF7780072C068 /* PlatformTestsViewController.mm */,
 			);
 			path = AppBase;
 			sourceTree = "<group>";
@@ -289,8 +363,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3A23A721EFCF6E50072C068 /* tree.png in Resources */,
+				D3A23A641EFCF6E40072C068 /* blend_fragment.glsl in Resources */,
 				D3AF49741EFBA06B009D94CD /* MainMenu.xib in Resources */,
+				D3A23A731EFCF6E50072C068 /* tree2.png in Resources */,
+				D3A23A671EFCF6E40072C068 /* grass_02.jpg in Resources */,
 				D31169F81EFBB11000E50855 /* Shaders.metal in Resources */,
+				D3A23A741EFCF6E50072C068 /* vertex.glsl in Resources */,
+				D3A23A661EFCF6E40072C068 /* fragment.glsl in Resources */,
 				D3E6F0171EFCE58300B94C65 /* texture.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,16 +385,19 @@
 				D31C95ED1EFBA7F4007774C5 /* GameViewController.mm in Sources */,
 				D3AF49DC1EFBA299009D94CD /* ELMetalAdapter.mm in Sources */,
 				D3AF49CC1EFBA09C009D94CD /* ELFileUtil.cpp in Sources */,
+				D3A23A791EFCF7780072C068 /* PlatformTestsViewController.mm in Sources */,
 				D3AF49DE1EFBA29D009D94CD /* ELRenderPass.mm in Sources */,
 				D3AF49E01EFBA29E009D94CD /* ELRenderTarget.mm in Sources */,
 				D3AF49DD1EFBA29C009D94CD /* ELRenderer.mm in Sources */,
 				D3AF49E11EFBA29F009D94CD /* ELTexture.mm in Sources */,
 				D358CA161EFBBD5600179E2F /* NSObjectHolder.m in Sources */,
+				D3A23A701EFCF6E50072C068 /* TestScene.cpp in Sources */,
 				D3AF49E21EFBA2A0009D94CD /* ELVertexBuffer.mm in Sources */,
 				D3AF49DF1EFBA29E009D94CD /* ELRenderPipline.mm in Sources */,
 				D3AF49BD1EFBA09C009D94CD /* EZGL.cpp in Sources */,
 				D3AF49D21EFBA1E0009D94CD /* AppDelegate.m in Sources */,
 				D3AF49D01EFBA1D2009D94CD /* main.m in Sources */,
+				D3A23A6A1EFCF6E40072C068 /* BasicFlowTests.cpp in Sources */,
 				D3AF49BF1EFBA09C009D94CD /* ELCrossPlatformObject.cpp in Sources */,
 				D3AF49CB1EFBA09C009D94CD /* ELAssets.cpp in Sources */,
 			);
@@ -442,6 +525,7 @@
 				CODE_SIGN_ENTITLEMENTS = metal/metal.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = P48344HVQL;
+				GCC_PREPROCESSOR_DEFINITIONS = "UseMetal=1";
 				INFOPLIST_FILE = "$(SRCROOT)/metal/AppBase/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.ocean.metal;
@@ -459,6 +543,7 @@
 				CODE_SIGN_ENTITLEMENTS = metal/metal.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = P48344HVQL;
+				GCC_PREPROCESSOR_DEFINITIONS = "UseMetal=1";
 				INFOPLIST_FILE = "$(SRCROOT)/metal/AppBase/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.ocean.metal;

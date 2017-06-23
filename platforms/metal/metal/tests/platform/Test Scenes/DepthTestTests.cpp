@@ -2,6 +2,7 @@
 // Created by wang yang on 2017/6/22.
 //
 
+#include <ELRenderPass.h>
 #include "DepthTestTests.h"
 
 DepthTestTests::DepthTestTests() {
