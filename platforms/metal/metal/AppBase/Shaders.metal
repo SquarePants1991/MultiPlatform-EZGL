@@ -14,12 +14,14 @@ struct VertexIn
 {
     packed_float3  position;
     packed_float3  color;
+    packed_float2  uv;
 };
 
 struct VertexOut
 {
     float4  position [[position]];
     float4  color;
+    float2 uv;
     float pointSize [[ point_size ]];
 };
 struct Uniforms
@@ -38,14 +40,19 @@ vertex VertexOut passThroughVertex(uint vid [[ vertex_id ]],
     VertexIn inVertex = vertexIn[vid];
     float4x4 mvp = uniform.projectionMatrix * uniform.viewMatrix * uniform.modelMatrix;
     outVertex.position = mvp * float4(inVertex.position, 1.0);
-    outVertex.color = float4(inVertex.color, 1.0);
+    outVertex.color = float4(1.0, 0.0, 1.0, 1.0);
+    outVertex.uv = inVertex.uv;
     
-    outVertex.pointSize = 20;
+    outVertex.pointSize = 1;
     return outVertex;
 };
 
-fragment half4 passThroughFragment(VertexOut inFrag [[stage_in]])
+constexpr sampler s(coord::normalized, address::repeat, filter::linear);
+
+fragment float4 passThroughFragment(VertexOut inFrag [[stage_in]],
+                                   texture2d<float> diffuse [[ texture(0) ]])
 {
-    return half4(inFrag.color);
+    float4 color = diffuse.sample(s, inFrag.uv);
+    return color;
 };
 

@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#define ELRetain(obj) [NSObjectHolder retain: obj]
+#define ELRelease(obj) [NSObjectHolder release: obj]
+
 @interface NSObjectHolder : NSObject
 // NSObject under impl_Metal can be managed by ELMetalAdapter
 + (void)retain:(NSObject *)object;

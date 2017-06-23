@@ -38,23 +38,77 @@ public:
 public:
     ELVertexBufferPtr init(ELInt vertexSizeInBytes, ELVertexBufferType bufferType);
     ELVertexBufferPtr init(void *data, ELInt sizeInBytes, ELInt vertexSizeInBytes,ELVertexBufferType bufferType);
-    void append(void *data, ELInt size);
+    ~ELVertexBuffer();
     void flushBuffer();
-    ELVertexBufferPtr subbuffer(ELInt from, ELInt length);
-    ELInt size();
-    ELInt vertexCount();
-    void clear();
-    void *data();
-    void addAttribute(ELVertexAttribute attribute);
+
+    void append(void *data, ELInt size) {
+        for (int i = 0; i < size; ++i) {
+            buffer.push_back(*((unsigned char *) data + i));
+        }
+    }
+
+    ELVertexBufferPtr subbuffer(ELInt from, ELInt length) {
+        void *bufferData = data();
+        void *bufferStart = (void *)((unsigned char *)bufferData + from);
+        ELVertexBufferPtr subBuffer = ELVertexBuffer::alloc()->init(bufferStart, length, selv->vertexSizeInBytes, bufferType);
+        return subBuffer;
+    }
+
+    ELInt size() {
+        return buffer.size();
+    }
+
+    ELInt vertexCount() {
+        if (useIndex) {
+            return indexBuffer.size();
+        }
+        return buffer.size() / vertexSizeInBytes;
+    }
+
+    void clear() {
+        buffer.clear();
+    }
+    void * data() {
+        return (void *)buffer.data();
+    }
+
+    void addAttribute(ELVertexAttribute attribute) {
+        attributes.push_back(attribute);
+    }
 
     // 索引操作
     void enableIndex();
-    void appendIndex(void *data, ELInt size);
-    void appendIndex(ELInt index);
-    void clearIndex();
-    ELInt *indexData();
-    ELInt indexBufferSize();
     void flushIndexBuffer();
+
+    void appendIndex(void *data, ELInt size) {
+        if (selv->useIndex) {
+            for (int i = 0; i < size; ++i) {
+                indexBuffer.push_back(*((ELInt *)data + i));
+            }
+        }
+    }
+
+    void appendIndex(ELInt index) {
+        if (selv->useIndex) {
+            indexBuffer.push_back(index);
+        }
+    }
+
+    void clearIndex() {
+        if (selv->useIndex) {
+            indexBuffer.clear();
+        }
+    }
+
+    ELInt *indexData() {
+        return (ELInt *)indexBuffer.data();
+    }
+
+    ELInt indexBufferSize() {
+        return indexBuffer.size() * sizeof(ELInt);
+    }
+
+
 defEnd
 
 #endif //EZGL_ELVERTEXBUFFER_H

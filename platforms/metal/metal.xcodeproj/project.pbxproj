@@ -24,6 +24,7 @@
 		D3AF49E01EFBA29E009D94CD /* ELRenderTarget.mm in Sources */ = {isa = PBXBuildFile; fileRef = D3AF49D81EFBA21D009D94CD /* ELRenderTarget.mm */; };
 		D3AF49E11EFBA29F009D94CD /* ELTexture.mm in Sources */ = {isa = PBXBuildFile; fileRef = D3AF49DB1EFBA21D009D94CD /* ELTexture.mm */; };
 		D3AF49E21EFBA2A0009D94CD /* ELVertexBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = D3AF49D41EFBA21D009D94CD /* ELVertexBuffer.mm */; };
+		D3E6F0171EFCE58300B94C65 /* texture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D3E6F0161EFCE57300B94C65 /* texture.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		D3AF49D91EFBA21D009D94CD /* ELRenderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ELRenderer.mm; sourceTree = "<group>"; };
 		D3AF49DA1EFBA21D009D94CD /* ELRenderPass.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ELRenderPass.mm; sourceTree = "<group>"; };
 		D3AF49DB1EFBA21D009D94CD /* ELTexture.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ELTexture.mm; sourceTree = "<group>"; };
+		D3E6F0161EFCE57300B94C65 /* texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = texture.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 		D3AF49651EFBA023009D94CD /* AppBase */ = {
 			isa = PBXGroup;
 			children = (
+				D3E6F0161EFCE57300B94C65 /* texture.jpg */,
 				D31C95EC1EFBA749007774C5 /* GameViewController.h */,
 				D31C95EB1EFBA749007774C5 /* GameViewController.mm */,
 				D3AF49661EFBA023009D94CD /* AppDelegate.h */,
@@ -288,6 +291,7 @@
 			files = (
 				D3AF49741EFBA06B009D94CD /* MainMenu.xib in Resources */,
 				D31169F81EFBB11000E50855 /* Shaders.metal in Resources */,
+				D3E6F0171EFCE58300B94C65 /* texture.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

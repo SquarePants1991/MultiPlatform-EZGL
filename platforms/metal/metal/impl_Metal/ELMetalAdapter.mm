@@ -19,8 +19,8 @@ void ELMetalAdapter::setup(id<MetalRenderContextProvider> renderContextProvider,
     
     this->defaultFBSize = viewportSize;
     // TODO: Fix These
-    this->enableDepthBuffer = (renderContextProvider.currentRenderPassDescriptor.depthAttachment != nil);
-    this->enableStencilBuffer = (renderContextProvider.currentRenderPassDescriptor.stencilAttachment != nil);
+//    this->enableDepthBuffer = (renderContextProvider.currentRenderPassDescriptor.depthAttachment != nil);
+//    this->enableStencilBuffer = (renderContextProvider.currentRenderPassDescriptor.stencilAttachment != nil);
     // TODO: Map MTLPixelFormat to ELPixelFormat
     MTLPixelFormat pixelFormat = renderContextProvider.colorPixelFormat;
     this->defaultPixelFormat = ELPixelFormatRGBA;

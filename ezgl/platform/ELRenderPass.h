@@ -12,8 +12,8 @@
 
 enum ELRenderPassLoadAction {
     ELRenderPassLoadActionNotCare = 0,
-    ELRenderPassLoadActionClear = 1,
-    ELRenderPassLoadActionLoad = 2
+    ELRenderPassLoadActionLoad = 1,
+    ELRenderPassLoadActionClear = 2,
 };
 
 typedef struct {

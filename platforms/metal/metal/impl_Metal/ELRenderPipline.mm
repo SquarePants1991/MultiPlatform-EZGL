@@ -7,6 +7,7 @@
 #import "NSObjectHolder.h"
 
 crossplatform_var_obj(piplineState)
+crossplatform_var_obj(uniformBuffer)
 
 ELRenderPiplinePtr ELRenderPipline::init(std::string vertexShader, std::string fragmentShader) {
     id <MTLDevice> device = ELMetalAdapter::defaultAdapter()->metalDevice;
@@ -20,6 +21,8 @@ ELRenderPiplinePtr ELRenderPipline::init(std::string vertexShader, std::string f
     piplineDesc.vertexFunction = vertexFunc;
     piplineDesc.fragmentFunction = fragmentFunc;
     piplineDesc.colorAttachments[0].pixelFormat = renderContextProvider.colorPixelFormat;
+    piplineDesc.depthAttachmentPixelFormat = renderContextProvider.depthStencilPixelFormat;
+    piplineDesc.stencilAttachmentPixelFormat = renderContextProvider.depthStencilPixelFormat;
     piplineDesc.sampleCount = renderContextProvider.sampleCount;
     
     NSError *error;
@@ -30,11 +33,13 @@ ELRenderPiplinePtr ELRenderPipline::init(std::string vertexShader, std::string f
     
     [NSObjectHolder retain: pipelineState];
     piplineStateSet(this, (__bridge void *)pipelineState);
+    
     return selv;
 }
 
 ELRenderPipline::~ELRenderPipline() {
-    
+    id<MTLRenderPipelineState> pipelineState = (__bridge id<MTLRenderPipelineState>)piplineStateGet(this);
+    ELRelease(pipelineState);
 }
 
 ELInt ELRenderPipline::getUniformLocation(std::string uniformName) {

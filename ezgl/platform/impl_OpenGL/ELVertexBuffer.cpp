@@ -59,44 +59,8 @@ ELVertexBufferPtr ELVertexBuffer::init(void *data, ELInt sizeInBytes, ELInt vert
     return selv;
 }
 
-void ELVertexBuffer::append(void *data, ELInt size) {
-    for (int i = 0; i < size; ++i) {
-        buffer.push_back(*((unsigned char *) data + i));
-    }
-}
-
 void ELVertexBuffer::flushBuffer() {
     updateVBO(selv);
-}
-
-ELInt ELVertexBuffer::size() {
-    return buffer.size();
-}
-
-ELInt ELVertexBuffer::vertexCount() {
-    if (useIndex) {
-        return indexBuffer.size();
-    }
-    return buffer.size() / vertexSizeInBytes;
-}
-
-void ELVertexBuffer::clear() {
-    buffer.clear();
-}
-
-void * ELVertexBuffer::data() {
-    return (void *)buffer.data();
-}
-
-void ELVertexBuffer::addAttribute(ELVertexAttribute attribute) {
-    attributes.push_back(attribute);
-}
-
-ELVertexBufferPtr ELVertexBuffer::subbuffer(ELInt from, ELInt length) {
-    void *bufferData = data();
-    void *bufferStart = (void *)((unsigned char *)bufferData + from);
-    ELVertexBufferPtr subBuffer = ELVertexBuffer::alloc()->init(bufferStart, length, selv->vertexSizeInBytes, bufferType);
-    return subBuffer;
 }
 
 void ELVertexBuffer::enableIndex() {
@@ -105,34 +69,6 @@ void ELVertexBuffer::enableIndex() {
     }
     selv->useIndex = true;
     genIBO(selv);
-}
-
-void ELVertexBuffer::appendIndex(void *data, ELInt size) {
-    if (selv->useIndex) {
-        for (int i = 0; i < size; ++i) {
-            indexBuffer.push_back(*((ELInt *)data + i));
-        }
-    }
-}
-
-void ELVertexBuffer::appendIndex(ELInt index) {
-    if (selv->useIndex) {
-        indexBuffer.push_back(index);
-    }
-}
-
-void ELVertexBuffer::clearIndex() {
-    if (selv->useIndex) {
-        indexBuffer.clear();
-    }
-}
-
-ELInt *ELVertexBuffer::indexData() {
-    return (ELInt *)indexBuffer.data();
-}
-
-ELInt ELVertexBuffer::indexBufferSize() {
-    return indexBuffer.size() * sizeof(ELInt);
 }
 
 void ELVertexBuffer::flushIndexBuffer() {

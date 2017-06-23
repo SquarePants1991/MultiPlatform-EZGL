@@ -44,12 +44,22 @@
         return instance->__crossplatformAttach(Stringify(name), val);\
     }
 
+#define crossplatform_var_bool(name) \
+    bool name##Get(ELCrossPlatformObject * instance) {\
+        return instance->__crossplatformFetchBool(Stringify(name));\
+    }\
+    void name##Set(ELCrossPlatformObject * instance, bool val) {\
+        return instance->__crossplatformAttach(Stringify(name), val);\
+    }
+
+
 class ELCrossPlatformObject {
 private:
     std::map<std::string, ELInt> _intAttachments;
     std::map<std::string, ELFloat > _floatAttachments;
     std::map<std::string, std::string> _stringAttachments;
     std::map<std::string, void *> _objAttachments;
+    std::map<std::string, bool> _boolAttachments;
 public:
     void __crossplatformAttach(std::string _attachKey, ELInt _val) {
         _intAttachments[_attachKey] = _val;
@@ -62,6 +72,9 @@ public:
     }
     void __crossplatformAttach(std::string _attachKey, void * _val) {
         _objAttachments[_attachKey] = _val;
+    }
+    void __crossplatformAttach(std::string _attachKey, bool _val) {
+        _boolAttachments[_attachKey] = _val;
     }
 
     ELInt __crossplatformFetchInt(std::string _attachKey) {
@@ -79,6 +92,10 @@ public:
     void * __crossplatformFetchObject(std::string _attachKey) {
         return _objAttachments[_attachKey];
     }
+    
+    bool __crossplatformFetchBool(std::string _attachKey) {
+        return _boolAttachments[_attachKey];
+    }
 
     bool __crossplatformIntExist(std::string _attachKey) {
         return _intAttachments.find(_attachKey) != _intAttachments.end();
@@ -91,6 +108,9 @@ public:
     }
     bool __crossplatformObjectExist(std::string _attachKey) {
         return _objAttachments.find(_attachKey) != _objAttachments.end();
+    }
+    bool __crossplatformBoolExist(std::string _attachKey) {
+        return _boolAttachments.find(_attachKey) != _boolAttachments.end();
     }
 };
 

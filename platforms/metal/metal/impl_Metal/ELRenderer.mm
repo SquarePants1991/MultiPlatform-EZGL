@@ -23,14 +23,23 @@ ELRendererPtr ELRenderer::init(ELRenderPassPtr renderPass, ELRenderPiplinePtr pi
 }
 
 void ELRenderer::prepare() {
+    id <MTLDrawable> drawable = nil;
+    MTLRenderPassDescriptor *renderPassDescriptor = nil;
+    if (renderPass->renderTarget->__crossplatformFetchBool("isDefaultTarget")) {
+        drawable = ELMetalAdapter::defaultAdapter()->renderContextProvider.currentDrawable;
+        renderPassDescriptor = ELMetalAdapter::defaultAdapter()->renderContextProvider.currentRenderPassDescriptor;
+        renderPassDescriptor.colorAttachments[0].loadAction = (MTLLoadAction)renderPass->config.loadAction;
+        renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(renderPass->config.clearColor.x, renderPass->config.clearColor.y, renderPass->config.clearColor.z, renderPass->config.clearColor.w);
+        renderPassDescriptor.depthAttachment.loadAction = (MTLLoadAction)renderPass->config.loadAction;
+        renderPassDescriptor.depthAttachment.clearDepth = 1.0;
+    }
+    
     id <MTLCommandQueue> commandQueue = (__bridge id <MTLCommandQueue>)commandQueueGet(this);
     id <MTLCommandBuffer> commandBuffer = [commandQueue commandBuffer];
-    MTLRenderPassDescriptor *renderPassDescriptor = (__bridge MTLRenderPassDescriptor *)renderPass->__crossplatformFetchObject("renderPassDescriptor");
+    
     id <MTLRenderPipelineState> piplineState = (__bridge id <MTLRenderPipelineState>)pipline->__crossplatformFetchObject("piplineState");
     
     id <MTLRenderCommandEncoder> encoder = [commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
-    encoder.label = @"encoder default";
-    [encoder pushDebugGroup:@"begin draw"];
     [encoder setRenderPipelineState:piplineState];
     
     currentCommandEncoderSet(this, (__bridge void *)encoder);
@@ -40,18 +49,35 @@ void ELRenderer::prepare() {
     [NSObjectHolder retain: encoder];
 }
 
-void ELRenderer::drawPrimitives(ELPrimitivesType type, ELVertexBufferPtr vertexBuffer) {}
-void ELRenderer::drawPrimitives(ELPrimitivesType type, ELCompositionVertexBufferPtr vertexBuffer) {}
-void ELRenderer::endRender() {
-    id <MTLDrawable> drawable = (__bridge id <MTLDrawable>)renderPass->renderTarget->__crossplatformFetchObject("drawable");
-    id <MTLCommandEncoder> encoder = (__bridge id <MTLRenderCommandEncoder> )currentCommandEncoderGet(this);
-    id <MTLCommandBuffer> buffer = (__bridge id <MTLCommandBuffer> )currentCommandBufferGet(this);
+void ELRenderer::drawPrimitives(ELPrimitivesType type, ELVertexBufferPtr vertexBuffer) {
+    id <MTLBuffer> mtlBuffer = (__bridge id <MTLBuffer>)vertexBuffer->__crossplatformFetchObject("vertexBuffer");
+    id <MTLRenderCommandEncoder> encoder = (__bridge id <MTLRenderCommandEncoder> )currentCommandEncoderGet(this);
+    id <MTLBuffer> uniformBuffer = (__bridge id <MTLBuffer> )pipline->uniformBuffer->__crossplatformFetchObject("vertexBuffer");
     
-    [encoder popDebugGroup];
+    [encoder setVertexBuffer:mtlBuffer offset:0 atIndex:0];
+    [encoder setVertexBuffer:uniformBuffer offset:0 atIndex:1];
+    [encoder drawPrimitives:MTLPrimitiveTypeTriangle vertexStart:0 vertexCount:vertexBuffer->vertexCount()];
+}
+
+void ELRenderer::drawPrimitives(ELPrimitivesType type, ELCompositionVertexBufferPtr vertexBuffer) {}
+
+void ELRenderer::endRender() {
+    id <MTLDrawable> drawable = nil;
+    if (renderPass->renderTarget->__crossplatformFetchBool("isDefaultTarget")) {
+        drawable = ELMetalAdapter::defaultAdapter()->renderContextProvider.currentDrawable;
+    } else {
+        // May be Draw to texture
+    }
+    id <MTLCommandBuffer> commandBuffer = (__bridge id <MTLCommandBuffer> )currentCommandBufferGet(this);
+    id <MTLRenderCommandEncoder> encoder = (__bridge id <MTLRenderCommandEncoder> )currentCommandEncoderGet(this);
+    
     [encoder endEncoding];
     
-    [buffer presentDrawable:drawable];
-    [buffer commit];
+    [commandBuffer presentDrawable:drawable];
+    [commandBuffer commit];
+    
+    [NSObjectHolder release: commandBuffer];
+    [NSObjectHolder release: encoder];
 }
 
 void ELRenderer::enableBlend() {}

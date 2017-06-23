@@ -10,6 +10,7 @@
 #include "ELCppBase.h"
 #include "ELCrossPlatformObject.h"
 #include "ELTexture.h"
+#include "ELVertexBuffer.h"
 
 classDefExt(ELRenderPipline, public ELCrossPlatformObject)
 
@@ -26,12 +27,12 @@ public:
     void setUniform(ELMatrix2 val, ELInt location);
     void setUniform(ELMatrix3 val, ELInt location);
     void setUniform(ELMatrix4 val, ELInt location);
-
     void bindTexture(ELTexturePtr texture, ELInt uniformLocation);
 
     // 目前主要清空纹理计数，清理上一次可能遗留的状态数据
     void clearState();
-
+    // Metal will use this buffer to setup uniform structure
+    ELVertexBufferPtr uniformBuffer;
 defEnd
 
 
