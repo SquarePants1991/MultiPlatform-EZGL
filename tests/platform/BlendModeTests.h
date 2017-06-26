@@ -5,11 +5,11 @@
 #ifndef EZGL_BLENDMODETESTS_H
 #define EZGL_BLENDMODETESTS_H
 
-#include "../TestScene.h"
+#include "TestScene.h"
 
 class BlendModeTests: public TestScene {
 public:
-    BlendModeTests();
+    BlendModeTests(std::map<std::string, ELRenderPiplinePtr> piplines);
     virtual void update(ELFloat deltaTime);
 
 private:

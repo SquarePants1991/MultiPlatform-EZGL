@@ -4,20 +4,13 @@
 
 #include "BasicFlowTests.h"
 
-BasicFlowTests::BasicFlowTests() {
+BasicFlowTests::BasicFlowTests(std::map<std::string, ELRenderPiplinePtr> piplines): TestScene(piplines) {
     ELRenderTargetPtr defaultRenderTarget = ELRenderTarget::defaultTarget();
 
     ELAssets::shared()->addSearchPath("/Users/wangyang/Documents/Codes/OnGit/MultiPlatform-EZGL/tests/platform/");
     ELAssets::shared()->addSearchPath("/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/tests/platform/");
-    
-#if UseMetal
-    pipline = ELRenderPipline::alloc()->init("passThroughVertex", "passThroughFragment");
-#else
-    std::string vertexShader = ELFileUtil::stringContentOfShader(ELAssets::shared()->findFile("vertex.glsl"));
-    std::string fragmentShader = ELFileUtil::stringContentOfShader(ELAssets::shared()->findFile("fragment.glsl"));
-    
-    pipline = ELRenderPipline::alloc()->init(vertexShader, fragmentShader);
-#endif
+
+    pipline = piplines.at("default");
     
 
     ELRenderPassConfig config = ELRenderPassConfigDefault();
@@ -131,30 +124,30 @@ void BasicFlowTests::update(ELFloat deltaTime) {
 
     finalMatrix = ELMatrix4Multiply(view, model);
     finalMatrix = ELMatrix4Multiply(projection, finalMatrix);
-//    renderToTextureRender->prepare();
-//    renderToTextureRender->pipline->setUniform(finalMatrix, renderToTextureRender->pipline->getUniformLocation("transform"));
-//    renderToTextureRender->pipline->bindTexture(diffuseTexture, renderToTextureRender->pipline->getUniformLocation("diffuse"));
-//    renderToTextureRender->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
-//
-//    renderToDepthTextureRender->prepare();
-//    renderToDepthTextureRender->pipline->setUniform(finalMatrix, renderToDepthTextureRender->pipline->getUniformLocation("transform"));
-//    renderToDepthTextureRender->pipline->bindTexture(diffuseTexture, renderToDepthTextureRender->pipline->getUniformLocation("diffuse"));
-//    renderToDepthTextureRender->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
+    renderToTextureRender->prepare();
+    renderToTextureRender->pipline->setUniform(finalMatrix, renderToTextureRender->pipline->getUniformLocation("transform"));
+    renderToTextureRender->pipline->bindTexture(diffuseTexture, renderToTextureRender->pipline->getUniformLocation("diffuse"));
+    renderToTextureRender->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
+
+    renderToDepthTextureRender->prepare();
+    renderToDepthTextureRender->pipline->setUniform(finalMatrix, renderToDepthTextureRender->pipline->getUniformLocation("transform"));
+    renderToDepthTextureRender->pipline->bindTexture(diffuseTexture, renderToDepthTextureRender->pipline->getUniformLocation("diffuse"));
+    renderToDepthTextureRender->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
     
     renderer->prepare();
     renderer->pipline->setUniform(finalMatrix, renderer->pipline->getUniformLocation("transform"));
     renderer->pipline->bindTexture(diffuseTexture, renderer->pipline->getUniformLocation("diffuse"));
-    //renderer->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
+    renderer->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
 
-//    renderer->pipline->clearState();
-//    renderer->pipline->bindTexture(renderToTextureTarget->bindTexture, renderer->pipline->getUniformLocation("diffuse"));
-//    projection = ELMatrix4MakeOrtho(-0.5, 3.5, -3.5, 0.5, 0, 100);
-//    renderer->pipline->setUniform(projection, renderer->pipline->getUniformLocation("transform"));
-//    renderer->drawPrimitives(ELPrimitivesTypeTriangle, squareVertexBuffer);
-//
-//    renderer->pipline->clearState();
-//    renderer->pipline->bindTexture(renderToDepthTextureTarget->bindDepthTexture, renderer->pipline->getUniformLocation("diffuse"));
-//    projection = ELMatrix4MakeOrtho(-0.5, 3.5, -2.5, 1.5, 0, 100);
-//    renderer->pipline->setUniform(projection, renderer->pipline->getUniformLocation("transform"));
-//    renderer->drawPrimitives(ELPrimitivesTypeTriangle, squareVertexBuffer);
+    renderer->pipline->clearState();
+    renderer->pipline->bindTexture(renderToTextureTarget->bindTexture, renderer->pipline->getUniformLocation("diffuse"));
+    projection = ELMatrix4MakeOrtho(-0.5, 3.5, -3.5, 0.5, 0, 100);
+    renderer->pipline->setUniform(projection, renderer->pipline->getUniformLocation("transform"));
+    renderer->drawPrimitives(ELPrimitivesTypeTriangle, squareVertexBuffer);
+
+    renderer->pipline->clearState();
+    renderer->pipline->bindTexture(renderToDepthTextureTarget->bindDepthTexture, renderer->pipline->getUniformLocation("diffuse"));
+    projection = ELMatrix4MakeOrtho(-0.5, 3.5, -2.5, 1.5, 0, 100);
+    renderer->pipline->setUniform(projection, renderer->pipline->getUniformLocation("transform"));
+    renderer->drawPrimitives(ELPrimitivesTypeTriangle, squareVertexBuffer);
 }

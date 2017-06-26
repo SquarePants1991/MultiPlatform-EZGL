@@ -7,7 +7,7 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "../types/EZGLTypes.h"
+#include "types/EZGLTypes.h"
 
 class ELGLAdapter {
 public:

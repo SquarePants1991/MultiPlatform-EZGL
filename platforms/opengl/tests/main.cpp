@@ -1,4 +1,4 @@
-#include "impl_OpenGL/ELGLAdapter.h"
+#include "../impl_platform/ELGLAdapter.h"
 #include <GLFW/glfw3.h>
 #include "ELPlatform.h"
 #include "TestScene.h"
@@ -6,20 +6,37 @@
 
 std::vector<TestScene *> testScenes;
 std::vector<std::string> sceneNames;
+std::map<std::string, ELRenderPiplinePtr> piplines;
 
 #define RegisterTestScene(Name, Desc) \
-    sceneNames.push_back(Desc);\
-    testScenes.push_back(new Name());
+    {sceneNames.push_back(Desc);\
+    Name *scene = new Name(piplines);\
+    testScenes.push_back(scene);}
 
-#include "Test Scenes/BasicFlowTests.h"
-#include "Test Scenes/MultiBufferTests.h"
-#include "Test Scenes/IndexBufferTests.h"
-#include "Test Scenes/BlendModeTests.h"
-#include "Test Scenes/AlphaTestTests.h"
-#include "Test Scenes/StencilTestTests.h"
-#include "Test Scenes/DepthTestTests.h"
+#include "BasicFlowTests.h"
+#include "MultiBufferTests.h"
+#include "IndexBufferTests.h"
+#include "BlendModeTests.h"
+#include "AlphaTestTests.h"
+#include "StencilTestTests.h"
+#include "DepthTestTests.h"
+void createPiplines() {
+
+    std::string vertexShader = ELFileUtil::stringContentOfShader(ELAssets::shared()->findFile("vertex.glsl"));
+    std::string fragmentShader = ELFileUtil::stringContentOfShader(ELAssets::shared()->findFile("fragment.glsl"));
+
+    ELRenderPiplinePtr defaultPipline = ELRenderPipline::alloc()->init(vertexShader, fragmentShader);
+    piplines["default"] = defaultPipline;
+
+    vertexShader = ELFileUtil::stringContentOfShader(ELAssets::shared()->findFile("vertex.glsl"));
+    fragmentShader = ELFileUtil::stringContentOfShader(ELAssets::shared()->findFile("blend_fragment.glsl"));
+
+    ELRenderPiplinePtr blendPipline = ELRenderPipline::alloc()->init(vertexShader, fragmentShader);
+    piplines["blend"] = blendPipline;
+}
 
 void registerScenes() {
+    createPiplines();
     RegisterTestScene(BasicFlowTests, "基本渲染流程测试&渲染到纹理");
     RegisterTestScene(MultiBufferTests, "使用多Buffer渲染单个物体");
     RegisterTestScene(IndexBufferTests, "使用索引Buffer渲染单个物体");
@@ -61,8 +78,6 @@ int main(void) {
         return -1;
     printf("%s", (char *) glGetString(GL_SHADING_LANGUAGE_VERSION));
 
-    ELAssets::shared()->addSearchPath("/home/ocean/文档/Codes/MultiPlatform-EZGL/tests/platform/");
-
     ELGLAdapter::defaultAdapter()->setup(window);
     init(window);
 
@@ -80,6 +95,9 @@ int main(void) {
 }
 
 void init(GLFWwindow *window) {
+    ELAssets::shared()->addSearchPath("/home/ocean/文档/Codes/MultiPlatform-EZGL/tests/platform/");
+    ELAssets::shared()->addSearchPath("/Users/wangyang/Documents/Codes/OnGit/MultiPlatform-EZGL/platforms/opengl/tests/");
+
     registerScenes();
     glfwSetKeyCallback(window, key_callback);
     lastTime = glfwGetTime();

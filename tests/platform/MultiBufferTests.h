@@ -5,11 +5,11 @@
 #ifndef EZGL_MULTIBUFFERTESTS_H
 #define EZGL_MULTIBUFFERTESTS_H
 
-#include "../TestScene.h"
+#include "TestScene.h"
 
 class MultiBufferTests: public TestScene {
 public:
-    MultiBufferTests();
+    MultiBufferTests(std::map<std::string, ELRenderPiplinePtr> piplines);
     virtual void update(ELFloat deltaTime);
 
 private:

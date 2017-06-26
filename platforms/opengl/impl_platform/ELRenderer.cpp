@@ -2,13 +2,13 @@
 // Created by wangyang on 2017/5/24.
 //
 
-#include "../ELRenderer.h"
+#include "ELRenderer.h"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <cstdlib>
-#include "../types/EZGLTypes.h"
-#include "../ELPlatform.h"
-#include "../ELRenderPass.h"
+#include "types/EZGLTypes.h"
+#include "ELPlatform.h"
+#include "ELRenderPass.h"
 
 GLuint beginDraw(ELRendererPtr renderer, ELCrossPlatformObject *vertexBuffer, GLuint program, bool *vaoExists) {
     char buffer[255];

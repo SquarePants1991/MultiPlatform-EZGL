@@ -2,7 +2,7 @@
 // Created by wangyang on 2017/5/24.
 //
 
-#include "../ELRenderPipline.h"
+#include "ELRenderPipline.h"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <cstdlib>

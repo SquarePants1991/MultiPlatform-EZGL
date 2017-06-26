@@ -5,3 +5,4 @@ add_compile_options(-std=c++11)
 
 add_subdirectory(ezgl)
 add_subdirectory(tests)
+add_subdirectory(platforms/opengl)

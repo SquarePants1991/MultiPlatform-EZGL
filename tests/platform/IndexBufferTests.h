@@ -5,11 +5,11 @@
 #ifndef EZGL_INDEXBUFFERTESTS_H
 #define EZGL_INDEXBUFFERTESTS_H
 
-#include "../TestScene.h"
+#include "TestScene.h"
 
 class IndexBufferTests: public TestScene {
 public:
-    IndexBufferTests();
+    IndexBufferTests(std::map<std::string, ELRenderPiplinePtr> piplines);
     virtual void update(ELFloat deltaTime);
 
 private:

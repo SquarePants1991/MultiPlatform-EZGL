@@ -5,12 +5,12 @@
 #ifndef EZGL_BASICFLOWTESTS_H
 #define EZGL_BASICFLOWTESTS_H
 
-#include "../TestScene.h"
+#include "TestScene.h"
 
 class BasicFlowTests : public TestScene {
 
 public:
-    BasicFlowTests();
+    BasicFlowTests(std::map<std::string, ELRenderPiplinePtr> piplines);
     virtual void update(ELFloat deltaTime);
 
 private:

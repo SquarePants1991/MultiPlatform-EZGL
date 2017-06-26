@@ -6,11 +6,11 @@
 #define EZGL_STENCILTESTTESTS_H
 
 
-#include "../TestScene.h"
+#include "TestScene.h"
 
 class StencilTestTests: public TestScene {
 public:
-    StencilTestTests();
+    StencilTestTests(std::map<std::string, ELRenderPiplinePtr> piplines);
     virtual void update(ELFloat deltaTime);
 
 private:

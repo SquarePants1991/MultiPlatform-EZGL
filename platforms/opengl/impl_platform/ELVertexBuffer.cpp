@@ -2,7 +2,7 @@
 // Created by wangyang on 2017/5/23.
 //
 
-#include "../ELVertexBuffer.h"
+#include "ELVertexBuffer.h"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
@@ -57,6 +57,10 @@ ELVertexBufferPtr ELVertexBuffer::init(void *data, ELInt sizeInBytes, ELInt vert
     selv->vertexSizeInBytes = vertexSizeInBytes;
     genVBO(selv);
     return selv;
+}
+
+ELVertexBuffer::~ELVertexBuffer() {
+
 }
 
 void ELVertexBuffer::flushBuffer() {

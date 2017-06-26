@@ -5,11 +5,11 @@
 #ifndef EZGL_ALPHATESTTESTS_H
 #define EZGL_ALPHATESTTESTS_H
 
-#include "../TestScene.h"
+#include "TestScene.h"
 
 class AlphaTestTests: public TestScene {
 public:
-    AlphaTestTests();
+    AlphaTestTests(std::map<std::string, ELRenderPiplinePtr> piplines);
     virtual void update(ELFloat deltaTime);
 
 private:

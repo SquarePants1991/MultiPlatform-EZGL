@@ -2,7 +2,7 @@
 // Created by wangyang on 2017/5/24.
 //
 
-#include "../ELTexture.h"
+#include "ELTexture.h"
 #include "soil/SOIL.h"
 #include <GL/glew.h>
 
