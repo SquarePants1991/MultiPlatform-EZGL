@@ -27,6 +27,7 @@ public:
     ELPixelFormat pixelFormat;
     ELTexturePtr init(ELPixelFormat pixelFormat, unsigned char *imageData, ELInt width, ELInt height, ELTextureStoreType storeType = ELTextureStoreTypeGPU);
     ELTexturePtr init(std::string imagePath, ELTextureStoreType storeType = ELTextureStoreTypeGPU, ELPixelFormat pixelFormat = ELPixelFormatRGBA);
+    ~ELTexture();
 defEnd
 
 

@@ -75,6 +75,7 @@ typedef struct {
 }
 
 - (void)initScenes {
+    ELAssets::shared()->addSearchPath([[NSBundle mainBundle].resourcePath UTF8String]);
     [self createPiplines];
     
 #define Test(Name, Scene) \

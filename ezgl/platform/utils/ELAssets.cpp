@@ -27,7 +27,7 @@ std::string ELAssets::findFile(std::string fileName) {
     }
     _searchPaths.push_back("");
     for (int i = 0; i < _searchPaths.size(); ++i) {
-        std::string path = _searchPaths.at(i) + fileName;
+        std::string path = _searchPaths.at(i) + "/" + fileName;
         if (stat (path.c_str(), &buffer) == 0) {
             return path;
         }
