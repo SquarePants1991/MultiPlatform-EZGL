@@ -9,21 +9,31 @@
 /* Begin PBXBuildFile section */
 		D31169F81EFBB11000E50855 /* Shaders.metal in Resources */ = {isa = PBXBuildFile; fileRef = D3AF49721EFBA023009D94CD /* Shaders.metal */; };
 		D31C95ED1EFBA7F4007774C5 /* GameViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D31C95EB1EFBA749007774C5 /* GameViewController.mm */; };
+		D323D45D1F025472009E08A0 /* ezgl.iml in Resources */ = {isa = PBXBuildFile; fileRef = D323D41C1F025472009E08A0 /* ezgl.iml */; };
+		D323D45E1F025472009E08A0 /* misc.xml in Resources */ = {isa = PBXBuildFile; fileRef = D323D41D1F025472009E08A0 /* misc.xml */; };
+		D323D45F1F025472009E08A0 /* modules.xml in Resources */ = {isa = PBXBuildFile; fileRef = D323D41E1F025472009E08A0 /* modules.xml */; };
+		D323D4601F025472009E08A0 /* workspace.xml in Resources */ = {isa = PBXBuildFile; fileRef = D323D41F1F025472009E08A0 /* workspace.xml */; };
+		D323D4611F025472009E08A0 /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = D323D4201F025472009E08A0 /* CMakeLists.txt */; };
+		D323D4621F025472009E08A0 /* EZGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D323D4211F025472009E08A0 /* EZGL.cpp */; };
+		D323D4631F025472009E08A0 /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = D323D4241F025472009E08A0 /* CMakeLists.txt */; };
+		D323D4641F025472009E08A0 /* ELCrossPlatformObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D323D4281F025472009E08A0 /* ELCrossPlatformObject.cpp */; };
+		D323D4651F025472009E08A0 /* ELAssets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D323D4401F025472009E08A0 /* ELAssets.cpp */; };
+		D323D4661F025472009E08A0 /* ELFileUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D323D4421F025472009E08A0 /* ELFileUtil.cpp */; };
+		D323D4671F025472009E08A0 /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = D323D4461F025472009E08A0 /* CMakeLists.txt */; };
+		D323D4681F025472009E08A0 /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = D323D4481F025472009E08A0 /* CMakeLists.txt */; };
+		D323D4691F025472009E08A0 /* AlphaTestTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D323D44A1F025472009E08A0 /* AlphaTestTests.cpp */; };
+		D323D46A1F025472009E08A0 /* BasicFlowTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D323D44C1F025472009E08A0 /* BasicFlowTests.cpp */; };
+		D323D46B1F025472009E08A0 /* BlendModeTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D323D44E1F025472009E08A0 /* BlendModeTests.cpp */; };
+		D323D46C1F025472009E08A0 /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = D323D4501F025472009E08A0 /* CMakeLists.txt */; };
+		D323D46D1F025472009E08A0 /* DepthTestTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D323D4511F025472009E08A0 /* DepthTestTests.cpp */; };
+		D323D46E1F025472009E08A0 /* IndexBufferTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D323D4531F025472009E08A0 /* IndexBufferTests.cpp */; };
+		D323D46F1F025472009E08A0 /* MultiBufferTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D323D4551F025472009E08A0 /* MultiBufferTests.cpp */; };
+		D323D4701F025472009E08A0 /* StencilTestTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D323D4571F025472009E08A0 /* StencilTestTests.cpp */; };
+		D323D4711F025472009E08A0 /* TestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D323D4591F025472009E08A0 /* TestScene.cpp */; };
+		D323D4721F025472009E08A0 /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = D323D45C1F025472009E08A0 /* CMakeLists.txt */; };
 		D358CA161EFBBD5600179E2F /* NSObjectHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = D358CA151EFBBD5600179E2F /* NSObjectHolder.m */; };
-		D3A23A641EFCF6E40072C068 /* blend_fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = D3A23A461EFCF6E40072C068 /* blend_fragment.glsl */; };
-		D3A23A661EFCF6E40072C068 /* fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = D3A23A481EFCF6E40072C068 /* fragment.glsl */; };
-		D3A23A671EFCF6E40072C068 /* grass_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D3A23A491EFCF6E40072C068 /* grass_02.jpg */; };
-		D3A23A6A1EFCF6E40072C068 /* BasicFlowTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3A23A4E1EFCF6E40072C068 /* BasicFlowTests.cpp */; };
-		D3A23A701EFCF6E50072C068 /* TestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3A23A5A1EFCF6E40072C068 /* TestScene.cpp */; };
-		D3A23A721EFCF6E50072C068 /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A23A5D1EFCF6E40072C068 /* tree.png */; };
-		D3A23A731EFCF6E50072C068 /* tree2.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A23A5E1EFCF6E40072C068 /* tree2.png */; };
-		D3A23A741EFCF6E50072C068 /* vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = D3A23A5F1EFCF6E40072C068 /* vertex.glsl */; };
 		D3A23A791EFCF7780072C068 /* PlatformTestsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D3A23A781EFCF7780072C068 /* PlatformTestsViewController.mm */; };
 		D3AF49741EFBA06B009D94CD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3AF49691EFBA023009D94CD /* MainMenu.xib */; };
-		D3AF49BD1EFBA09C009D94CD /* EZGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3AF497C1EFBA09C009D94CD /* EZGL.cpp */; };
-		D3AF49BF1EFBA09C009D94CD /* ELCrossPlatformObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3AF49831EFBA09C009D94CD /* ELCrossPlatformObject.cpp */; };
-		D3AF49CB1EFBA09C009D94CD /* ELAssets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3AF49AF1EFBA09C009D94CD /* ELAssets.cpp */; };
-		D3AF49CC1EFBA09C009D94CD /* ELFileUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3AF49B11EFBA09C009D94CD /* ELFileUtil.cpp */; };
 		D3AF49D01EFBA1D2009D94CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AF496E1EFBA023009D94CD /* main.m */; };
 		D3AF49D21EFBA1E0009D94CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AF49671EFBA023009D94CD /* AppDelegate.m */; };
 		D3AF49DC1EFBA299009D94CD /* ELMetalAdapter.mm in Sources */ = {isa = PBXBuildFile; fileRef = D3AF49D71EFBA21D009D94CD /* ELMetalAdapter.mm */; };
@@ -40,22 +50,66 @@
 		D31169FA1EFBB35D00E50855 /* MetalRenderContextProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetalRenderContextProvider.h; sourceTree = "<group>"; };
 		D31C95EB1EFBA749007774C5 /* GameViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GameViewController.mm; sourceTree = "<group>"; };
 		D31C95EC1EFBA749007774C5 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		D323D41C1F025472009E08A0 /* ezgl.iml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ezgl.iml; sourceTree = "<group>"; };
+		D323D41D1F025472009E08A0 /* misc.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = misc.xml; sourceTree = "<group>"; };
+		D323D41E1F025472009E08A0 /* modules.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = modules.xml; sourceTree = "<group>"; };
+		D323D41F1F025472009E08A0 /* workspace.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = workspace.xml; sourceTree = "<group>"; };
+		D323D4201F025472009E08A0 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		D323D4211F025472009E08A0 /* EZGL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EZGL.cpp; sourceTree = "<group>"; };
+		D323D4221F025472009E08A0 /* EZGL.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EZGL.hpp; sourceTree = "<group>"; };
+		D323D4241F025472009E08A0 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		D323D4251F025472009E08A0 /* ELAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAdapter.h; sourceTree = "<group>"; };
+		D323D4261F025472009E08A0 /* ELCompositionVertexBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCompositionVertexBuffer.h; sourceTree = "<group>"; };
+		D323D4271F025472009E08A0 /* ELCppBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCppBase.h; sourceTree = "<group>"; };
+		D323D4281F025472009E08A0 /* ELCrossPlatformObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ELCrossPlatformObject.cpp; sourceTree = "<group>"; };
+		D323D4291F025472009E08A0 /* ELCrossPlatformObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCrossPlatformObject.h; sourceTree = "<group>"; };
+		D323D42A1F025472009E08A0 /* ELPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELPlatform.h; sourceTree = "<group>"; };
+		D323D42B1F025472009E08A0 /* ELRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELRenderer.h; sourceTree = "<group>"; };
+		D323D42C1F025472009E08A0 /* ELRenderPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELRenderPass.h; sourceTree = "<group>"; };
+		D323D42D1F025472009E08A0 /* ELRenderPipline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELRenderPipline.h; sourceTree = "<group>"; };
+		D323D42E1F025472009E08A0 /* ELRenderTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELRenderTarget.h; sourceTree = "<group>"; };
+		D323D42F1F025472009E08A0 /* ELTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTexture.h; sourceTree = "<group>"; };
+		D323D4301F025472009E08A0 /* ELVertexBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELVertexBuffer.h; sourceTree = "<group>"; };
+		D323D4321F025472009E08A0 /* ELGeometryTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELGeometryTypes.h; sourceTree = "<group>"; };
+		D323D4331F025472009E08A0 /* ELMatrix3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELMatrix3.h; sourceTree = "<group>"; };
+		D323D4341F025472009E08A0 /* ELMatrix4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELMatrix4.h; sourceTree = "<group>"; };
+		D323D4351F025472009E08A0 /* ELPixelFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELPixelFormat.h; sourceTree = "<group>"; };
+		D323D4361F025472009E08A0 /* ELQuaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuaternion.h; sourceTree = "<group>"; };
+		D323D4371F025472009E08A0 /* ELTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTransform.h; sourceTree = "<group>"; };
+		D323D4381F025472009E08A0 /* ELVector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELVector2.h; sourceTree = "<group>"; };
+		D323D4391F025472009E08A0 /* ELVector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELVector3.h; sourceTree = "<group>"; };
+		D323D43A1F025472009E08A0 /* ELVector4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELVector4.h; sourceTree = "<group>"; };
+		D323D43B1F025472009E08A0 /* EZGLBasicTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZGLBasicTypes.h; sourceTree = "<group>"; };
+		D323D43C1F025472009E08A0 /* EZGLMatrixTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZGLMatrixTypes.h; sourceTree = "<group>"; };
+		D323D43D1F025472009E08A0 /* EZGLTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZGLTypes.h; sourceTree = "<group>"; };
+		D323D43E1F025472009E08A0 /* EZGLVectorTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZGLVectorTypes.h; sourceTree = "<group>"; };
+		D323D4401F025472009E08A0 /* ELAssets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ELAssets.cpp; sourceTree = "<group>"; };
+		D323D4411F025472009E08A0 /* ELAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAssets.h; sourceTree = "<group>"; };
+		D323D4421F025472009E08A0 /* ELFileUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ELFileUtil.cpp; sourceTree = "<group>"; };
+		D323D4431F025472009E08A0 /* ELFileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELFileUtil.h; sourceTree = "<group>"; };
+		D323D4441F025472009E08A0 /* ELUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELUtils.h; sourceTree = "<group>"; };
+		D323D4461F025472009E08A0 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		D323D4481F025472009E08A0 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		D323D44A1F025472009E08A0 /* AlphaTestTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlphaTestTests.cpp; sourceTree = "<group>"; };
+		D323D44B1F025472009E08A0 /* AlphaTestTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphaTestTests.h; sourceTree = "<group>"; };
+		D323D44C1F025472009E08A0 /* BasicFlowTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicFlowTests.cpp; sourceTree = "<group>"; };
+		D323D44D1F025472009E08A0 /* BasicFlowTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicFlowTests.h; sourceTree = "<group>"; };
+		D323D44E1F025472009E08A0 /* BlendModeTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlendModeTests.cpp; sourceTree = "<group>"; };
+		D323D44F1F025472009E08A0 /* BlendModeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlendModeTests.h; sourceTree = "<group>"; };
+		D323D4501F025472009E08A0 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		D323D4511F025472009E08A0 /* DepthTestTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DepthTestTests.cpp; sourceTree = "<group>"; };
+		D323D4521F025472009E08A0 /* DepthTestTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepthTestTests.h; sourceTree = "<group>"; };
+		D323D4531F025472009E08A0 /* IndexBufferTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IndexBufferTests.cpp; sourceTree = "<group>"; };
+		D323D4541F025472009E08A0 /* IndexBufferTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexBufferTests.h; sourceTree = "<group>"; };
+		D323D4551F025472009E08A0 /* MultiBufferTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MultiBufferTests.cpp; sourceTree = "<group>"; };
+		D323D4561F025472009E08A0 /* MultiBufferTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiBufferTests.h; sourceTree = "<group>"; };
+		D323D4571F025472009E08A0 /* StencilTestTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StencilTestTests.cpp; sourceTree = "<group>"; };
+		D323D4581F025472009E08A0 /* StencilTestTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StencilTestTests.h; sourceTree = "<group>"; };
+		D323D4591F025472009E08A0 /* TestScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScene.cpp; sourceTree = "<group>"; };
+		D323D45A1F025472009E08A0 /* TestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScene.h; sourceTree = "<group>"; };
+		D323D45C1F025472009E08A0 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		D358CA141EFBBD5600179E2F /* NSObjectHolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObjectHolder.h; sourceTree = "<group>"; };
 		D358CA151EFBBD5600179E2F /* NSObjectHolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObjectHolder.m; sourceTree = "<group>"; };
-		D3A23A441EFCF6E40072C068 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
-		D3A23A461EFCF6E40072C068 /* blend_fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = blend_fragment.glsl; sourceTree = "<group>"; };
-		D3A23A471EFCF6E40072C068 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
-		D3A23A481EFCF6E40072C068 /* fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fragment.glsl; sourceTree = "<group>"; };
-		D3A23A491EFCF6E40072C068 /* grass_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grass_02.jpg; sourceTree = "<group>"; };
-		D3A23A4E1EFCF6E40072C068 /* BasicFlowTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicFlowTests.cpp; sourceTree = "<group>"; };
-		D3A23A4F1EFCF6E40072C068 /* BasicFlowTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicFlowTests.h; sourceTree = "<group>"; };
-		D3A23A5A1EFCF6E40072C068 /* TestScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScene.cpp; sourceTree = "<group>"; };
-		D3A23A5B1EFCF6E40072C068 /* TestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScene.h; sourceTree = "<group>"; };
-		D3A23A5C1EFCF6E40072C068 /* texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = texture.jpg; sourceTree = "<group>"; };
-		D3A23A5D1EFCF6E40072C068 /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree.png; sourceTree = "<group>"; };
-		D3A23A5E1EFCF6E40072C068 /* tree2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree2.png; sourceTree = "<group>"; };
-		D3A23A5F1EFCF6E40072C068 /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vertex.glsl; sourceTree = "<group>"; };
-		D3A23A611EFCF6E40072C068 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		D3A23A771EFCF7780072C068 /* PlatformTestsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlatformTestsViewController.h; sourceTree = "<group>"; };
 		D3A23A781EFCF7780072C068 /* PlatformTestsViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PlatformTestsViewController.mm; sourceTree = "<group>"; };
 		D3AF49461EFB9E73009D94CD /* metal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,40 +120,6 @@
 		D3AF496D1EFBA023009D94CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3AF496E1EFBA023009D94CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D3AF49721EFBA023009D94CD /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
-		D3AF497C1EFBA09C009D94CD /* EZGL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EZGL.cpp; sourceTree = "<group>"; };
-		D3AF497D1EFBA09C009D94CD /* EZGL.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EZGL.hpp; sourceTree = "<group>"; };
-		D3AF497F1EFBA09C009D94CD /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
-		D3AF49801EFBA09C009D94CD /* ELAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAdapter.h; sourceTree = "<group>"; };
-		D3AF49811EFBA09C009D94CD /* ELCompositionVertexBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCompositionVertexBuffer.h; sourceTree = "<group>"; };
-		D3AF49821EFBA09C009D94CD /* ELCppBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCppBase.h; sourceTree = "<group>"; };
-		D3AF49831EFBA09C009D94CD /* ELCrossPlatformObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ELCrossPlatformObject.cpp; sourceTree = "<group>"; };
-		D3AF49841EFBA09C009D94CD /* ELCrossPlatformObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCrossPlatformObject.h; sourceTree = "<group>"; };
-		D3AF49851EFBA09C009D94CD /* ELPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELPlatform.h; sourceTree = "<group>"; };
-		D3AF49861EFBA09C009D94CD /* ELRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELRenderer.h; sourceTree = "<group>"; };
-		D3AF49871EFBA09C009D94CD /* ELRenderPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELRenderPass.h; sourceTree = "<group>"; };
-		D3AF49881EFBA09C009D94CD /* ELRenderPipline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELRenderPipline.h; sourceTree = "<group>"; };
-		D3AF49891EFBA09C009D94CD /* ELRenderTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELRenderTarget.h; sourceTree = "<group>"; };
-		D3AF498A1EFBA09C009D94CD /* ELTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTexture.h; sourceTree = "<group>"; };
-		D3AF498B1EFBA09C009D94CD /* ELVertexBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELVertexBuffer.h; sourceTree = "<group>"; };
-		D3AF49A11EFBA09C009D94CD /* ELGeometryTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELGeometryTypes.h; sourceTree = "<group>"; };
-		D3AF49A21EFBA09C009D94CD /* ELMatrix3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELMatrix3.h; sourceTree = "<group>"; };
-		D3AF49A31EFBA09C009D94CD /* ELMatrix4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELMatrix4.h; sourceTree = "<group>"; };
-		D3AF49A41EFBA09C009D94CD /* ELPixelFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELPixelFormat.h; sourceTree = "<group>"; };
-		D3AF49A51EFBA09C009D94CD /* ELQuaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELQuaternion.h; sourceTree = "<group>"; };
-		D3AF49A61EFBA09C009D94CD /* ELTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELTransform.h; sourceTree = "<group>"; };
-		D3AF49A71EFBA09C009D94CD /* ELVector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELVector2.h; sourceTree = "<group>"; };
-		D3AF49A81EFBA09C009D94CD /* ELVector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELVector3.h; sourceTree = "<group>"; };
-		D3AF49A91EFBA09C009D94CD /* ELVector4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELVector4.h; sourceTree = "<group>"; };
-		D3AF49AA1EFBA09C009D94CD /* EZGLBasicTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZGLBasicTypes.h; sourceTree = "<group>"; };
-		D3AF49AB1EFBA09C009D94CD /* EZGLMatrixTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZGLMatrixTypes.h; sourceTree = "<group>"; };
-		D3AF49AC1EFBA09C009D94CD /* EZGLTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZGLTypes.h; sourceTree = "<group>"; };
-		D3AF49AD1EFBA09C009D94CD /* EZGLVectorTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZGLVectorTypes.h; sourceTree = "<group>"; };
-		D3AF49AF1EFBA09C009D94CD /* ELAssets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ELAssets.cpp; sourceTree = "<group>"; };
-		D3AF49B01EFBA09C009D94CD /* ELAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAssets.h; sourceTree = "<group>"; };
-		D3AF49B11EFBA09C009D94CD /* ELFileUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ELFileUtil.cpp; sourceTree = "<group>"; };
-		D3AF49B21EFBA09C009D94CD /* ELFileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELFileUtil.h; sourceTree = "<group>"; };
-		D3AF49B31EFBA09C009D94CD /* ELUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELUtils.h; sourceTree = "<group>"; };
-		D3AF49B51EFBA09C009D94CD /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		D3AF49D41EFBA21D009D94CD /* ELVertexBuffer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ELVertexBuffer.mm; sourceTree = "<group>"; };
 		D3AF49D51EFBA21D009D94CD /* ELRenderPipline.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ELRenderPipline.mm; sourceTree = "<group>"; };
 		D3AF49D61EFBA21D009D94CD /* ELMetalAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMetalAdapter.h; sourceTree = "<group>"; };
@@ -122,48 +142,132 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D3A23A431EFCF6E40072C068 /* tests */ = {
+		D323D41A1F025472009E08A0 /* ezgl */ = {
 			isa = PBXGroup;
 			children = (
-				D3A23A441EFCF6E40072C068 /* CMakeLists.txt */,
-				D3A23A451EFCF6E40072C068 /* platform */,
-				D3A23A601EFCF6E40072C068 /* renderer */,
+				D323D41B1F025472009E08A0 /* .idea */,
+				D323D4201F025472009E08A0 /* CMakeLists.txt */,
+				D323D4211F025472009E08A0 /* EZGL.cpp */,
+				D323D4221F025472009E08A0 /* EZGL.hpp */,
+				D323D4231F025472009E08A0 /* platform */,
+				D323D4451F025472009E08A0 /* renderer */,
+			);
+			name = ezgl;
+			path = ../../../ezgl;
+			sourceTree = "<group>";
+		};
+		D323D41B1F025472009E08A0 /* .idea */ = {
+			isa = PBXGroup;
+			children = (
+				D323D41C1F025472009E08A0 /* ezgl.iml */,
+				D323D41D1F025472009E08A0 /* misc.xml */,
+				D323D41E1F025472009E08A0 /* modules.xml */,
+				D323D41F1F025472009E08A0 /* workspace.xml */,
+			);
+			path = .idea;
+			sourceTree = "<group>";
+		};
+		D323D4231F025472009E08A0 /* platform */ = {
+			isa = PBXGroup;
+			children = (
+				D323D4241F025472009E08A0 /* CMakeLists.txt */,
+				D323D4251F025472009E08A0 /* ELAdapter.h */,
+				D323D4261F025472009E08A0 /* ELCompositionVertexBuffer.h */,
+				D323D4271F025472009E08A0 /* ELCppBase.h */,
+				D323D4281F025472009E08A0 /* ELCrossPlatformObject.cpp */,
+				D323D4291F025472009E08A0 /* ELCrossPlatformObject.h */,
+				D323D42A1F025472009E08A0 /* ELPlatform.h */,
+				D323D42B1F025472009E08A0 /* ELRenderer.h */,
+				D323D42C1F025472009E08A0 /* ELRenderPass.h */,
+				D323D42D1F025472009E08A0 /* ELRenderPipline.h */,
+				D323D42E1F025472009E08A0 /* ELRenderTarget.h */,
+				D323D42F1F025472009E08A0 /* ELTexture.h */,
+				D323D4301F025472009E08A0 /* ELVertexBuffer.h */,
+				D323D4311F025472009E08A0 /* types */,
+				D323D43F1F025472009E08A0 /* utils */,
+			);
+			path = platform;
+			sourceTree = "<group>";
+		};
+		D323D4311F025472009E08A0 /* types */ = {
+			isa = PBXGroup;
+			children = (
+				D323D4321F025472009E08A0 /* ELGeometryTypes.h */,
+				D323D4331F025472009E08A0 /* ELMatrix3.h */,
+				D323D4341F025472009E08A0 /* ELMatrix4.h */,
+				D323D4351F025472009E08A0 /* ELPixelFormat.h */,
+				D323D4361F025472009E08A0 /* ELQuaternion.h */,
+				D323D4371F025472009E08A0 /* ELTransform.h */,
+				D323D4381F025472009E08A0 /* ELVector2.h */,
+				D323D4391F025472009E08A0 /* ELVector3.h */,
+				D323D43A1F025472009E08A0 /* ELVector4.h */,
+				D323D43B1F025472009E08A0 /* EZGLBasicTypes.h */,
+				D323D43C1F025472009E08A0 /* EZGLMatrixTypes.h */,
+				D323D43D1F025472009E08A0 /* EZGLTypes.h */,
+				D323D43E1F025472009E08A0 /* EZGLVectorTypes.h */,
+			);
+			path = types;
+			sourceTree = "<group>";
+		};
+		D323D43F1F025472009E08A0 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				D323D4401F025472009E08A0 /* ELAssets.cpp */,
+				D323D4411F025472009E08A0 /* ELAssets.h */,
+				D323D4421F025472009E08A0 /* ELFileUtil.cpp */,
+				D323D4431F025472009E08A0 /* ELFileUtil.h */,
+				D323D4441F025472009E08A0 /* ELUtils.h */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		D323D4451F025472009E08A0 /* renderer */ = {
+			isa = PBXGroup;
+			children = (
+				D323D4461F025472009E08A0 /* CMakeLists.txt */,
+			);
+			path = renderer;
+			sourceTree = "<group>";
+		};
+		D323D4471F025472009E08A0 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				D323D4481F025472009E08A0 /* CMakeLists.txt */,
+				D323D4491F025472009E08A0 /* platform */,
+				D323D45B1F025472009E08A0 /* renderer */,
 			);
 			name = tests;
 			path = ../../../tests;
 			sourceTree = "<group>";
 		};
-		D3A23A451EFCF6E40072C068 /* platform */ = {
+		D323D4491F025472009E08A0 /* platform */ = {
 			isa = PBXGroup;
 			children = (
-				D3A23A461EFCF6E40072C068 /* blend_fragment.glsl */,
-				D3A23A471EFCF6E40072C068 /* CMakeLists.txt */,
-				D3A23A481EFCF6E40072C068 /* fragment.glsl */,
-				D3A23A491EFCF6E40072C068 /* grass_02.jpg */,
-				D3A23A4B1EFCF6E40072C068 /* Test Scenes */,
-				D3A23A5A1EFCF6E40072C068 /* TestScene.cpp */,
-				D3A23A5B1EFCF6E40072C068 /* TestScene.h */,
-				D3A23A5C1EFCF6E40072C068 /* texture.jpg */,
-				D3A23A5D1EFCF6E40072C068 /* tree.png */,
-				D3A23A5E1EFCF6E40072C068 /* tree2.png */,
-				D3A23A5F1EFCF6E40072C068 /* vertex.glsl */,
+				D323D44A1F025472009E08A0 /* AlphaTestTests.cpp */,
+				D323D44B1F025472009E08A0 /* AlphaTestTests.h */,
+				D323D44C1F025472009E08A0 /* BasicFlowTests.cpp */,
+				D323D44D1F025472009E08A0 /* BasicFlowTests.h */,
+				D323D44E1F025472009E08A0 /* BlendModeTests.cpp */,
+				D323D44F1F025472009E08A0 /* BlendModeTests.h */,
+				D323D4501F025472009E08A0 /* CMakeLists.txt */,
+				D323D4511F025472009E08A0 /* DepthTestTests.cpp */,
+				D323D4521F025472009E08A0 /* DepthTestTests.h */,
+				D323D4531F025472009E08A0 /* IndexBufferTests.cpp */,
+				D323D4541F025472009E08A0 /* IndexBufferTests.h */,
+				D323D4551F025472009E08A0 /* MultiBufferTests.cpp */,
+				D323D4561F025472009E08A0 /* MultiBufferTests.h */,
+				D323D4571F025472009E08A0 /* StencilTestTests.cpp */,
+				D323D4581F025472009E08A0 /* StencilTestTests.h */,
+				D323D4591F025472009E08A0 /* TestScene.cpp */,
+				D323D45A1F025472009E08A0 /* TestScene.h */,
 			);
 			path = platform;
 			sourceTree = "<group>";
 		};
-		D3A23A4B1EFCF6E40072C068 /* Test Scenes */ = {
+		D323D45B1F025472009E08A0 /* renderer */ = {
 			isa = PBXGroup;
 			children = (
-				D3A23A4E1EFCF6E40072C068 /* BasicFlowTests.cpp */,
-				D3A23A4F1EFCF6E40072C068 /* BasicFlowTests.h */,
-			);
-			path = "Test Scenes";
-			sourceTree = "<group>";
-		};
-		D3A23A601EFCF6E40072C068 /* renderer */ = {
-			isa = PBXGroup;
-			children = (
-				D3A23A611EFCF6E40072C068 /* CMakeLists.txt */,
+				D323D45C1F025472009E08A0 /* CMakeLists.txt */,
 			);
 			path = renderer;
 			sourceTree = "<group>";
@@ -187,9 +291,9 @@
 		D3AF49481EFB9E73009D94CD /* metal */ = {
 			isa = PBXGroup;
 			children = (
+				D323D41A1F025472009E08A0 /* ezgl */,
+				D323D4471F025472009E08A0 /* tests */,
 				D3AF49CF1EFBA10F009D94CD /* impl_Metal */,
-				D3AF49751EFBA09C009D94CD /* ezgl */,
-				D3A23A431EFCF6E40072C068 /* tests */,
 				D3AF49651EFBA023009D94CD /* AppBase */,
 			);
 			path = metal;
@@ -212,80 +316,6 @@
 				D3A23A781EFCF7780072C068 /* PlatformTestsViewController.mm */,
 			);
 			path = AppBase;
-			sourceTree = "<group>";
-		};
-		D3AF49751EFBA09C009D94CD /* ezgl */ = {
-			isa = PBXGroup;
-			children = (
-				D3AF497C1EFBA09C009D94CD /* EZGL.cpp */,
-				D3AF497D1EFBA09C009D94CD /* EZGL.hpp */,
-				D3AF497E1EFBA09C009D94CD /* platform */,
-				D3AF49B41EFBA09C009D94CD /* renderer */,
-			);
-			name = ezgl;
-			path = ../../../ezgl;
-			sourceTree = "<group>";
-		};
-		D3AF497E1EFBA09C009D94CD /* platform */ = {
-			isa = PBXGroup;
-			children = (
-				D3AF497F1EFBA09C009D94CD /* CMakeLists.txt */,
-				D3AF49801EFBA09C009D94CD /* ELAdapter.h */,
-				D3AF49811EFBA09C009D94CD /* ELCompositionVertexBuffer.h */,
-				D3AF49821EFBA09C009D94CD /* ELCppBase.h */,
-				D3AF49831EFBA09C009D94CD /* ELCrossPlatformObject.cpp */,
-				D3AF49841EFBA09C009D94CD /* ELCrossPlatformObject.h */,
-				D3AF49851EFBA09C009D94CD /* ELPlatform.h */,
-				D3AF49861EFBA09C009D94CD /* ELRenderer.h */,
-				D3AF49871EFBA09C009D94CD /* ELRenderPass.h */,
-				D3AF49881EFBA09C009D94CD /* ELRenderPipline.h */,
-				D3AF49891EFBA09C009D94CD /* ELRenderTarget.h */,
-				D3AF498A1EFBA09C009D94CD /* ELTexture.h */,
-				D3AF498B1EFBA09C009D94CD /* ELVertexBuffer.h */,
-				D3AF49A01EFBA09C009D94CD /* types */,
-				D3AF49AE1EFBA09C009D94CD /* utils */,
-			);
-			path = platform;
-			sourceTree = "<group>";
-		};
-		D3AF49A01EFBA09C009D94CD /* types */ = {
-			isa = PBXGroup;
-			children = (
-				D3AF49A11EFBA09C009D94CD /* ELGeometryTypes.h */,
-				D3AF49A21EFBA09C009D94CD /* ELMatrix3.h */,
-				D3AF49A31EFBA09C009D94CD /* ELMatrix4.h */,
-				D3AF49A41EFBA09C009D94CD /* ELPixelFormat.h */,
-				D3AF49A51EFBA09C009D94CD /* ELQuaternion.h */,
-				D3AF49A61EFBA09C009D94CD /* ELTransform.h */,
-				D3AF49A71EFBA09C009D94CD /* ELVector2.h */,
-				D3AF49A81EFBA09C009D94CD /* ELVector3.h */,
-				D3AF49A91EFBA09C009D94CD /* ELVector4.h */,
-				D3AF49AA1EFBA09C009D94CD /* EZGLBasicTypes.h */,
-				D3AF49AB1EFBA09C009D94CD /* EZGLMatrixTypes.h */,
-				D3AF49AC1EFBA09C009D94CD /* EZGLTypes.h */,
-				D3AF49AD1EFBA09C009D94CD /* EZGLVectorTypes.h */,
-			);
-			path = types;
-			sourceTree = "<group>";
-		};
-		D3AF49AE1EFBA09C009D94CD /* utils */ = {
-			isa = PBXGroup;
-			children = (
-				D3AF49AF1EFBA09C009D94CD /* ELAssets.cpp */,
-				D3AF49B01EFBA09C009D94CD /* ELAssets.h */,
-				D3AF49B11EFBA09C009D94CD /* ELFileUtil.cpp */,
-				D3AF49B21EFBA09C009D94CD /* ELFileUtil.h */,
-				D3AF49B31EFBA09C009D94CD /* ELUtils.h */,
-			);
-			path = utils;
-			sourceTree = "<group>";
-		};
-		D3AF49B41EFBA09C009D94CD /* renderer */ = {
-			isa = PBXGroup;
-			children = (
-				D3AF49B51EFBA09C009D94CD /* CMakeLists.txt */,
-			);
-			path = renderer;
 			sourceTree = "<group>";
 		};
 		D3AF49CF1EFBA10F009D94CD /* impl_Metal */ = {
@@ -363,15 +393,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3A23A721EFCF6E50072C068 /* tree.png in Resources */,
-				D3A23A641EFCF6E40072C068 /* blend_fragment.glsl in Resources */,
+				D323D4601F025472009E08A0 /* workspace.xml in Resources */,
 				D3AF49741EFBA06B009D94CD /* MainMenu.xib in Resources */,
-				D3A23A731EFCF6E50072C068 /* tree2.png in Resources */,
-				D3A23A671EFCF6E40072C068 /* grass_02.jpg in Resources */,
+				D323D45E1F025472009E08A0 /* misc.xml in Resources */,
 				D31169F81EFBB11000E50855 /* Shaders.metal in Resources */,
-				D3A23A741EFCF6E50072C068 /* vertex.glsl in Resources */,
-				D3A23A661EFCF6E40072C068 /* fragment.glsl in Resources */,
+				D323D4671F025472009E08A0 /* CMakeLists.txt in Resources */,
+				D323D4681F025472009E08A0 /* CMakeLists.txt in Resources */,
+				D323D4611F025472009E08A0 /* CMakeLists.txt in Resources */,
+				D323D45D1F025472009E08A0 /* ezgl.iml in Resources */,
+				D323D46C1F025472009E08A0 /* CMakeLists.txt in Resources */,
 				D3E6F0171EFCE58300B94C65 /* texture.jpg in Resources */,
+				D323D45F1F025472009E08A0 /* modules.xml in Resources */,
+				D323D4631F025472009E08A0 /* CMakeLists.txt in Resources */,
+				D323D4721F025472009E08A0 /* CMakeLists.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,22 +418,28 @@
 			files = (
 				D31C95ED1EFBA7F4007774C5 /* GameViewController.mm in Sources */,
 				D3AF49DC1EFBA299009D94CD /* ELMetalAdapter.mm in Sources */,
-				D3AF49CC1EFBA09C009D94CD /* ELFileUtil.cpp in Sources */,
+				D323D46B1F025472009E08A0 /* BlendModeTests.cpp in Sources */,
+				D323D46D1F025472009E08A0 /* DepthTestTests.cpp in Sources */,
+				D323D4701F025472009E08A0 /* StencilTestTests.cpp in Sources */,
 				D3A23A791EFCF7780072C068 /* PlatformTestsViewController.mm in Sources */,
+				D323D4691F025472009E08A0 /* AlphaTestTests.cpp in Sources */,
 				D3AF49DE1EFBA29D009D94CD /* ELRenderPass.mm in Sources */,
+				D323D4621F025472009E08A0 /* EZGL.cpp in Sources */,
 				D3AF49E01EFBA29E009D94CD /* ELRenderTarget.mm in Sources */,
 				D3AF49DD1EFBA29C009D94CD /* ELRenderer.mm in Sources */,
 				D3AF49E11EFBA29F009D94CD /* ELTexture.mm in Sources */,
+				D323D4711F025472009E08A0 /* TestScene.cpp in Sources */,
 				D358CA161EFBBD5600179E2F /* NSObjectHolder.m in Sources */,
-				D3A23A701EFCF6E50072C068 /* TestScene.cpp in Sources */,
 				D3AF49E21EFBA2A0009D94CD /* ELVertexBuffer.mm in Sources */,
+				D323D4651F025472009E08A0 /* ELAssets.cpp in Sources */,
+				D323D46E1F025472009E08A0 /* IndexBufferTests.cpp in Sources */,
+				D323D46F1F025472009E08A0 /* MultiBufferTests.cpp in Sources */,
 				D3AF49DF1EFBA29E009D94CD /* ELRenderPipline.mm in Sources */,
-				D3AF49BD1EFBA09C009D94CD /* EZGL.cpp in Sources */,
+				D323D4641F025472009E08A0 /* ELCrossPlatformObject.cpp in Sources */,
+				D323D46A1F025472009E08A0 /* BasicFlowTests.cpp in Sources */,
 				D3AF49D21EFBA1E0009D94CD /* AppDelegate.m in Sources */,
+				D323D4661F025472009E08A0 /* ELFileUtil.cpp in Sources */,
 				D3AF49D01EFBA1D2009D94CD /* main.m in Sources */,
-				D3A23A6A1EFCF6E40072C068 /* BasicFlowTests.cpp in Sources */,
-				D3AF49BF1EFBA09C009D94CD /* ELCrossPlatformObject.cpp in Sources */,
-				D3AF49CB1EFBA09C009D94CD /* ELAssets.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,7 +570,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.ocean.metal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/../../ezgl";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/../../ezgl ${SRCROOT}/../../tests";
 			};
 			name = Debug;
 		};
@@ -548,7 +588,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.ocean.metal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/../../ezgl";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/../../ezgl ${SRCROOT}/../../tests";
 			};
 			name = Release;
 		};

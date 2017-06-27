@@ -26,9 +26,7 @@ struct VertexOut
 };
 struct Uniforms
 {
-    float4x4 projectionMatrix;
-    float4x4 viewMatrix;
-    float4x4 modelMatrix;
+    float4x4 transform;
 };
 
 
@@ -38,7 +36,7 @@ vertex VertexOut passThroughVertex(uint vid [[ vertex_id ]],
 {
     VertexOut outVertex;
     VertexIn inVertex = vertexIn[vid];
-    float4x4 mvp = uniform.projectionMatrix * uniform.viewMatrix * uniform.modelMatrix;
+    float4x4 mvp = uniform.transform;
     outVertex.position = mvp * float4(inVertex.position, 1.0);
     outVertex.color = float4(1.0, 0.0, 1.0, 1.0);
     outVertex.uv = inVertex.uv;
@@ -49,10 +47,10 @@ vertex VertexOut passThroughVertex(uint vid [[ vertex_id ]],
 
 constexpr sampler s(coord::normalized, address::repeat, filter::linear);
 
-fragment float4 passThroughFragment(VertexOut inFrag [[stage_in]],
-                                   texture2d<float> diffuse [[ texture(0) ]])
+//texture2d<float> diffuse [[ texture(0) ]]
+fragment float4 passThroughFragment(VertexOut inFrag [[stage_in]])
 {
-    float4 color = diffuse.sample(s, inFrag.uv);
+    float4 color = float4(1.0, 0.0, 0.0, 1.0);//diffuse.sample(s, inFrag.uv);
     return color;
 };
 

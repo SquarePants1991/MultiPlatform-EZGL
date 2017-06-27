@@ -128,11 +128,13 @@ void BasicFlowTests::update(ELFloat deltaTime) {
     renderToTextureRender->pipline->setUniform(finalMatrix, renderToTextureRender->pipline->getUniformLocation("transform"));
     renderToTextureRender->pipline->bindTexture(diffuseTexture, renderToTextureRender->pipline->getUniformLocation("diffuse"));
     renderToTextureRender->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
+    renderToTextureRender->endRender();
 
     renderToDepthTextureRender->prepare();
     renderToDepthTextureRender->pipline->setUniform(finalMatrix, renderToDepthTextureRender->pipline->getUniformLocation("transform"));
     renderToDepthTextureRender->pipline->bindTexture(diffuseTexture, renderToDepthTextureRender->pipline->getUniformLocation("diffuse"));
     renderToDepthTextureRender->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
+    renderToDepthTextureRender->endRender();
     
     renderer->prepare();
     renderer->pipline->setUniform(finalMatrix, renderer->pipline->getUniformLocation("transform"));
@@ -150,4 +152,6 @@ void BasicFlowTests::update(ELFloat deltaTime) {
     projection = ELMatrix4MakeOrtho(-0.5, 3.5, -2.5, 1.5, 0, 100);
     renderer->pipline->setUniform(projection, renderer->pipline->getUniformLocation("transform"));
     renderer->drawPrimitives(ELPrimitivesTypeTriangle, squareVertexBuffer);
+    
+    renderer->endRender();
 }

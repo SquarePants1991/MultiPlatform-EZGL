@@ -34,6 +34,10 @@ void ELRenderer::prepare() {
         renderPassDescriptor.depthAttachment.clearDepth = 1.0;
     }
     
+    if (renderPassDescriptor == nil) {
+        return;
+    }
+    
     id <MTLCommandQueue> commandQueue = (__bridge id <MTLCommandQueue>)commandQueueGet(this);
     id <MTLCommandBuffer> commandBuffer = [commandQueue commandBuffer];
     
@@ -53,6 +57,10 @@ void ELRenderer::drawPrimitives(ELPrimitivesType type, ELVertexBufferPtr vertexB
     id <MTLBuffer> mtlBuffer = (__bridge id <MTLBuffer>)vertexBuffer->__crossplatformFetchObject("vertexBuffer");
     id <MTLRenderCommandEncoder> encoder = (__bridge id <MTLRenderCommandEncoder> )currentCommandEncoderGet(this);
     id <MTLBuffer> uniformBuffer = (__bridge id <MTLBuffer> )pipline->uniformBuffer->__crossplatformFetchObject("vertexBuffer");
+    
+    if (encoder == nil) {
+        return;
+    }
     
     [encoder setVertexBuffer:mtlBuffer offset:0 atIndex:0];
     [encoder setVertexBuffer:uniformBuffer offset:0 atIndex:1];

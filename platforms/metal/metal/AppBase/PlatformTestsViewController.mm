@@ -8,15 +8,11 @@
 
 #import "PlatformTestsViewController.h"
 #import "ELMetalAdapter.h"
-#import "BasicFlowTests.h"
-
-#define Test(Name, Scene) \
-scenes[Name] = new Scene();
+#import "platform/BasicFlowTests.h"
+#import "platform/DepthTestTests.h"
 
 typedef struct {
-    ELMatrix4 projectionMatrix;
-    ELMatrix4 viewMatrix;
-    ELMatrix4 modelMatrix;
+    ELMatrix4 transform;
 } UniformMembers;
 
 @interface PlatformTestsViewController () {
@@ -27,6 +23,8 @@ typedef struct {
     NSTimeInterval currentTime;
     
     std::map<std::string, TestScene *> scenes;
+    std::map<std::string, ELRenderPiplinePtr > piplines;
+    ELVertexBufferPtr uniformVertexBuffer;
 }
 @property (weak) IBOutlet NSWindow *window;
 
@@ -57,8 +55,32 @@ typedef struct {
     ELMetalAdapter::defaultAdapter()->setup(id<MetalRenderContextProvider>(_view), _device, ELVector2Make(self.view.frame.size.width * screenScale, self.view.frame.size.height * screenScale));
 }
 
+- (void)createPiplines {
+    ELRenderPiplinePtr defaultPipline = ELRenderPipline::alloc()->init("passThroughVertex", "passThroughFragment");
+    piplines["default"] = defaultPipline;
+    piplines["blend"] = defaultPipline;
+    
+    UniformMembers members;
+    members.transform = ELMatrix4Identity;
+    
+    uniformVertexBuffer = ELVertexBuffer::alloc()->init(&members, sizeof(UniformMembers), sizeof(UniformMembers), ELVertexBufferTypeStatic);
+    ELVertexAttribute transformAttr;
+    transformAttr.dataType = ELVertexAttributeDataTypeFloat;
+    transformAttr.sizeInBytes = sizeof(ELMatrix4);
+    transformAttr.offsetInBytes = 0;
+    transformAttr.name = "transform";
+    uniformVertexBuffer->addAttribute(transformAttr);
+    
+    defaultPipline->uniformBuffer = uniformVertexBuffer;
+}
+
 - (void)initScenes {
-    Test("基本流程测试", BasicFlowTests);
+    [self createPiplines];
+    
+#define Test(Name, Scene) \
+scenes[Name] = new Scene(piplines);
+    
+    Test("基础流程测试", BasicFlowTests);
 }
 
 // Called whenever view changes orientation or layout is changed

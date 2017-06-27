@@ -43,8 +43,14 @@ ELRenderPipline::~ELRenderPipline() {
 }
 
 ELInt ELRenderPipline::getUniformLocation(std::string uniformName) {
-    return 0;
+    for (auto iter = uniformBuffer->attributes.begin(); iter != uniformBuffer->attributes.end(); ++iter) {
+        if (iter->name == uniformName) {
+            return (ELInt)(iter - uniformBuffer->attributes.begin());
+        }
+    }
+    return -1;
 }
+
 void ELRenderPipline::setUniform(ELInt val, ELInt location) {}
 void ELRenderPipline::setUniform(ELFloat val, ELInt location) {}
 void ELRenderPipline::setUniform(ELVector2 val, ELInt location) {}
@@ -52,7 +58,11 @@ void ELRenderPipline::setUniform(ELVector3 val, ELInt location) {}
 void ELRenderPipline::setUniform(ELVector4 val, ELInt location) {}
 void ELRenderPipline::setUniform(ELMatrix2 val, ELInt location) {}
 void ELRenderPipline::setUniform(ELMatrix3 val, ELInt location) {}
-void ELRenderPipline::setUniform(ELMatrix4 val, ELInt location) {}
+void ELRenderPipline::setUniform(ELMatrix4 val, ELInt location) {
+    ELInt offset = uniformBuffer->attributes[location].offsetInBytes;
+    memcpy((void *)((unsigned char *)uniformBuffer->data() + offset), (void *)&val, sizeof(ELMatrix4));
+    uniformBuffer->flushBuffer();
+}
 
 void ELRenderPipline::bindTexture(ELTexturePtr texture, ELInt uniformLocation) {}
 

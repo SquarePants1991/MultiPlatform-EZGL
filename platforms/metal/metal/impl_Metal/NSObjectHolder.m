@@ -15,7 +15,7 @@ const void *kManagedObjects;
 + (void)retain:(NSObject *)object {
     id obj = objc_getAssociatedObject(self, &kManagedObjects);
     if (obj == nil) {
-        obj = [NSMutableSet new];
+        obj = [NSMutableArray new];
         objc_setAssociatedObject(self, &kManagedObjects, obj, OBJC_ASSOCIATION_RETAIN);
     }
     [obj addObject:object];
