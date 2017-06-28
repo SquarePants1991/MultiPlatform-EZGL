@@ -13,3 +13,6 @@ ELRenderPassPtr ELRenderPass::init(ELRenderPassConfig config, ELRenderTargetPtr 
     return selv;
 }
 
+ELRenderPass::~ELRenderPass() {
+
+}

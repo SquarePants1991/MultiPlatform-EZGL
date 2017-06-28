@@ -37,7 +37,7 @@ public:
     ELRenderTargetPtr renderTarget;
 
     ELRenderPassPtr init(ELRenderPassConfig config, ELRenderTargetPtr renderTarget);
-
+    ~ELRenderPass();
 defEnd
 
 

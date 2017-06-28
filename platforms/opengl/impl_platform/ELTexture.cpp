@@ -104,3 +104,7 @@ ELTexturePtr ELTexture::init(ELPixelFormat pixelFormat, unsigned char *imageData
     }
     return selv;
 }
+
+ELTexture::~ELTexture() {
+
+}

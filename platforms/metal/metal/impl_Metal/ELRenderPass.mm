@@ -13,11 +13,30 @@ ELRenderPassPtr ELRenderPass::init(ELRenderPassConfig config, ELRenderTargetPtr 
     selv->config = config;
     selv->renderTarget = renderTarget;
     
-    if (renderTarget->__crossplatformObjectExist("defaultRenderPassDesc")) {
-        
+    if (renderTarget->__crossplatformFetchBool("isDefaultTarget")) {
+        // Do nothing when target is default
     } else {
-        // create form texture
+        MTLRenderPassDescriptor *renderPassDescriptor = [MTLRenderPassDescriptor new];
+        if (renderTarget->colorBufferEnabled) {
+            id <MTLTexture> mtlTexture = (__bridge id <MTLTexture> )renderTarget->bindTexture->__crossplatformFetchObject("mtlTexture");
+            renderPassDescriptor.colorAttachments[0].texture = mtlTexture;
+        }
+         if (renderTarget->depthBufferEnabled) {
+             id <MTLTexture> mtlTexture = (__bridge id <MTLTexture> )renderTarget->bindDepthTexture->__crossplatformFetchObject("mtlTexture");
+             renderPassDescriptor.depthAttachment.texture = mtlTexture;
+             renderPassDescriptor.stencilAttachment.texture = mtlTexture;
+         }
+        
+        renderPassDescriptorSet(this, (__bridge void *)renderPassDescriptor);
+        ELRetain(renderPassDescriptor);
     }
     return selv;
+}
+
+ELRenderPass::~ELRenderPass() {
+    MTLRenderPassDescriptor * renderPassDescriptor = (__bridge MTLRenderPassDescriptor *)renderPassDescriptorGet(this);
+    if (renderPassDescriptor) {
+        ELRelease(renderPassDescriptor);
+    }
 }
 

@@ -33,6 +33,7 @@ public:
     void clearState();
     // Metal will use this buffer to setup uniform structure
     ELVertexBufferPtr uniformBuffer;
+    std::vector<ELTexturePtr> textures;
 defEnd
 
 

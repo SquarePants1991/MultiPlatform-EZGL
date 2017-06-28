@@ -6,8 +6,8 @@
 #define EZGL_ELPIXELFORMAT_H
 
 enum ELPixelFormat {
-    ELPixelFormatUnKnown,
-    ELPixelFormatRGB,
+    ELPixelFormatUnKnown = -1,
+    ELPixelFormatRGB = 0,
     ELPixelFormatRGBA,
     ELPixelFormatAlpha,
     ELPixelFormatDepth,
