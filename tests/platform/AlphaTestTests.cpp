@@ -7,14 +7,8 @@
 
 AlphaTestTests::AlphaTestTests(std::map<std::string, ELRenderPiplinePtr> piplines): TestScene(piplines) {
     ELRenderTargetPtr defaultRenderTarget = ELRenderTarget::defaultTarget();
-
-    ELAssets::shared()->addSearchPath("/Users/wangyang/Documents/Codes/OnGit/MultiPlatform-EZGL/tests/platform/");
-    ELAssets::shared()->addSearchPath("/Users/ocean/Documents/Codes/On Git/MultiPlatform-EZGL/tests/platform/");
-
-    std::string vertexShader = ELFileUtil::stringContentOfShader(ELAssets::shared()->findFile("vertex.glsl"));
-    std::string fragmentShader = ELFileUtil::stringContentOfShader(ELAssets::shared()->findFile("fragment.glsl"));
-
-    pipline = ELRenderPipline::alloc()->init(vertexShader, fragmentShader);
+    
+    pipline = piplines["default"];
 
     ELRenderPassConfig config = ELRenderPassConfigDefault();
     config.clearColor = ELVector4Make(0.1, 0.1, 0.1, 1.0);
@@ -95,4 +89,5 @@ void AlphaTestTests::update(ELFloat deltaTime) {
     finalMatrix = ELMatrix4Multiply(projection, finalMatrix);
     renderer->pipline->setUniform(finalMatrix, renderer->pipline->getUniformLocation("transform"));
     renderer->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
+    renderer->endRender();
 }

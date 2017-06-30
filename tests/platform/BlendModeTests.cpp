@@ -114,8 +114,8 @@ void BlendModeTests::update(ELFloat deltaTime) {
     renderer->pipline->setUniform(ELVector4Make(0.0, 0.7, 0.0, 0.5), renderer->pipline->getUniformLocation("color"));
     renderer->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
     renderer->enableDepthWrite();
-
-
+    
+    renderer->endRender();
 
     static float elapsedTime = 0.0;
     elapsedTime += deltaTime;

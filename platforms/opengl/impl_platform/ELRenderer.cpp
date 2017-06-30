@@ -357,11 +357,6 @@ void ELRenderer::enableDepthWrite() {
     setupDepthWrite(selv->isDepthWriteEnabled);
 }
 
-void ELRenderer::disableDepthWrite() {
-    selv->isDepthWriteEnabled = false;
-    setupDepthWrite(selv->isDepthWriteEnabled);
-}
-
 void ELRenderer::enableStencilTest() {
     selv->isStencilTestEnabled = true;
     setupStencil(selv->isStencilTestEnabled, selv->stencilMask, selv->stencilOpArgs, selv->stencilFuncArgs);
@@ -385,4 +380,9 @@ void ELRenderer::setStencilOperations(ELStencilOp stFailed, ELStencilOp dpFailed
 void ELRenderer::setStencilMask(ELInt mask) {
     selv->stencilMask = mask;
     setupStencil(selv->isStencilTestEnabled, selv->stencilMask, selv->stencilOpArgs, selv->stencilFuncArgs);
+}
+
+void ELRenderer::disableDepthWrite() {
+    selv->isDepthWriteEnabled = false;
+    setupDepthWrite(selv->isDepthWriteEnabled);
 }

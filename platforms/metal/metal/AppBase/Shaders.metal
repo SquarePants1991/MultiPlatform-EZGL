@@ -27,6 +27,7 @@ struct VertexOut
 struct Uniforms
 {
     float4x4 transform;
+    float4 color;
 };
 
 
@@ -38,7 +39,7 @@ vertex VertexOut passThroughVertex(uint vid [[ vertex_id ]],
     VertexIn inVertex = vertexIn[vid];
     float4x4 mvp = uniform.transform;
     outVertex.position = mvp * float4(inVertex.position, 1.0);
-    outVertex.color = float4(1.0, 0.0, 1.0, 1.0);
+    outVertex.color = uniform.color;
     outVertex.uv = inVertex.uv;
     
     outVertex.pointSize = 1;
@@ -51,6 +52,15 @@ fragment float4 passThroughFragment(VertexOut inFrag [[stage_in]],
                                     texture2d<float> diffuse [[ texture(0) ]])
 {
     float4 color = diffuse.sample(s, inFrag.uv);
+    if (color.a == 0.0) {
+         discard_fragment();
+    }
+    return color;
+};
+
+fragment float4 passThroughFragmentBlend(VertexOut inFrag [[stage_in]])
+{
+    float4 color = inFrag.color;
     return color;
 };
 

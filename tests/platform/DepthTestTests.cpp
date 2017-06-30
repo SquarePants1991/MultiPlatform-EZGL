@@ -115,8 +115,9 @@ void DepthTestTests::update(ELFloat deltaTime) {
     static float elapsedTime = 0.0;
     elapsedTime += deltaTime;
     if ((int)elapsedTime % 2 == 0) {
-        renderer->setDepthFunc(ELTestGreaterEqual);
+        renderer->setDepthFunc(ELTestLessEqual);
     } else {
-        renderer->setDepthFunc(ELTestNever);
+        renderer->setDepthFunc(ELTestAlways);
     }
+    renderer->endRender();
 }

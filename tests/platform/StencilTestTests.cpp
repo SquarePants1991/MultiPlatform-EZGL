@@ -20,120 +20,69 @@ StencilTestTests::StencilTestTests(std::map<std::string, ELRenderPiplinePtr> pip
 
     std::string imagePath = ELAssets::shared()->findFile("texture.jpg");
     diffuseTexture = ELTexture::alloc()->init(imagePath);
-    static ELFloat vertices[] = {
-            // X轴0.5处的平面
-            0.5, -0.5, 0.5f,
-            0.5, -0.5f, -0.5f,
-            0.5, 0.5f, -0.5f,
-            0.5, 0.5, -0.5f,
-            0.5, 0.5f, 0.5f,
-            0.5, -0.5f, 0.5f,
-            // X轴-0.5处的平面
-            -0.5, -0.5, 0.5f,
-            -0.5, -0.5f, -0.5f,
-            -0.5, 0.5f, -0.5f,
-            -0.5, 0.5, -0.5f,
-            -0.5, 0.5f, 0.5f,
-            -0.5, -0.5f, 0.5f,
-
-            -0.5, 0.5, 0.5f,
-            -0.5f, 0.5, -0.5f,
-            0.5f, 0.5, -0.5f,
-            0.5, 0.5, -0.5f,
-            0.5f, 0.5, 0.5f,
-            -0.5f, 0.5, 0.5f,
-            -0.5, -0.5, 0.5f,
-            -0.5f, -0.5, -0.5,
-            0.5f, -0.5, -0.5f,
-            0.5, -0.5, -0.5f,
-            0.5f, -0.5, 0.5f,
-            -0.5f, -0.5, 0.5f,
-
-            -0.5, 0.5f, 0.5,
-            -0.5f, -0.5f, 0.5,
-            0.5f, -0.5f, 0.5,
-            0.5, -0.5f, 0.5,
-            0.5f, 0.5f, 0.5,
-            -0.5f, 0.5f, 0.5,
-            -0.5, 0.5f, -0.5,
-            -0.5f, -0.5f, -0.5,
-            0.5f, -0.5f, -0.5,
-            0.5, -0.5f, -0.5,
-            0.5f, 0.5f, -0.5,
-            -0.5f, 0.5f, -0.5,
+    static ELFloat data[] = {
+        // X轴0.5处的平面
+        0.5, -0.5, 0.5f, 1, 0, 0, 0, 0,
+        0.5, -0.5f, -0.5f, 1, 0, 0, 0, 1,
+        0.5, 0.5f, -0.5f, 1, 0, 0, 1, 1,
+        0.5, 0.5, -0.5f, 1, 0, 0, 1, 1,
+        0.5, 0.5f, 0.5f, 1, 0, 0, 1, 0,
+        0.5, -0.5f, 0.5f, 1, 0, 0, 0, 0,
+        // X轴-0.5处的平面
+        -0.5, -0.5, 0.5f, -1, 0, 0, 0, 0,
+        -0.5, -0.5f, -0.5f, -1, 0, 0, 0, 1,
+        -0.5, 0.5f, -0.5f, -1, 0, 0, 1, 1,
+        -0.5, 0.5, -0.5f, -1, 0, 0, 1, 1,
+        -0.5, 0.5f, 0.5f, -1, 0, 0, 1, 0,
+        -0.5, -0.5f, 0.5f, -1, 0, 0, 0, 0,
+        
+        -0.5, 0.5, 0.5f, 0, 1, 0, 0, 0,
+        -0.5f, 0.5, -0.5f, 0, 1, 0, 0, 1,
+        0.5f, 0.5, -0.5f, 0, 1, 0, 1, 1,
+        0.5, 0.5, -0.5f, 0, 1, 0, 1, 1,
+        0.5f, 0.5, 0.5f, 0, 1, 0, 1, 0,
+        -0.5f, 0.5, 0.5f, 0, 1, 0, 0, 0,
+        -0.5, -0.5, 0.5f, 0, -1, 0, 0, 0,
+        -0.5f, -0.5, -0.5f, 0, -1, 0, 0, 1,
+        0.5f, -0.5, -0.5f, 0, -1, 0, 1, 1,
+        0.5, -0.5, -0.5f, 0, -1, 0, 1, 1,
+        0.5f, -0.5, 0.5f, 0, -1, 0, 1, 0,
+        -0.5f, -0.5, 0.5f, 0, -1, 0, 0, 0,
+        
+        -0.5, 0.5f, 0.5, 0, 0, 1, 0, 0,
+        -0.5f, -0.5f, 0.5, 0, 0, 1, 0, 1,
+        0.5f, -0.5f, 0.5, 0, 0, 1, 1, 1,
+        0.5, -0.5f, 0.5, 0, 0, 1, 1, 1,
+        0.5f, 0.5f, 0.5, 0, 0, 1, 1, 0,
+        -0.5f, 0.5f, 0.5, 0, 0, 1, 0, 0,
+        -0.5, 0.5f, -0.5, 0, 0, -1, 0, 0,
+        -0.5f, -0.5f, -0.5, 0, 0, -1, 0, 1,
+        0.5f, -0.5f, -0.5, 0, 0, -1, 1, 1,
+        0.5, -0.5f, -0.5, 0, 0, -1, 1, 1,
+        0.5f, 0.5f, -0.5, 0, 0, -1, 1, 0,
+        -0.5f, 0.5f, -0.5, 0, 0, -1, 0, 0,
     };
-
-    static ELFloat uvNormal[] = {
-            // X轴0.5处的平面
-            1, 0, 0, 0, 0,
-            1, 0, 0, 0, 1,
-            1, 0, 0, 1, 1,
-            1, 0, 0, 1, 1,
-            1, 0, 0, 1, 0,
-            1, 0, 0, 0, 0,
-            // X轴-0.5处的平面
-            -1, 0, 0, 0, 0,
-            -1, 0, 0, 0, 1,
-            -1, 0, 0, 1, 1,
-            -1, 0, 0, 1, 1,
-            -1, 0, 0, 1, 0,
-            -1, 0, 0, 0, 0,
-
-            0, 1, 0, 0, 0,
-            0, 1, 0, 0, 1,
-            0, 1, 0, 1, 1,
-            0, 1, 0, 1, 1,
-            0, 1, 0, 1, 0,
-            0, 1, 0, 0, 0,
-            0, -1, 0, 0, 0,
-            0, -1, 0, 0, 1,
-            0, -1, 0, 1, 1,
-            0, -1, 0, 1, 1,
-            0, -1, 0, 1, 0,
-            0, -1, 0, 0, 0,
-
-            0, 0, 1, 0, 0,
-            0, 0, 1, 0, 1,
-            0, 0, 1, 1, 1,
-            0, 0, 1, 1, 1,
-            0, 0, 1, 1, 0,
-            0, 0, 1, 0, 0,
-            0, 0, -1, 0, 0,
-            0, 0, -1, 0, 1,
-            0, 0, -1, 1, 1,
-            0, 0, -1, 1, 1,
-            0, 0, -1, 1, 0,
-            0, 0, -1, 0, 0,
-    };
-
-    cubeVertexBuffer = ELCompositionVertexBuffer::alloc()->init();
-    ELVertexBufferPtr verticesBuffer = ELVertexBuffer::alloc()->init(vertices, sizeof(vertices), sizeof(ELFloat) * 3, ELVertexBufferTypeStatic);
-    verticesBuffer->flushBuffer();
+    
+    cubeVertexBuffer = ELVertexBuffer::alloc()->init(data, sizeof(data), sizeof(ELFloat) * 8, ELVertexBufferTypeStatic);
     ELVertexAttribute positionAttr;
     positionAttr.dataType = ELVertexAttributeDataTypeFloat;
     positionAttr.sizeInBytes = sizeof(ELFloat) * 3;
     positionAttr.offsetInBytes = 0;
     positionAttr.name = "position";
-    verticesBuffer->addAttribute(positionAttr);
-
-    ELVertexBufferPtr uvNormalBuffer = ELVertexBuffer::alloc()->init(uvNormal, sizeof(uvNormal), sizeof(ELFloat) * 5, ELVertexBufferTypeStatic);
+    cubeVertexBuffer->addAttribute(positionAttr);
     ELVertexAttribute colorAttr;
     colorAttr.dataType = ELVertexAttributeDataTypeFloat;
     colorAttr.sizeInBytes = sizeof(ELFloat) * 3;
-    colorAttr.offsetInBytes = 0;
+    colorAttr.offsetInBytes = sizeof(ELFloat) * 3;
     colorAttr.name = "color";
-    uvNormalBuffer->addAttribute(colorAttr);
+    cubeVertexBuffer->addAttribute(colorAttr);
     ELVertexAttribute uvAttr;
     uvAttr.dataType = ELVertexAttributeDataTypeFloat;
     uvAttr.sizeInBytes = sizeof(ELFloat) * 2;
-    uvAttr.offsetInBytes = sizeof(ELFloat) * 3;
+    uvAttr.offsetInBytes = sizeof(ELFloat) * 6;
     uvAttr.name = "uv";
-    uvNormalBuffer->addAttribute(uvAttr);
-
-    cubeVertexBuffer->appendVertexBuffer(verticesBuffer);
-    cubeVertexBuffer->appendVertexBuffer(uvNormalBuffer);
-
-
+    cubeVertexBuffer->addAttribute(uvAttr);
+    
     static ELFloat squareData[] = {
             -0.5, 0.5f, 0.5, 0, 0, 1, 0, 0,
             -0.5f, -0.5f, 0.5, 0, 0, 1, 0, 1,
@@ -165,23 +114,24 @@ void StencilTestTests::update(ELFloat deltaTime) {
     renderer->setStencilFunc(ELTestAlways, 1, 0xff);
     renderer->setStencilOperations(ELStencilOpKeep, ELStencilOpKeep, ELStencilOpReplace);
     renderer->setStencilMask(0xFF);
-
+    
     model = ELMatrix4MakeTranslation(0, 0, -1.0);
     finalMatrix = ELMatrix4Multiply(view, model);
     finalMatrix = ELMatrix4Multiply(projection, finalMatrix);
     renderer->pipline->setUniform(finalMatrix, renderer->pipline->getUniformLocation("transform"));
+    renderer->pipline->bindTexture(diffuseTexture, renderer->pipline->getUniformLocation("diffuse"));
     renderer->drawPrimitives(ELPrimitivesTypeTriangle, squareVertexBuffer);
-
+    
 
     renderer->setStencilFunc(ELTestEqual, 1, 0xff);
     renderer->setStencilMask(0x00);
-
+    
     model = ELMatrix4MakeRotation(angle, 1, 1, 1);
     finalMatrix = ELMatrix4Multiply(view, model);
     finalMatrix = ELMatrix4Multiply(projection, finalMatrix);
     renderer->pipline->setUniform(finalMatrix, renderer->pipline->getUniformLocation("transform"));
     renderer->pipline->bindTexture(diffuseTexture, renderer->pipline->getUniformLocation("diffuse"));
     renderer->drawPrimitives(ELPrimitivesTypeTriangle, cubeVertexBuffer);
-
+    renderer->endRender();
 
 }

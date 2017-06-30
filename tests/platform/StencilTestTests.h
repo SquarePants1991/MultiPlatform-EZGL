@@ -17,7 +17,7 @@ private:
     ELRenderPiplinePtr pipline;
     ELRenderPassPtr mainRenderPass;
     ELRendererPtr renderer;
-    ELCompositionVertexBufferPtr cubeVertexBuffer;
+    ELVertexBufferPtr cubeVertexBuffer;
     ELVertexBufferPtr squareVertexBuffer;
     ELTexturePtr diffuseTexture;
 };

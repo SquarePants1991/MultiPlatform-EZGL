@@ -7,6 +7,7 @@
 #import "NSObjectHolder.h"
 
 crossplatform_var_obj(vertexBuffer)
+crossplatform_var_obj(indexBuffer)
 
 ELVertexBufferPtr ELVertexBuffer::init(ELInt vertexSizeInBytes, ELVertexBufferType bufferType) {
     selv->useIndex = false;
@@ -53,9 +54,15 @@ void ELVertexBuffer::enableIndex() {
         return;
     }
     selv->useIndex = true;
-//    genIBO(selv);
 }
 
 void ELVertexBuffer::flushIndexBuffer() {
-//    updateIBO(selv);
+    id <MTLBuffer> mtlIndexBuffer = (__bridge id <MTLBuffer>)indexBufferGet(this);
+    if (mtlIndexBuffer) {
+        ELRelease(mtlIndexBuffer);
+    }
+    
+    mtlIndexBuffer = [ELMetalAdapter::defaultAdapter()->metalDevice newBufferWithBytes:indexBuffer.data() length:indexBuffer.size() * sizeof(ELInt) options:MTLResourceCPUCacheModeDefaultCache];
+    indexBufferSet(this, (__bridge void *)mtlIndexBuffer);
+    ELRetain(mtlIndexBuffer);
 }
