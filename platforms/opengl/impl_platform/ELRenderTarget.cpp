@@ -2,7 +2,7 @@
 // Created by wangyang on 2017/5/23.
 //
 
-#include "ELRenderTarget.h"
+#include "platform/ELRenderTarget.h"
 #include "ELGLAdapter.h"
 
 crossplatform_var_int(framebuffer)

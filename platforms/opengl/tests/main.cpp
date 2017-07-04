@@ -1,6 +1,6 @@
 #include "../impl_platform/ELGLAdapter.h"
 #include <GLFW/glfw3.h>
-#include "ELPlatform.h"
+#include "platform/ELPlatform.h"
 #include "TestScene.h"
 #include <sstream>
 
@@ -20,6 +20,9 @@ std::map<std::string, ELRenderPiplinePtr> piplines;
 #include "AlphaTestTests.h"
 #include "StencilTestTests.h"
 #include "DepthTestTests.h"
+
+#include "BasicRendererTests.h"
+
 void createPiplines() {
 
     std::string vertexShader = ELFileUtil::stringContentOfShader(ELAssets::shared()->findFile("vertex.glsl"));
@@ -44,6 +47,8 @@ void registerScenes() {
     RegisterTestScene(AlphaTestTests, "Alpha Test测试");
     RegisterTestScene(StencilTestTests, "Stencil Test测试");
     RegisterTestScene(DepthTestTests, "Depth Test测试");
+
+    RegisterTestScene(BasicRendererTests, "基础渲染器测试");
 }
 
 int currentShowSceneIndex = 0;
@@ -97,6 +102,7 @@ int main(void) {
 void init(GLFWwindow *window) {
     ELAssets::shared()->addSearchPath("/home/ocean/文档/Codes/MultiPlatform-EZGL/tests/platform/");
     ELAssets::shared()->addSearchPath("/Users/wangyang/Documents/Codes/OnGit/MultiPlatform-EZGL/platforms/opengl/tests/");
+    ELAssets::shared()->addSearchPath("/Users/wangyang/Documents/Codes/OnGit/MultiPlatform-EZGL/platforms/opengl/impl_renderer/shaders");
 
     registerScenes();
     glfwSetKeyCallback(window, key_callback);

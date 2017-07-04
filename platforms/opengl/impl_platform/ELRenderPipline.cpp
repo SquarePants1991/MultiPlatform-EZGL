@@ -2,7 +2,7 @@
 // Created by wangyang on 2017/5/24.
 //
 
-#include "ELRenderPipline.h"
+#include "platform/ELRenderPipline.h"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <cstdlib>
@@ -88,6 +88,16 @@ void ELRenderPipline::bindTexture(ELTexturePtr texture, ELInt uniformLocation) {
     gl_texture_id_counter++;
 }
 
+void ELRenderPipline::bindTexture(ELTexturePtr texture, ELInt uniformLocation, ELInt textureID) {
+    assert (textureID < maxTextureUnitsGet(this));
+    ELInt glTextureVal = texture->__crossplatformFetchInt("glVal");
+    if (glTextureVal >= 0) {
+        glUniform1i(uniformLocation, textureID);
+        glActiveTexture(GL_TEXTURE0 + textureID);
+        glBindTexture(GL_TEXTURE_2D, glTextureVal);
+    }
+}
+
 void ELRenderPipline::clearState() {
     gl_texture_id_counter = 0;
 }
@@ -96,26 +106,26 @@ void ELRenderPipline::clearState() {
 // Create Program
 bool createProgram(const char *vertexShader, const char *fragmentShader, GLuint *pProgram) {
     GLuint program, vertShader, fragShader;
-    // Create shader program.
+    // Create renderer program.
     program = glCreateProgram();
 
     const GLchar *vssource = (GLchar *)vertexShader;
     const GLchar *fssource = (GLchar *)fragmentShader;
 
     if (!compileShader(&vertShader, GL_VERTEX_SHADER, vssource)) {
-        printf("Failed to compile vertex shader");
+        printf("Failed to compile vertex renderer");
         return false;
     }
 
     if (!compileShader(&fragShader, GL_FRAGMENT_SHADER, fssource)) {
-        printf("Failed to compile fragment shader");
+        printf("Failed to compile fragment renderer");
         return false;
     }
 
-    // Attach vertex shader to program.
+    // Attach vertex renderer to program.
     glAttachShader(program, vertShader);
 
-    // Attach fragment shader to program.
+    // Attach fragment renderer to program.
     glAttachShader(program, fragShader);
 
     // Link program.
@@ -156,7 +166,7 @@ bool compileShader(GLuint *shader, GLenum type, const GLchar *source) {
     GLint status;
 
     if (!source) {
-        printf("Failed to load vertex shader");
+        printf("Failed to load vertex renderer");
         return false;
     }
 
@@ -167,7 +177,7 @@ bool compileShader(GLuint *shader, GLenum type, const GLchar *source) {
     GLint logLength;
     glGetShaderiv(*shader, GL_INFO_LOG_LENGTH, &logLength);
 
-#if Debug
+#if DEBUG
     if (logLength > 0) {
         GLchar *log = (GLchar *)malloc(logLength);
         glGetShaderInfoLog(*shader, logLength, &logLength, log);

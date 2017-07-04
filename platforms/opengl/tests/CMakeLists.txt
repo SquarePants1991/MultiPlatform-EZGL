@@ -8,10 +8,17 @@ file(GLOB PlatformSrc
         "../impl_platform/**/*.h"
         "../impl_platform/**/*.cpp"
         "../impl_platform/**/*.cc"
+
+        "../impl_renderer/*.h"
+        "../impl_renderer/*.cpp"
+        "../impl_renderer/**/*.h"
+        "../impl_renderer/**/*.cpp"
+        "../impl_renderer/**/*.cc"
         )
 
-include_directories(${CMAKE_SOURCE_DIR}/ezgl/platform)
+include_directories(${CMAKE_SOURCE_DIR}/ezgl/)
 include_directories(${CMAKE_SOURCE_DIR}/tests/platform)
+include_directories(${CMAKE_SOURCE_DIR}/tests/renderer)
 
 find_package(glfw3 REQUIRED)
 find_package(GLEW REQUIRED)

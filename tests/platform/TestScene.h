@@ -5,7 +5,7 @@
 #ifndef EZGL_TESTSCENE_H
 #define EZGL_TESTSCENE_H
 
-#include "ELPlatform.h"
+#include "platform/ELPlatform.h"
 
 class TestScene {
 public:

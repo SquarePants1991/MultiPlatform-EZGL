@@ -2,7 +2,7 @@
 // Created by wangyang on 2017/5/23.
 //
 
-#include "ELVertexBuffer.h"
+#include "platform/ELVertexBuffer.h"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 

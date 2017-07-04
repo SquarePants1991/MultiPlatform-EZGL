@@ -28,6 +28,7 @@ public:
     void setUniform(ELMatrix3 val, ELInt location);
     void setUniform(ELMatrix4 val, ELInt location);
     void bindTexture(ELTexturePtr texture, ELInt uniformLocation);
+    void bindTexture(ELTexturePtr texture, ELInt uniformLocation, ELInt textureID);
 
     // 目前主要清空纹理计数，清理上一次可能遗留的状态数据
     void clearState();

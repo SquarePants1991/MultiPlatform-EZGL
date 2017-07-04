@@ -96,26 +96,26 @@ void ELRenderPipline::clearState() {
 // Create Program
 bool createProgram(const char *vertexShader, const char *fragmentShader, GLuint *pProgram) {
     GLuint program, vertShader, fragShader;
-    // Create shader program.
+    // Create renderer program.
     program = glCreateProgram();
 
     const GLchar *vssource = (GLchar *)vertexShader;
     const GLchar *fssource = (GLchar *)fragmentShader;
 
     if (!compileShader(&vertShader, GL_VERTEX_SHADER, vssource)) {
-        printf("Failed to compile vertex shader");
+        printf("Failed to compile vertex renderer");
         return false;
     }
 
     if (!compileShader(&fragShader, GL_FRAGMENT_SHADER, fssource)) {
-        printf("Failed to compile fragment shader");
+        printf("Failed to compile fragment renderer");
         return false;
     }
 
-    // Attach vertex shader to program.
+    // Attach vertex renderer to program.
     glAttachShader(program, vertShader);
 
-    // Attach fragment shader to program.
+    // Attach fragment renderer to program.
     glAttachShader(program, fragShader);
 
     // Link program.
@@ -156,7 +156,7 @@ bool compileShader(GLuint *shader, GLenum type, const GLchar *source) {
     GLint status;
 
     if (!source) {
-        printf("Failed to load vertex shader");
+        printf("Failed to load vertex renderer");
         return false;
     }
 
@@ -170,7 +170,7 @@ bool compileShader(GLuint *shader, GLenum type, const GLchar *source) {
 #if Debug
     if (logLength > 0) {
         GLchar *log = (GLchar *)malloc(logLength);
-        glGetShaderInfoLog(*shader, logLength, &logLength, log);
+        glGetShaderInfoLog(*renderer, logLength, &logLength, log);
         printf("Shader compile log:\n%s", log);
         printf("Shader: \n %s\n", source);
         free(log);
