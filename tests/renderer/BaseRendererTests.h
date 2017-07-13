@@ -8,9 +8,9 @@
 #include "TestScene.h"
 #include "renderer/ELBaseRenderer.h"
 
-class BasicRendererTests: public TestScene {
+class BaseRendererTests: public TestScene {
 public:
-    BasicRendererTests(std::map<std::string, ELRenderPiplinePtr> piplines);
+    BaseRendererTests(std::map<std::string, ELRenderPiplinePtr> piplines);
     virtual void update(ELFloat deltaTime);
 
 private:

@@ -1,25 +1,3 @@
-file(GLOB PlatformSrc
-        "*.h"
-        "*.cpp"
-        "../../../tests/**/*.h"
-        "../../../tests/**/*.cpp"
-        "../impl_platform/*.h"
-        "../impl_platform/*.cpp"
-        "../impl_platform/**/*.h"
-        "../impl_platform/**/*.cpp"
-        "../impl_platform/**/*.cc"
-
-        "../impl_renderer/*.h"
-        "../impl_renderer/*.cpp"
-        "../impl_renderer/**/*.h"
-        "../impl_renderer/**/*.cpp"
-        "../impl_renderer/**/*.cc"
-        )
-
-include_directories(${CMAKE_SOURCE_DIR}/ezgl/)
-include_directories(${CMAKE_SOURCE_DIR}/tests/platform)
-include_directories(${CMAKE_SOURCE_DIR}/tests/renderer)
-
 find_package(glfw3 REQUIRED)
 find_package(GLEW REQUIRED)
 if (GLEW_FOUND)
@@ -33,12 +11,44 @@ if(NOT OPENGL_FOUND)
     message(ERROR " OPENGL not found!")
 endif(NOT OPENGL_FOUND)
 
-add_executable(ELPlatformTests main.cpp ${PlatformSrc})
-target_link_libraries(ELPlatformTests ELPlatform ${GLUT_LIBRARY} ${OPENGL_LIBRARIES} glfw ${GLEW_LIBRARIES})
-add_definitions(-DPlatform_OSX)
+include_directories(${CMAKE_SOURCE_DIR}/ezgl/)
+
+macro(NewTest keyword entry baseOnList)
+    include_directories(${CMAKE_SOURCE_DIR}/tests/${keyword})
+
+    list(APPEND ${keyword}SRCLIST
+            "${entry}"
+            "../../../tests/${keyword}/*.h"
+            "../../../tests/${keyword}/*.cpp")
+    foreach (baseOn ${baseOnList})
+        list(APPEND ${keyword}SRCLIST
+                "../../../ezgl/${baseOn}/*.h"
+                "../../../ezgl/${baseOn}/*.cpp"
+                "../../../ezgl/${baseOn}/**/*.h"
+                "../../../ezgl/${baseOn}/**/*.cpp"
+                "../impl_${baseOn}/*.h"
+                "../impl_${baseOn}/*.cpp"
+                "../impl_${baseOn}/**/*.h"
+                "../impl_${baseOn}/**/*.cpp"
+                "../impl_${baseOn}/**/*.cc")
+    endforeach ()
+
+    message(${${keyword}SRCLIST})
+    file(GLOB Src
+            ${${keyword}SRCLIST}
+            )
+    add_executable(${keyword}Tests ${Src})
+    target_link_libraries(${keyword}Tests ${GLUT_LIBRARY} ${OPENGL_LIBRARIES} glfw ${GLEW_LIBRARIES})
+    add_definitions(-DPlatform_OSX)
+endmacro(NewTest)
+
+NewTest(platform PlatformTests.cpp "platform")
+NewTest(renderer RendererTests.cpp "platform;renderer")
 
 
-include(../../../CopyFiles.text)
-copy_files(CopyAssets .. ${CMAKE_BINARY_DIR})
 
-add_dependencies(ELPlatformTests CopyAssets)
+
+
+
+
+

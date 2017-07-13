@@ -2,9 +2,9 @@
 // Created by wang yang on 2017/7/4.
 //
 
-#include "BasicRendererTests.h"
+#include "BaseRendererTests.h"
 
-BasicRendererTests::BasicRendererTests(std::map<std::string, ELRenderPiplinePtr> piplines) {
+BaseRendererTests::BaseRendererTests(std::map<std::string, ELRenderPiplinePtr> piplines) {
     ELRenderPassConfig config = ELRenderPassConfigDefault();
     config.clearColor = ELVector4Make(0.1, 0.1, 0.1, 1.0);
     config.loadAction = ELRenderPassLoadActionClear;
@@ -78,7 +78,7 @@ BasicRendererTests::BasicRendererTests(std::map<std::string, ELRenderPiplinePtr>
     cubeVertexBuffer->addAttribute(uvAttr);
 }
 
-void BasicRendererTests::update(ELFloat deltaTime) {
+void BaseRendererTests::update(ELFloat deltaTime) {
     static float angle = 0.0;
     angle += 0.01;
 

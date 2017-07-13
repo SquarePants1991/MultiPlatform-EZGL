@@ -6,4 +6,4 @@ file(GLOB PlatformSrc
         "utils/*.h"
         "utils/*.cpp"
         )
-add_library(ELPlatform ${PlatformSrc})
+add_library(platform ${PlatformSrc})

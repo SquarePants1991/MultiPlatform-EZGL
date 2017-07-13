@@ -1,3 +1,10 @@
+//
+// Created by wang yang on 2017/7/12.
+//
+
+#ifndef __TEST_FRAMEWORK__
+#define __TEST_FRAMEWORK__
+
 #include "../impl_platform/ELGLAdapter.h"
 #include <GLFW/glfw3.h>
 #include "platform/ELPlatform.h"
@@ -8,20 +15,12 @@ std::vector<TestScene *> testScenes;
 std::vector<std::string> sceneNames;
 std::map<std::string, ELRenderPiplinePtr> piplines;
 
+void registerScenes();
+
 #define RegisterTestScene(Name, Desc) \
     {sceneNames.push_back(Desc);\
     Name *scene = new Name(piplines);\
     testScenes.push_back(scene);}
-
-#include "BasicFlowTests.h"
-#include "MultiBufferTests.h"
-#include "IndexBufferTests.h"
-#include "BlendModeTests.h"
-#include "AlphaTestTests.h"
-#include "StencilTestTests.h"
-#include "DepthTestTests.h"
-
-#include "BasicRendererTests.h"
 
 void createPiplines() {
 
@@ -38,26 +37,13 @@ void createPiplines() {
     piplines["blend"] = blendPipline;
 }
 
-void registerScenes() {
-    createPiplines();
-    RegisterTestScene(BasicFlowTests, "基本渲染流程测试&渲染到纹理");
-    RegisterTestScene(MultiBufferTests, "使用多Buffer渲染单个物体");
-    RegisterTestScene(IndexBufferTests, "使用索引Buffer渲染单个物体");
-    RegisterTestScene(BlendModeTests, "Blend Mode测试");
-    RegisterTestScene(AlphaTestTests, "Alpha Test测试");
-    RegisterTestScene(StencilTestTests, "Stencil Test测试");
-    RegisterTestScene(DepthTestTests, "Depth Test测试");
-
-    RegisterTestScene(BasicRendererTests, "基础渲染器测试");
-}
-
-int currentShowSceneIndex = 0;
-double lastTime;
-double elapsedTime;
-void init(GLFWwindow *);
-void gameLoop();
-void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
-void syncTitle(GLFWwindow* window);
+static int currentShowSceneIndex = 0;
+static double lastTime;
+static double elapsedTime;
+static void init(GLFWwindow *);
+static void gameLoop();
+static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+static void syncTitle(GLFWwindow* window);
 
 int main(void) {
     GLFWwindow *window;
@@ -99,11 +85,14 @@ int main(void) {
     return 0;
 }
 
+void prepare();
+
 void init(GLFWwindow *window) {
     ELAssets::shared()->addSearchPath("/home/ocean/文档/Codes/MultiPlatform-EZGL/tests/platform/");
     ELAssets::shared()->addSearchPath("/Users/wangyang/Documents/Codes/OnGit/MultiPlatform-EZGL/platforms/opengl/tests/");
     ELAssets::shared()->addSearchPath("/Users/wangyang/Documents/Codes/OnGit/MultiPlatform-EZGL/platforms/opengl/impl_renderer/shaders");
-
+    prepare();
+    createPiplines();
     registerScenes();
     glfwSetKeyCallback(window, key_callback);
     lastTime = glfwGetTime();
@@ -149,3 +138,5 @@ void syncTitle(GLFWwindow* window) {
     std::string copyOfStr = titleStream.str();
     glfwSetWindowTitle(window, copyOfStr.c_str());
 }
+
+#endif
