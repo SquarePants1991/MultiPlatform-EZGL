@@ -38,10 +38,20 @@ public:
 
     void setVertexBuffer(ELVertexBufferPtr vertexBuffer) {
         _currentDrawVertexBuffer = vertexBuffer;
+        _currentDrawCompositionVertexBuffer = NULL;
+    }
+
+    void setVertexBuffer(ELCompositionVertexBufferPtr vertexBuffer) {
+        _currentDrawCompositionVertexBuffer = vertexBuffer;
+        _currentDrawVertexBuffer = NULL;
     }
 
     void setModelMatrix(ELMatrix4 modelMatrix) {
         pipline->setUniform(modelMatrix, pipline->getUniformLocation("modelMatrix"));
+    }
+
+    void setNormalMatrix(ELMatrix4 normalMatrix) {
+        pipline->setUniform(normalMatrix, pipline->getUniformLocation("normalMatrix"));
     }
 
     void setViewMatrix(ELMatrix4 viewMatrix) {
@@ -56,12 +66,16 @@ public:
         if (_currentDrawVertexBuffer) {
             renderer->drawPrimitives(primitivesType, _currentDrawVertexBuffer);
         }
+        if (_currentDrawCompositionVertexBuffer) {
+            renderer->drawPrimitives(primitivesType, _currentDrawCompositionVertexBuffer);
+        }
     }
 
 private:
     // pipline的实现因平台而异
     void initPipline();
     ELVertexBufferPtr _currentDrawVertexBuffer;
+    ELCompositionVertexBufferPtr _currentDrawCompositionVertexBuffer;
 defEnd
 
 

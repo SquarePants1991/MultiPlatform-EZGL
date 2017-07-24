@@ -554,9 +554,9 @@ return m;
 }
 
 static ELMatrix4 ELMatrix4Invert(ELMatrix4 matrix, bool *  isInvertible) {
-    double inv[16], det;
+    ELFloat inv[16], det;
     int i;
-    double *m = (double *)matrix.m;
+    ELFloat *m = (ELFloat *)matrix.m;
     
     inv[0] = m[5]  * m[10] * m[15] -
     m[5]  * m[11] * m[14] -

@@ -39,7 +39,7 @@ macro(NewTest keyword entry baseOnList)
             )
     add_executable(${keyword}Tests ${Src})
     target_link_libraries(${keyword}Tests ${GLUT_LIBRARY} ${OPENGL_LIBRARIES} glfw ${GLEW_LIBRARIES})
-    add_definitions(-DPlatform_OSX)
+    add_definitions(-DPlatform_OSX -DDEBUG -DDebug)
 endmacro(NewTest)
 
 NewTest(platform PlatformTests.cpp "platform")
