@@ -79,20 +79,20 @@ void ambient(out vec3 outColor) {
     outColor = material.ambientColor;
 }
 
-void phongPerLight(out vec3 outColor, LightInfo light, vec3 normalizedNormal, vec3 eyeVector) {
+void phongblinnPerLight(out vec3 outColor, LightInfo light, vec3 normalizedNormal, vec3 eyeVector) {
     vec3 lightVector = lightDirection(light);
-    vec3 reflectVector = normalize(reflect(-lightVector, normalizedNormal));
-    float specularStrength = clamp(dot(eyeVector, reflectVector), 0.0, 1.0);
+    vec3 halfVector = normalize(lightVector + eyeVector);
+    float specularStrength = clamp(dot(normalizedNormal, halfVector), 0.0, 1.0);
     specularStrength = pow(specularStrength, material.smoothness);
     outColor = specularStrength * material.specularColor * light.color * light.indensity * material.specularIndensity;
 }
 
-void phong(out vec3 outColor, vec3 normalizedNormal, vec3 eyeVector) {
+void phongblinn(out vec3 outColor, vec3 normalizedNormal, vec3 eyeVector) {
     outColor = vec3(0.0);
     vec3 specularPerLight;
     for (int i = 0; i < lightCount; ++i) {
         LightInfo light = lights[i];
-        phongPerLight(specularPerLight, light, normalizedNormal, eyeVector);
+        phongblinnPerLight(specularPerLight, light, normalizedNormal, eyeVector);
         outColor += specularPerLight;
     }
 }
@@ -134,7 +134,7 @@ void main() {
     ambient(ambientColor);
 
     vec3 specularColor = vec3(0.0);
-    phong(specularColor, transformedNormal, eyeVector);
+    phongblinn(specularColor, transformedNormal, eyeVector);
 
     vec4 surfaceColor = vec4(material.diffuseColor, 1.0);
     if (material.useDiffuseMap) {

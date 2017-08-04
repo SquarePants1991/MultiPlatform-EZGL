@@ -1,6 +1,8 @@
+#ifndef __SPHERE_H__
+#define __SPHERE_H__
 /*
-created with obj2opengl.pl
 
+created with obj2opengl.pl
 source file    : ./sphere.obj
 vertices       : 994
 faces          : 1984
@@ -20,9 +22,9 @@ glTexCoordPointer(2, GL_FLOAT, 0, sphereTexCoords);
 glDrawArrays(GL_TRIANGLES, 0, sphereNumVerts);
 */
 
-unsigned int sphereNumVerts = 5952;
+static unsigned int sphereNumVerts = 5952;
 
-float sphereVerts [] = {
+static float sphereVerts [] = {
   // f 988/1/1 28/2/2 989/3/3
   -4.22534999777841e-08, -0.415734679456604, -0.277784788672998,
   0.0459824347552615, -0.44096066684361, -0.231169311980736,
@@ -7961,7 +7963,7 @@ float sphereVerts [] = {
   -4.22534999777841e-08, -0.386505194071347, -0.317196268967258,
 };
 
-float sphereNormals [] = {
+static float sphereNormals [] = {
   // f 988/1/1 28/2/2 989/3/3
   0, -0.830029346206312, -0.557719718529229,
   0.0924070564722586, -0.88066725031895, -0.464635480920036,
@@ -15900,7 +15902,7 @@ float sphereNormals [] = {
   0, -0.771514392735246, -0.636211868643115,
 };
 
-float sphereTexCoords [] = {
+static float sphereTexCoords [] = {
   // f 988/1/1 28/2/2 989/3/3
   0.8829, 0.7197,
   0.8773, 0.7637,
@@ -23838,4 +23840,5 @@ float sphereTexCoords [] = {
   0.8940, 0.6747,
   0.8730, 0.6927,
 };
+#endif
 

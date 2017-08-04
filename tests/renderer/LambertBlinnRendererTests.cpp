@@ -2,17 +2,17 @@
 // Created by wang yang on 2017/7/24.
 //
 
-#include <renderer/ELLambertPhongRenderer.h>
-#include "LambertPhongRendererTests.h"
+#include <renderer/ELLambertBlinnRenderer.h>
+#include "LambertBlinnRendererTests.h"
 #include "sphere.h"
 
 
-LambertPhongRendererTests::LambertPhongRendererTests(std::map<std::string, ELRenderPiplinePtr> piplines) {
+LambertBlinnRendererTests::LambertBlinnRendererTests(std::map<std::string, ELRenderPiplinePtr> piplines) {
     ELRenderPassConfig config = ELRenderPassConfigDefault();
     config.clearColor = ELVector4Make(0.1, 0.1, 0.1, 1.0);
     config.loadAction = ELRenderPassLoadActionClear;
     ELRenderTargetPtr defaultRenderTarget = ELRenderTarget::defaultTarget();
-    lambertPhongRenderer = ELLambertPhongRenderer::alloc()->init(config, defaultRenderTarget);
+    lambertBlinnRenderer = ELLambertBlinnRenderer::alloc()->init(config, defaultRenderTarget);
 
 
     std::string imagePath = ELAssets::shared()->findFile("texture.jpg");
@@ -83,7 +83,7 @@ LambertPhongRendererTests::LambertPhongRendererTests(std::map<std::string, ELRen
     // create sphere
     sphereVertexBuffer = ELCompositionVertexBuffer::alloc()->init();
 
-    ELVertexBufferPtr vertexBuffer = ELVertexBuffer::alloc()->init(sphereVerts, sizeof(sphereVerts), sizeof(ELFloat) * 3, ELVertexBufferTypeStatic);
+    ELVertexBufferPtr vertexBuffer = ELVertexBuffer::alloc()->init(sphereVerts, sizeof(ELFloat) * 3 * sphereNumVerts, sizeof(ELFloat) * 3, ELVertexBufferTypeStatic);
     ELVertexAttribute positionAttr;
     positionAttr.dataType = ELVertexAttributeDataTypeFloat;
     positionAttr.sizeInBytes = sizeof(ELFloat) * 3;
@@ -111,7 +111,7 @@ LambertPhongRendererTests::LambertPhongRendererTests(std::map<std::string, ELRen
     sphereVertexBuffer->appendVertexBuffer(uvBuffer);
 }
 
-void LambertPhongRendererTests::update(ELFloat deltaTime) {
+void LambertBlinnRendererTests::update(ELFloat deltaTime) {
     static float angle = 0.0;
     angle += 0.01;
 
@@ -144,19 +144,19 @@ void LambertPhongRendererTests::update(ELFloat deltaTime) {
     material.smoothness = 300;
 
 
-    lambertPhongRenderer->beginDraw();
+    lambertBlinnRenderer->beginDraw();
 
-    lambertPhongRenderer->setNormalMapEnable(false);
-    lambertPhongRenderer->setVertexBuffer(sphereVertexBuffer);
-    lambertPhongRenderer->setLights(light, sizeof(light) / sizeof(ELLightInfo));
-    lambertPhongRenderer->setCameraPosition(ELVector3Make(0, 0, 1.1));
-    lambertPhongRenderer->setMaterial(material);
-    lambertPhongRenderer->setDiffuseMap(diffuseTexture);
-    lambertPhongRenderer->setModelMatrix(model);
-    lambertPhongRenderer->setNormalMatrix(normalMatrix);
-    lambertPhongRenderer->setViewMatrix(view);
-    lambertPhongRenderer->setProjectionMatrix(projection);
-    lambertPhongRenderer->draw(ELPrimitivesTypeTriangle);
+    lambertBlinnRenderer->setNormalMapEnable(false);
+    lambertBlinnRenderer->setVertexBuffer(sphereVertexBuffer);
+    lambertBlinnRenderer->setLights(light, sizeof(light) / sizeof(ELLightInfo));
+    lambertBlinnRenderer->setCameraPosition(ELVector3Make(0, 0, 1.1));
+    lambertBlinnRenderer->setMaterial(material);
+    lambertBlinnRenderer->setDiffuseMap(diffuseTexture);
+    lambertBlinnRenderer->setModelMatrix(model);
+    lambertBlinnRenderer->setNormalMatrix(normalMatrix);
+    lambertBlinnRenderer->setViewMatrix(view);
+    lambertBlinnRenderer->setProjectionMatrix(projection);
+    lambertBlinnRenderer->draw(ELPrimitivesTypeTriangle);
 
-    lambertPhongRenderer->commitDraw();
+    lambertBlinnRenderer->commitDraw();
 }

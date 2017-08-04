@@ -22,6 +22,7 @@ typedef struct {
 typedef struct {
     ELVector3 diffuseColor;
     bool useDiffuseMap;
+    bool useBumpMap;
     ELVector3 ambientColor;
     ELVector3 specularColor;
     float specularIndensity; // 0 ~ 1 控制高光强度

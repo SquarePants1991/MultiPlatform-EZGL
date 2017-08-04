@@ -36,6 +36,15 @@ public:
         pipline->bindTexture(diffuseMap, pipline->getUniformLocation("diffuseMap"), 0);
     }
 
+    void setNormalMap(ELTexturePtr bumpMap) {
+        setNormalMapEnable(true);
+        pipline->bindTexture(bumpMap, pipline->getUniformLocation("normalMap"), 1);
+    }
+
+    void setNormalMapEnable(bool enabled) {
+        pipline->setUniform((ELInt)enabled, pipline->getUniformLocation("useNormalMap"));
+    }
+
     void setVertexBuffer(ELVertexBufferPtr vertexBuffer) {
         _currentDrawVertexBuffer = vertexBuffer;
         _currentDrawCompositionVertexBuffer = NULL;
