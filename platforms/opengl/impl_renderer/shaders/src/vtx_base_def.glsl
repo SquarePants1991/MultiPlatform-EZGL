@@ -25,4 +25,3 @@ void main() {
     bitangent = v_bitangent;
     gl_Position = mvp * position;
 }
-
