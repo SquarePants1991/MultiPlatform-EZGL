@@ -10,6 +10,7 @@
 #include "LambertPhongNormalMapTests.h"
 #include "LambertBlinnNormalMapTests.h"
 #include "LambertBlinnDecalRendererTests.h"
+#include "LambertPhongShadowTests.h"
 
 void prepare() {
 
@@ -22,4 +23,5 @@ void registerScenes() {
     RegisterTestScene(LambertBlinnRendererTests, "Lambert Blinn渲染器测试");
     RegisterTestScene(LambertBlinnNormalMapTests, "Lambert Blinn Normal Map测试");
     RegisterTestScene(LambertBlinnDecalRendererTests, "Lambert Blinn 贴花测试");
+    RegisterTestScene(LambertPhongShadowTests, "Lambert Phong 阴影测试");
 }

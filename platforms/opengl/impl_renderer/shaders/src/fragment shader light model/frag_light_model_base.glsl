@@ -18,6 +18,6 @@ void main() {
 
     surfaceColorPass(surfaceColor);
 
-    vec3 finalColor = diffuseColor * surfaceColor + ambientColor + specularColor;
+    vec3 finalColor = diffuseColor * surfaceColor + ambientColor * surfaceColor + specularColor;
     fragColor = vec4(finalColor, 1.0);
 }

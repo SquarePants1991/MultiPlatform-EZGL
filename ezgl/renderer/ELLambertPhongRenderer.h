@@ -74,6 +74,18 @@ public:
         pipline->setUniform(material.specularIndensity, pipline->getUniformLocation(uniformNameBuffer));
     }
 
+    void enableShadow(bool isShadowEnabled) {
+        pipline->setUniform(isShadowEnabled, pipline->getUniformLocation("shadowEnabled"));
+    }
+
+    void setShadowMap(ELTexturePtr shadowMap) {
+        pipline->bindTexture(shadowMap, pipline->getUniformLocation("shadowMap"), 2);
+    }
+
+    void setLightProjectionMatrix(ELMatrix4 lightProjectionMatrix) {
+        pipline->setUniform(lightProjectionMatrix, pipline->getUniformLocation("lightProjectionMatrix"));
+    }
+
 private:
     // pipline的实现因平台而异
     void initPipline();

@@ -101,7 +101,7 @@ int      stbi_dds_test_memory      (stbi_uc const *buffer, int len)
    return dds_test(&s);
 }
 
-//	helper functions
+//	utils functions
 int stbi_convert_bit_range( int c, int from_bits, int to_bits )
 {
 	int b = (1 << (from_bits - 1)) + c * ((1 << to_bits) - 1);

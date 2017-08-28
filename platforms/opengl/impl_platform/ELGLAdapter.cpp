@@ -26,4 +26,6 @@ void ELGLAdapter::setup(GLFWwindow *window) {
     this->enableDepthBuffer = true;
     this->enableStencilBuffer = true;
     this->defaultPixelFormat = ELPixelFormatRGBA;
+
+    glEnable(GL_CULL_FACE);
 }

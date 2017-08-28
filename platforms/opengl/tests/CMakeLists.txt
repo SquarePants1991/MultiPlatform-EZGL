@@ -44,10 +44,13 @@ endmacro(NewTest)
 
 NewTest(platform PlatformTests.cpp "platform")
 NewTest(renderer RendererTests.cpp "platform;renderer")
+NewTest(geometry GeometryTests.cpp "platform;renderer;geometry")
 
-
-
-
+add_custom_target(
+        compileShader
+        COMMAND python ${CMAKE_CURRENT_SOURCE_DIR}/../impl_renderer/shaders/src/build.py ${CMAKE_CURRENT_SOURCE_DIR}/../impl_renderer/shaders/src/
+)
+add_dependencies(rendererTests compileShader)
 
 
 
