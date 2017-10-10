@@ -88,6 +88,30 @@ inline void setupDepthWrite(bool enabled) {
     }
 }
 
+inline void setupCullFace(bool enabled, ELCullFaceType cullfaceType, ELFrontFaceType frontFaceType) {
+    static bool _enabled = false;
+    if (enabled != _enabled) {
+        _enabled = enabled;
+        if (enabled) {
+            glEnable(GL_CULL_FACE);
+        } else {
+            glDisable(GL_CULL_FACE);
+        }
+    }
+    if (_enabled) {
+        if (frontFaceType == ELFrontFaceTypeCCW) {
+            glFrontFace(GL_CCW);
+        } else {
+            glFrontFace(GL_CW);
+        }
+        if (cullfaceType == ELCullFaceTypeFront) {
+            glCullFace(GL_FRONT);
+        } else {
+            glCullFace(GL_BACK);
+        }
+    }
+}
+
 inline void setupStencil(bool enabled, ELInt stencilMask, ELStencilOpArgs opArgs, ELStencilFuncArgs funcArgs) {
     static bool _enabled = false;
     static ELInt _stencilMask = 0xff;
@@ -157,6 +181,11 @@ ELRendererPtr ELRenderer::init(ELRenderPassPtr renderPass, ELRenderPiplinePtr pi
     selv->stencilMask = 0xff;
     selv->stencilOpArgs = ELStencilOpArgsMake(ELStencilOpKeep, ELStencilOpKeep, ELStencilOpReplace);
     selv->stencilFuncArgs = ELStencilFuncArgsMake(ELTestAlways, 0, 0xFF);
+
+    // cull face
+    selv->isCullfaceEnabled = false;
+    selv->cullFaceType = ELCullFaceTypeBack;
+    selv->frontFaceType = ELFrontFaceTypeCCW;
     return selv;
 }
 
@@ -385,4 +414,24 @@ void ELRenderer::setStencilMask(ELInt mask) {
 void ELRenderer::disableDepthWrite() {
     selv->isDepthWriteEnabled = false;
     setupDepthWrite(selv->isDepthWriteEnabled);
+}
+
+void ELRenderer::enableCullFace() {
+    selv->isCullfaceEnabled = true;
+    setupCullFace(isCullfaceEnabled, cullFaceType, frontFaceType);
+}
+
+void ELRenderer::disableCullFace() {
+    selv->isCullfaceEnabled = false;
+    setupCullFace(isCullfaceEnabled, cullFaceType, frontFaceType);
+}
+
+void ELRenderer::setCullFaceType(ELCullFaceType cullfaceType) {
+    selv->cullFaceType = cullfaceType;
+    setupCullFace(isCullfaceEnabled, cullFaceType, frontFaceType);
+}
+
+void ELRenderer::setFrontFaceType(ELFrontFaceType frontFaceType) {
+    selv->frontFaceType = frontFaceType;
+    setupCullFace(isCullfaceEnabled, cullFaceType, frontFaceType);
 }

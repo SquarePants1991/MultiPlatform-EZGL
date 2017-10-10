@@ -58,8 +58,9 @@ void SkyBoxTests::update(ELFloat deltaTime) {
             ELVertexBufferPtr vertexBuffer = vertexBuffers[index];
             renderer->setNormalMapEnable(false);
             renderer->setVertexBuffer(vertexBuffer);
-
+            renderer->renderer->setCullFaceType(ELCullFaceTypeFront);
             renderer->draw(primitivesType);
+            renderer->renderer->setCullFaceType(ELCullFaceTypeBack);
         }
     }
 

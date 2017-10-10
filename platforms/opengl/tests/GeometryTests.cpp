@@ -8,6 +8,8 @@
 #include "SphereGeometryTests.h"
 #include "CylinderGeometryTests.h"
 #include "SkyBoxTests.h"
+#include "PlaneGeometryTests.h"
+#include "ConeGeometryTests.h"
 
 void prepare() {
 
@@ -18,4 +20,6 @@ void registerScenes() {
     RegisterTestScene(SphereGeometryTests, "Sphere几何体测试");
     RegisterTestScene(CylinderGeometryTests, "Cylinder几何体测试");
     RegisterTestScene(SkyBoxTests, "SkyBox测试");
+    RegisterTestScene(PlaneGeometryTests, "Plane几何体测试");
+    RegisterTestScene(ConeGeometryTests, "Cone几何体测试");
 }

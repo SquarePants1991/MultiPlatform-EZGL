@@ -13,6 +13,16 @@
 #include "ELCompositionVertexBuffer.h"
 #include "ELRenderPipline.h"
 
+enum ELCullFaceType {
+    ELCullFaceTypeFront,
+    ELCullFaceTypeBack
+};
+
+enum ELFrontFaceType {
+    ELFrontFaceTypeCCW,
+    ELFrontFaceTypeCW
+};
+
 enum ELPrimitivesType {
     ELPrimitivesTypeTriangle,
     ELPrimitivesTypeTriangleStrip,
@@ -122,6 +132,10 @@ public:
     void setStencilOperations(ELStencilOp stFailed, ELStencilOp dpFailed, ELStencilOp allSuccess);
     void setStencilMask(ELInt mask);
 
+    void enableCullFace();
+    void disableCullFace();
+    void setCullFaceType(ELCullFaceType cullfaceType);
+    void setFrontFaceType(ELFrontFaceType frontFaceType);
 
 public:
     ELRenderPassPtr renderPass;
@@ -140,6 +154,10 @@ public:
     ELInt stencilMask;
     ELStencilFuncArgs stencilFuncArgs;
     ELStencilOpArgs stencilOpArgs;
+
+    bool isCullfaceEnabled;
+    ELCullFaceType cullFaceType;
+    ELFrontFaceType frontFaceType;
 
 defEnd
 
