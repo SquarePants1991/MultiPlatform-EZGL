@@ -10,6 +10,6 @@ ConeGeometryTests::ConeGeometryTests(std::map<std::string, ELRenderPiplinePtr> p
 }
 
 void ConeGeometryTests::prepareGeometry() {
-    ELConeGeometryPtr geometry = ELConeGeometry::alloc()->init(0.6, 1.2, 30, 1);
+    ELConeGeometryPtr geometry = ELConeGeometry::alloc()->init(1.0, 2.0, 36, 1);
     geometries.push_back(std::dynamic_pointer_cast<ELGeometry>(geometry));
 }

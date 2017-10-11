@@ -54,9 +54,10 @@ void ELConeGeometry::genCircle(ELVector3 centerPosition, ELBool isTop, ELVertexB
 
 void ELConeGeometry::genSide(ELVertexBufferPtr vertexBuffer) {
     ELFloat startAngle = 0.0;
-    ELFloat endAngle = -3.1415926 * 2.0;
+    ELFloat endAngle = -3.1415926f * 2.0f;
     ELFloat step = (endAngle - startAngle) / sides;
     ELFloat segmentHeight = height / heightSegments;
+    ELFloat coneBottomAngle = atan(height / (radius * 0.5f));
     for (int segment = 0; segment < heightSegments; ++segment) {
         ELFloat beginRadius =  radius - (segment + 1) / heightSegments * radius;
         ELFloat endRadius =  radius - segment / heightSegments * radius;
@@ -67,10 +68,17 @@ void ELConeGeometry::genSide(ELVertexBufferPtr vertexBuffer) {
             ELFloat nextAngle = (side + 1) * step;
             ELVector3 leftTop = ELVector3Make(cos(angle) * beginRadius, beginHeight, sin(angle) * beginRadius);
             ELVector3 leftBottom = ELVector3Make(cos(angle) * endRadius, endHeight, sin(angle) * endRadius);
-            ELVector3 normalLeft = ELVector3Normalize(ELVector3Make(cos(angle) * beginRadius, 0, sin(angle) * beginRadius));
+            ELVector3 leftSideVector = ELVector3Normalize(ELVector3Subtract(leftBottom, leftTop));
+            ELVector3 normalLeftOrigin = ELVector3Normalize(ELVector3Make(cos(angle) * endRadius, 0, sin(angle) * endRadius));
+            ELVector3 normalLeftRotateAxis = ELVector3Normalize(ELVector3CrossProduct(leftSideVector, normalLeftOrigin));
+            ELVector3 normalLeft = ELVector3Normalize(ELQuaternionRotateVector3(ELQuaternionMakeWithAngleAndVector3Axis(3.1415f * 0.5f - coneBottomAngle, normalLeftRotateAxis), normalLeftOrigin));
+
             ELVector3 rightTop = ELVector3Make(cos(nextAngle) * beginRadius, beginHeight, sin(nextAngle) * beginRadius);
             ELVector3 rightBottom = ELVector3Make(cos(nextAngle) * endRadius, endHeight, sin(nextAngle) * endRadius);
-            ELVector3 normalRight = ELVector3Normalize(ELVector3Make(cos(nextAngle) * endRadius, 0, sin(nextAngle) * endRadius));
+            ELVector3 rightSideVector = ELVector3Normalize(ELVector3Subtract(rightBottom, rightTop));
+            ELVector3 normalRightOrigin = ELVector3Normalize(ELVector3Make(cos(nextAngle) * endRadius, 0, sin(nextAngle) * endRadius));
+            ELVector3 normalRightRotateAxis = ELVector3Normalize(ELVector3CrossProduct(rightSideVector, normalRightOrigin));
+            ELVector3 normalRight = ELVector3Normalize(ELQuaternionRotateVector3(ELQuaternionMakeWithAngleAndVector3Axis(3.1415f * 0.5f - coneBottomAngle, normalRightRotateAxis), normalRightOrigin));
 
             ELFloat triangles[] = {
                     leftTop.x, leftTop.y, leftTop.z, normalLeft.x, normalLeft.y, normalLeft.z, side / sides, (segment + 1) / (ELFloat)heightSegments,
