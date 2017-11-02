@@ -10,6 +10,7 @@
 #include "SkyBoxTests.h"
 #include "PlaneGeometryTests.h"
 #include "ConeGeometryTests.h"
+#include "TerrainTests.h"
 
 void prepare() {
 
@@ -22,4 +23,5 @@ void registerScenes() {
     RegisterTestScene(SkyBoxTests, "SkyBox测试");
     RegisterTestScene(PlaneGeometryTests, "Plane几何体测试");
     RegisterTestScene(ConeGeometryTests, "Cone几何体测试");
+    RegisterTestScene(TerrainTests, "Terrain几何体测试");
 }

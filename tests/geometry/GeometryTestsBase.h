@@ -13,7 +13,7 @@ class GeometryTestsBase: public TestScene {
 public:
     GeometryTestsBase(std::map<std::string, ELRenderPiplinePtr> piplines);
     virtual void update(ELFloat deltaTime);
-
+    virtual void preprocessMVP(ELMatrix4 *projection, ELMatrix4 *view, ELMatrix4 *model) {}
 protected:
     ELLambertPhongRendererPtr lambertPhongRenderer;
     ELTexturePtr diffuseTexture;

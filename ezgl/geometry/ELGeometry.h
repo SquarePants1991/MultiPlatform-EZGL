@@ -24,7 +24,7 @@ public:
         return _vertexBuffers;
     }
 
-    ELPrimitivesType primitivesTypeForVertexBuffer(ELInt index) {
+    virtual ELPrimitivesType primitivesTypeForVertexBuffer(ELInt index) {
         return ELPrimitivesTypeTriangle;
     }
 

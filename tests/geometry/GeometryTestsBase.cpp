@@ -21,11 +21,13 @@ void GeometryTestsBase::update(ELFloat deltaTime) {
     static float angle = 0.0;
     angle += 0.01;
 
-    ELVector3 cameraPos = ELVector3Make(0.0, 0, 2);
+    ELVector3 cameraPos = ELVector3Make(0.0, 2, 2);
 
     ELMatrix4 projection = ELMatrix4MakePerspective(90.0 * M_PI / 180.0, 640 / 480.0, 0.1, 1000);
     ELMatrix4 view = ELMatrix4MakeLookAt(cameraPos.x, cameraPos.y, cameraPos.z, 0, 0, 0, 0, 1, 0);
-    ELMatrix4 model = ELMatrix4MakeRotation(angle, 1, 0, 0);
+    ELMatrix4 model = ELMatrix4MakeRotation(angle, 0, 1, 0);
+
+    preprocessMVP(&projection, &view, &model);
 
     bool canInvert;
     ELMatrix4 normalMatrix = ELMatrix4Invert(model, &canInvert);
@@ -33,14 +35,14 @@ void GeometryTestsBase::update(ELFloat deltaTime) {
 
     ELLightInfo light[1];
     light[0].lightType = ELLightTypePoint;
-    light[0].color = ELVector3Make(1.0, 0.0, 0.0);
+    light[0].color = ELVector3Make(1.0, 1.0, 1.0);
     light[0].indensity = 1.0;
     light[0].pose = ELVector3Make(3,3,3);
 
 
     ELLambertPhongMaterial material;
     material.diffuseColor = ELVector3Make(1.0, 1.0, 1.0);
-    material.useDiffuseMap = true;
+    material.useDiffuseMap = false;
     material.ambientColor = ELVector3Make(0.2, 0.2, 0.2);
     material.specularColor = ELVector3Make(1.0, 1.0, 1.0);
     material.specularIndensity = 1.0;
