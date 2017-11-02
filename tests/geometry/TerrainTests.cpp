@@ -5,7 +5,7 @@
 #include "TerrainTests.h"
 #include "geometry/complex/ELTerrain.h"
 
-#define TerrainSize 6000
+#define TerrainSize 1000
 
 TerrainTests::TerrainTests(std::map<std::string, ELRenderPiplinePtr> piplines): GeometryTestsBase(piplines) {
     prepareGeometry();
