@@ -12,7 +12,7 @@ class TerrainTests: public GeometryTestsBase {
 public:
     TerrainTests(std::map<std::string, ELRenderPiplinePtr> piplines);
     void prepareGeometry();
-    virtual void preprocessMVP(ELMatrix4 *projection, ELMatrix4 *view, ELMatrix4 *model);
+    virtual void preprocessMVP(ELMatrix4 *projection, ELMatrix4 *view, ELMatrix4 *model, ELFloat deltaTime);
 };
 
 

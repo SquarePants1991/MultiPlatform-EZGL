@@ -27,17 +27,17 @@ void GeometryTestsBase::update(ELFloat deltaTime) {
     ELMatrix4 view = ELMatrix4MakeLookAt(cameraPos.x, cameraPos.y, cameraPos.z, 0, 0, 0, 0, 1, 0);
     ELMatrix4 model = ELMatrix4MakeRotation(angle, 0, 1, 0);
 
-    preprocessMVP(&projection, &view, &model);
+    preprocessMVP(&projection, &view, &model, deltaTime);
 
     bool canInvert;
     ELMatrix4 normalMatrix = ELMatrix4Invert(model, &canInvert);
     normalMatrix = ELMatrix4Transpose(normalMatrix);
 
     ELLightInfo light[1];
-    light[0].lightType = ELLightTypePoint;
+    light[0].lightType = ELLightTypeDirect;
     light[0].color = ELVector3Make(1.0, 1.0, 1.0);
     light[0].indensity = 1.0;
-    light[0].pose = ELVector3Make(3,3,3);
+    light[0].pose = ELVector3Make(1,-1,1);
 
 
     ELLambertPhongMaterial material;

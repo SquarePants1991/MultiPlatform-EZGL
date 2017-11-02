@@ -20,6 +20,7 @@ public:
     std::vector<ELVertexBufferPtr> vertextBuffers() {
         if (needRefreshVertexBuffer) {
             buildVertexBuffer();
+            needRefreshVertexBuffer = false;
         }
         return _vertexBuffers;
     }

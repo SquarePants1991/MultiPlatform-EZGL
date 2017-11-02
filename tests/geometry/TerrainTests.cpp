@@ -5,7 +5,7 @@
 #include "TerrainTests.h"
 #include "geometry/complex/ELTerrain.h"
 
-#define TerrainSize 40
+#define TerrainSize 6000
 
 TerrainTests::TerrainTests(std::map<std::string, ELRenderPiplinePtr> piplines): GeometryTestsBase(piplines) {
     prepareGeometry();
@@ -17,9 +17,9 @@ void TerrainTests::prepareGeometry() {
     geometries.push_back(std::dynamic_pointer_cast<ELGeometry>(terrain));
 }
 
-void TerrainTests::preprocessMVP(ELMatrix4 *projection, ELMatrix4 *view, ELMatrix4 *model) {
+void TerrainTests::preprocessMVP(ELMatrix4 *projection, ELMatrix4 *view, ELMatrix4 *model, ELFloat deltaTime) {
     static float angle = 0;
-    angle += 0.01;
-    *view = ELMatrix4MakeLookAt(0, 20, 30, 0, 0, 0, 0, 1, 0);
+    angle += 0.2 * deltaTime;
+    *view = ELMatrix4MakeLookAt(0, TerrainSize / 3, TerrainSize / 2, 0, 0, 0, 0, 1, 0);
     *model = ELMatrix4Multiply(ELMatrix4MakeRotation(angle, 0, 1, 0), ELMatrix4MakeTranslation(-TerrainSize / 2, 0, -TerrainSize / 2));
 }
